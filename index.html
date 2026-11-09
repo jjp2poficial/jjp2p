@@ -10,6 +10,7 @@
       --bg-dark: #02050b;
       --bg-card: #081120;
       --cyan: #00f0ff;
+      --eva-cyan: #00f0ff;
       --blue: #00b8ff;
       --emerald: #00ff9d;
       --amber: #ffb800;
@@ -47,7 +48,9 @@
       background: var(--emerald);
       box-shadow: 0 0 14px var(--emerald);
       border: 2px solid var(--cyan);
+      animation: pulseDot 2s infinite;
     }
+    @keyframes pulseDot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.18); opacity: 0.8; } }
     .brand-title { font-size: 18px; font-weight: 900; letter-spacing: 0.4px; color: #fff; }
     .brand-sub { font-size: 11px; color: var(--emerald); font-weight: 800; display: block; }
     .nav-links { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -99,479 +102,230 @@
     .hero h1 span { color: var(--cyan); }
     .hero p {
       max-width: 760px;
-      margin: 0 auto 16px auto;
+      margin: 0 auto 22px auto;
       font-size: clamp(14px, 2.2vw, 16.5px);
       color: #cbd5e1;
     }
 
-    /* BARRA DE CONTROL DE AUDIO GRANDE Y VISIBLE ENCIMA DEL ESCENARIO */
-    .audio-master-bar {
-      max-width: 780px;
-      margin: 0 auto 10px auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      background: rgba(6, 14, 28, 0.95);
-      border: 2px solid var(--cyan);
-      border-radius: 16px;
-      padding: 10px 16px;
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
-      flex-wrap: wrap;
-    }
-    .stage-subtitle {
-      color: #fff;
-      font-size: 13.5px;
-      font-weight: 900;
-      text-align: left;
-      flex: 1;
-      min-width: 220px;
-    }
-    .btn-sound-stage {
-      background: linear-gradient(180deg, #ff2a5f 0%, #b80d38 100%);
-      color: #fff;
-      border: 2px solid #ff8fab;
-      padding: 11px 22px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 0 22px rgba(255, 42, 95, 0.65);
-      transition: 0.2s;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-sound-stage:hover {
-      transform: scale(1.04);
-    }
-    .btn-sound-stage.muted {
-      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
-      color: #011f12;
-      border-color: #fff;
-      box-shadow: 0 0 24px rgba(0, 255, 157, 0.8);
-      animation: pulseSoundBtn 1.5s infinite;
-    }
-    @keyframes pulseSoundBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-
     /* ==========================================================================
-       🎬 ESCENARIO DE CINE ANIMADO (00:00 A 00:30 CON AUDIO REAL DE LA PELÍCULA)
+       🤖 ESFERA 3D Y ANIMACIONES OFICIALES DE LA CARA DE EVA (DEL BOT BDV v7.2)
        ========================================================================== */
-    .movie-stage {
-      max-width: 780px;
-      height: 295px;
-      margin: 0 auto 26px auto;
-      background:
-        radial-gradient(circle at 50% 78%, rgba(217, 119, 6, 0.26) 0%, transparent 62%),
-        radial-gradient(circle at 20% 25%, rgba(0, 240, 255, 0.12) 0%, transparent 45%),
-        linear-gradient(180deg, #050b16 0%, #17110b 70%, #2b1908 100%);
-      border: 2.5px solid #2b4c7e;
-      border-radius: 24px;
+    .eva-center-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      overflow: hidden;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.92), inset 0 0 38px rgba(0,240,255,0.12);
+      margin: 18px auto 28px auto;
+    }
+    .eva-ring-outer {
+      width: 236px;
+      height: 236px;
+      border-radius: 50%;
+      padding: 12px;
+      background: radial-gradient(circle, #071c36 0%, #02060d 100%);
+      border: 2.5px solid rgba(0, 225, 255, 0.65);
+      box-shadow: 0 0 35px rgba(0, 200, 255, 0.42), inset 0 0 25px rgba(0, 200, 255, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       cursor: pointer;
+      transition: 0.3s;
+      animation: evaFloat3D 5.2s ease-in-out infinite;
       user-select: none;
     }
-    .stage-stars {
+    .eva-ring-outer::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,0.7), transparent),
-        radial-gradient(2px 2px at 45% 15%, rgba(0,240,255,0.8), transparent),
-        radial-gradient(1.5px 1.5px at 78% 25%, rgba(255,255,255,0.6), transparent),
-        radial-gradient(2px 2px at 62% 12%, rgba(0,255,157,0.7), transparent);
-      pointer-events: none;
-    }
-    .stage-ground {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 40px;
-      background: repeating-linear-gradient(90deg, #3b230d 0px, #3b230d 34px, #2b1807 34px, #2b1807 68px);
-      border-top: 2px solid rgba(255, 184, 0, 0.42);
-      box-shadow: inset 0 6px 14px rgba(0,0,0,0.8);
-    }
-    .stage-ground.moving {
-      animation: groundMove 0.9s linear infinite;
-    }
-    @keyframes groundMove { 0% { background-position: 0 0; } 100% { background-position: -68px 0; } }
-
-    /* CORAZONES Y NOTAS MUSICALES FLOTANTES */
-    .floating-hearts {
-      position: absolute;
-      left: 44%;
-      bottom: 185px;
-      font-size: 22px;
-      z-index: 28;
-      opacity: 0;
-      transform: translateY(15px) scale(0.5);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      pointer-events: none;
-      filter: drop-shadow(0 0 10px rgba(0,255,157,0.8));
-    }
-    .floating-hearts.show {
-      opacity: 1;
-      transform: translateY(-10px) scale(1.15);
-    }
-
-    /* ==========================================================================
-       💙 EVA COMPLETA CON MOVIMIENTOS REALES DE LA ESCENA
-       ========================================================================== */
-    .eva-full {
-      position: absolute;
-      left: 20%;
-      bottom: 52px;
-      width: 112px;
-      height: 180px;
-      z-index: 20;
-      transition: left 0.85s cubic-bezier(0.34, 1.2, 0.64, 1), bottom 0.6s ease, transform 0.45s ease;
-    }
-    .eva-float-wrap {
-      width: 100%;
-      height: 100%;
-      animation: evaNaturalFloat 2.8s ease-in-out infinite;
-    }
-    @keyframes evaNaturalFloat {
-      0%, 100% { transform: translateY(0px) rotate(1deg); }
-      50% { transform: translateY(-11px) rotate(-1.5deg); }
-    }
-    .eva-full.pose-scan {
-      left: 22%;
-      bottom: 62px;
-      transform: rotate(8deg) scale(1.04);
-    }
-    .eva-full.pose-curious .eva-head {
-      transform: rotate(14deg) translateX(6px);
-    }
-    .eva-full.pose-teach {
-      left: 27%;
-      bottom: 64px;
-    }
-    .eva-full.pose-teach .eva-arm.right {
-      transform: rotate(-65deg) translate(-8px, -16px);
-    }
-    .eva-full.pose-fly-away {
-      left: 11%;
-      bottom: 78px;
-      transform: rotate(-8deg);
-    }
-    .eva-full.pose-giggle .eva-float-wrap {
-      animation: evaGiggleShake 0.24s ease-in-out infinite alternate !important;
-    }
-    @keyframes evaGiggleShake {
-      0% { transform: translateY(-4px) rotate(-5deg) scale(1.04); }
-      100% { transform: translateY(-16px) rotate(5deg) scale(1.07); }
-    }
-    .eva-full.pose-spin .eva-float-wrap {
-      animation: evaJoySpin 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
-    }
-    @keyframes evaJoySpin {
-      0% { transform: translateY(0) rotateY(0deg) rotateZ(-6deg) scale(1); }
-      50% { transform: translateY(-22px) rotateY(180deg) rotateZ(8deg) scale(1.1); }
-      100% { transform: translateY(-6px) rotateY(360deg) rotateZ(-4deg) scale(1.04); }
-    }
-
-    .eva-head {
-      width: 94px;
-      height: 68px;
-      margin: 0 auto 5px auto;
-      background: radial-gradient(circle at 35% 25%, #ffffff 0%, #e2e8f0 58%, #94a3b8 100%);
-      border-radius: 50% 50% 44% 44%;
-      position: relative;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.65), inset 0 3px 8px #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.35s ease;
-    }
-    .eva-visor {
-      width: 74px;
-      height: 44px;
-      background: #02050c;
-      border-radius: 48% 48% 42% 42%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: inset 0 0 10px #000;
-      transform: translateX(6px);
-      transition: transform 0.3s ease;
-    }
-    .eva-led-eye {
-      width: 24px;
-      height: 15px;
+      inset: -8px;
       border-radius: 50%;
-      background: repeating-linear-gradient(180deg, #00e1ff 0px, #00e1ff 2px, #032b47 2px, #032b47 4px);
-      box-shadow: 0 0 14px #00e1ff, 0 0 24px rgba(0, 225, 255, 0.95);
-      transition: all 0.2s ease;
-    }
-    .eva-full.happy-eyes .eva-led-eye {
-      background: transparent;
-      border-top: 5.5px solid #00f0ff;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-radius: 50% 50% 0 0;
-      box-shadow: 0 -6px 14px #00f0ff;
-      transform: translateY(3px) scaleX(1.08);
-    }
-    .eva-full.soft-eyes .eva-led-eye {
-      height: 10px;
-      border-radius: 40% 40% 55% 55%;
-      transform: rotate(-4deg);
-    }
-
-    .eva-torso {
-      width: 86px;
-      height: 100px;
-      margin: 0 auto;
-      background: radial-gradient(circle at 30% 20%, #ffffff 0%, #cbd5e1 65%, #64748b 100%);
-      border-radius: 18% 18% 50% 50% / 12% 12% 85% 85%;
-      position: relative;
-      box-shadow: 0 14px 26px rgba(0,0,0,0.75), inset 0 2px 8px #fff;
-    }
-    .eva-arm {
-      position: absolute;
-      top: 6px;
-      width: 18px;
-      height: 76px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 75%, #94a3b8 100%);
-      border-radius: 12px 12px 22px 22px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-      transform-origin: top center;
-    }
-    .eva-arm.left { left: -15px; transform: rotate(8deg); }
-    .eva-arm.right { right: -13px; transform: rotate(-10deg); }
-    .eva-full.pose-giggle .eva-arm.right {
-      transform: rotate(-115deg) translate(-8px, -18px);
-    }
-    .eva-full.pose-giggle .eva-arm.left {
-      transform: rotate(-45deg) translate(12px, -10px);
-    }
-
-    /* ==========================================================================
-       🔵 RAYO ESCÁNER LÁSER AZUL HOLOGRÁFICO (00:01 A 00:04)
-       ========================================================================== */
-    .laser-scan-cone {
-      position: absolute;
-      left: 29%;
-      bottom: 58px;
-      width: 280px;
-      height: 135px;
-      background:
-        repeating-linear-gradient(90deg, rgba(0,240,255,0.28) 0px, rgba(0,240,255,0.28) 2px, transparent 2px, transparent 12px),
-        repeating-linear-gradient(0deg, rgba(0,240,255,0.28) 0px, rgba(0,240,255,0.28) 2px, transparent 2px, transparent 12px),
-        linear-gradient(90deg, rgba(0, 215, 255, 0.92) 0%, rgba(0, 140, 255, 0.48) 65%, rgba(0, 240, 255, 0.08) 100%);
-      clip-path: polygon(0% 20%, 100% 4%, 100% 98%, 0% 44%);
-      filter: drop-shadow(0 0 22px #00f0ff);
-      z-index: 22;
-      opacity: 0;
+      border: 3px solid transparent;
+      border-top-color: var(--eva-cyan);
+      border-bottom-color: var(--eva-cyan);
+      filter: drop-shadow(0 0 8px var(--eva-cyan));
+      animation: evaSpin 12s linear infinite;
       pointer-events: none;
-      transition: opacity 0.2s ease;
     }
-    .laser-scan-cone.active {
-      opacity: 1;
-      animation: laserBeamSweep 0.4s ease-in-out infinite alternate;
-    }
-    @keyframes laserBeamSweep {
-      0% { transform: scaleY(0.88) rotate(-3deg); }
-      100% { transform: scaleY(1.12) rotate(4deg); }
-    }
-
-    /* ==========================================================================
-       🤖 WALL·E COMPLETO CON BINOCULARES INDEPENDIENTES, MANOS Y ORUGAS
-       ========================================================================== */
-    .walle-stage-actor {
+    .eva-ring-outer::after {
+      content: '';
       position: absolute;
-      right: 18%;
-      bottom: 34px;
-      width: 136px;
-      z-index: 19;
-      transition: right 0.85s cubic-bezier(0.34, 1.2, 0.64, 1), bottom 0.4s ease, transform 0.35s ease;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px dashed rgba(0, 240, 255, 0.45);
+      animation: evaSpinRev 20s linear infinite;
+      pointer-events: none;
     }
-    .walle-stage-actor.pose-back {
-      right: 14%;
-      transform: rotate(3deg);
-    }
-    .walle-stage-actor.pose-step-forward {
-      right: 26%;
-    }
-    .walle-stage-actor.pose-chase-eva {
-      right: 42%;
-      transform: rotate(-3deg);
-    }
-    .walle-stage-actor.pose-jump-joy {
-      right: 29%;
-      bottom: 48px;
-      transform: scale(1.05);
-    }
-    .walle-stage-actor.pose-love-sigh {
-      right: 31%;
-      transform: rotate(-4deg);
+    @keyframes evaSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes evaSpinRev { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
+    @keyframes evaFloat3D {
+      0%, 100% { transform: translateY(0px) rotateZ(0deg) rotateX(0deg) scale(1); }
+      25% { transform: translateY(-6px) rotateZ(-2.2deg) rotateX(4deg) scale(1.015); }
+      50% { transform: translateY(-2px) rotateZ(0deg) rotateX(-3deg) scale(1.02); }
+      75% { transform: translateY(-7px) rotateZ(2.2deg) rotateX(3deg) scale(1.015); }
     }
 
-    .walle-binoculars-head {
+    .eva-sphere {
+      width: 202px;
+      height: 202px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 18%, #38567d 0%, #0b1320 34%, #020408 70%, #000 100%);
+      border: 3px solid #00e1ff;
+      box-shadow: inset 0 15px 28px rgba(255, 255, 255, 0.28), inset 0 -18px 34px #000, 0 0 25px rgba(0, 225, 255, 0.55);
+      position: relative;
       display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 3px;
-      width: 98px;
-      margin: 0 auto;
-      padding: 4px;
-      position: relative;
-      z-index: 3;
-      transform: rotate(-10deg) translateY(-2px);
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .walle-eye-shell {
-      width: 44px;
-      height: 36px;
-      background: linear-gradient(135deg, #6b440a, #e09f2d, #4a2d05);
-      border: 2px solid #fbbf24;
-      border-radius: 12px 12px 10px 10px;
-      padding: 3px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.85);
-      transition: transform 0.35s ease;
-    }
-    .walle-eye-shell.left { transform: rotate(5deg); }
-    .walle-eye-shell.right { transform: rotate(-5deg); }
-
-    .walle-stage-actor.eyes-puppy .walle-eye-shell.left {
-      transform: rotate(16deg) translateY(3px);
-    }
-    .walle-stage-actor.eyes-puppy .walle-eye-shell.right {
-      transform: rotate(-16deg) translateY(-2px);
-    }
-    .walle-stage-actor.eyes-excited .walle-binoculars-head {
-      transform: rotate(-18deg) translateY(-9px) scale(1.08);
-    }
-    .walle-stage-actor.eyes-shy .walle-binoculars-head {
-      transform: rotate(6deg) translateY(6px);
-    }
-
-    .walle-lens {
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 38% 38%, #1e3a5f 0%, #050b14 82%);
-      border: 2.5px solid #cbd5e1;
-      border-radius: 8px;
-      position: relative;
       overflow: hidden;
+      transition: 0.3s;
     }
-    .walle-lens-iris {
-      width: 15px;
-      height: 15px;
+    .eva-visor-gloss {
+      position: absolute;
+      top: 6%;
+      left: 14%;
+      width: 72%;
+      height: 35%;
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 12%, #00f0ff 58%, #0284c7 100%);
-      box-shadow: 0 0 10px #00f0ff;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(190, 235, 255, 0.08) 55%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+    .eva-inner-visor {
       position: absolute;
-      top: 4px;
-      left: 4px;
-      transition: transform 0.25s ease;
-    }
-    .walle-stage-actor.eyes-excited .walle-lens-iris {
-      transform: scale(1.22);
-      background: radial-gradient(circle, #fff 15%, #00ff9d 60%, #00b8ff 100%);
-      box-shadow: 0 0 14px #00ff9d;
-    }
-
-    .walle-neck-post {
-      width: 18px;
-      height: 14px;
-      background: linear-gradient(90deg, #334155, #94a3b8, #334155);
-      margin: -3px auto;
-      border: 1.5px solid #1e293b;
-      transition: height 0.3s ease;
-    }
-    .walle-stage-actor.eyes-excited .walle-neck-post {
-      height: 20px;
-    }
-
-    .walle-cube-chest {
-      width: 88px;
-      height: 58px;
-      margin: 0 auto;
-      background: linear-gradient(180deg, #eab308 0%, #ca8a04 26%, #1e293b 26%, #334155 42%, #b45309 42%, #92400e 100%);
-      border: 2.5px solid #f59e0b;
-      border-radius: 9px;
-      position: relative;
-      box-shadow: inset 0 0 14px rgba(0,0,0,0.85), 0 6px 14px rgba(0,0,0,0.8);
+      inset: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 55%, #040811 0%, #010204 85%);
+      box-shadow: inset 0 6px 16px rgba(0, 0, 0, 0.95);
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      padding-bottom: 5px;
-      transition: all 0.25s ease;
     }
-    .walle-stage-actor.scanned .walle-cube-chest {
-      box-shadow: 0 0 32px #00f0ff, inset 0 0 28px #00f0ff !important;
-      border-color: #00f0ff !important;
-      background:
-        repeating-linear-gradient(90deg, rgba(0,240,255,0.45) 0px, rgba(0,240,255,0.45) 2px, transparent 2px, transparent 9px),
-        repeating-linear-gradient(0deg, rgba(0,240,255,0.45) 0px, rgba(0,240,255,0.45) 2px, transparent 2px, transparent 9px),
-        linear-gradient(180deg, #0284c7 0%, #0369a1 100%) !important;
-    }
-    .walle-logo-tag {
-      font-size: 9.5px;
-      font-weight: 900;
-      color: #fff;
-      background: #090d16;
-      padding: 1px 7px;
-      border-radius: 4px;
-      border: 1px solid #f59e0b;
-      letter-spacing: 0.6px;
-    }
-
-    .walle-arm-left, .walle-arm-right {
-      position: absolute;
-      top: 14px;
-      width: 38px;
-      height: 12px;
-      background: repeating-linear-gradient(45deg, #eab308, #eab308 5px, #1e293b 5px, #1e293b 10px);
-      border: 1.5px solid #cbd5e1;
-      border-radius: 6px;
-      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .walle-arm-left {
-      left: -18px;
-      transform-origin: right center;
-      transform: rotate(-15deg);
-    }
-    .walle-arm-right {
-      right: 18px;
-      transform-origin: right center;
-      transform: rotate(8deg);
-    }
-    .walle-stage-actor.arms-point-self .walle-arm-left {
-      transform: rotate(22deg) translateX(12px) translateY(-4px);
-    }
-    .walle-stage-actor.arms-point-self .walle-arm-right {
-      transform: rotate(-18deg) translateX(-6px);
-    }
-    .walle-stage-actor.arms-reach-eva .walle-arm-left {
-      transform: rotate(-38deg) translateX(-10px) scaleX(1.15);
-    }
-    .walle-stage-actor.arms-reach-eva .walle-arm-right {
-      transform: rotate(-25deg) translateX(-8px);
-    }
-
-    .walle-treads-pair {
+    .eva-eyes-box {
       display: flex;
-      justify-content: space-between;
-      width: 112px;
-      margin: -6px auto 0 auto;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      margin-top: 8px;
+      transition: transform 0.15s ease-out;
     }
-    .walle-tri-tread {
-      width: 34px;
-      height: 25px;
-      background: repeating-linear-gradient(90deg, #0f172a 0px, #0f172a 4px, #64748b 4px, #64748b 8px);
-      border: 2.5px solid #94a3b8;
-      border-radius: 10px 10px 6px 6px;
+    .eva-eye {
+      width: 56px;
+      height: 30px;
+      border-radius: 50%;
+      background: repeating-linear-gradient(180deg, #00f7ff 0px, #00f7ff 3px, #042c47 3px, #042c47 5.5px);
+      box-shadow: 0 0 18px #00f0ff, 0 0 34px rgba(0, 240, 255, 0.85), inset 0 0 8px #fff;
+      transition: all 0.25s ease;
+      animation: evaBlink 5.2s infinite;
     }
-    .walle-stage-actor.rolling .walle-tri-tread {
-      animation: treadSpin 0.22s linear infinite;
+    @keyframes evaBlink {
+      0%, 93%, 97%, 100% { transform: scaleY(1); }
+      95% { transform: scaleY(0.06); }
+    }
+
+    /* EXPRESIÓN 1: LEYENDO Y PAGANDO A TODA VELOCIDAD (MODO READING / WORK DEL BOT) */
+    @keyframes evaReadingPanic {
+      0% { transform: translate(-14px, -2px) scaleY(1.18) scaleX(0.92); }
+      20% { transform: translate(14px, -2px) scaleY(1.18) scaleX(0.92); }
+      40% { transform: translate(-12px, 3px) scaleY(1.25) scaleX(0.88); }
+      60% { transform: translate(12px, 3px) scaleY(1.25) scaleX(0.88); }
+      80% { transform: translate(-6px, -4px) scaleY(0.95) scaleX(1.08); }
+      100% { transform: translate(8px, 1px) scaleY(1.2) scaleX(0.9); }
+    }
+    .eva-ring-outer.mood-reading,
+    .eva-ring-outer.mood-work {
+      border-color: var(--amber) !important;
+      box-shadow: 0 0 42px rgba(255, 184, 0, 0.7), inset 0 0 28px rgba(0, 240, 255, 0.4) !important;
+    }
+    .eva-ring-outer.mood-reading::before,
+    .eva-ring-outer.mood-work::before {
+      border-top-color: var(--amber);
+      border-bottom-color: var(--amber);
+      filter: drop-shadow(0 0 8px var(--amber));
+      animation-duration: 3s;
+    }
+    .eva-ring-outer.mood-reading .eva-sphere,
+    .eva-ring-outer.mood-work .eva-sphere {
       border-color: var(--amber);
+      box-shadow: inset 0 14px 26px rgba(255, 255, 255, 0.22), 0 0 26px rgba(255, 184, 0, 0.55);
     }
-    @keyframes treadSpin { 0% { background-position: 0 0; } 100% { background-position: -16px 0; } }
+    .eva-ring-outer.mood-reading #evaEyesBox,
+    .eva-ring-outer.mood-work #evaEyesBox {
+      animation: evaReadingPanic 0.55s steps(4, end) infinite !important;
+    }
+    .eva-ring-outer.mood-reading .eva-eye,
+    .eva-ring-outer.mood-work .eva-eye {
+      width: 52px !important;
+      height: 34px !important;
+      border-radius: 45% !important;
+      background: repeating-linear-gradient(180deg, #ffb800 0px, #ffb800 2.5px, #00f0ff 2.5px, #042c47 5px) !important;
+      box-shadow: 0 0 22px #ffb800, 0 0 36px #00f0ff, inset 0 0 10px #fff !important;
+    }
+
+    /* EXPRESIÓN 2: PAGO COMPLETADO FELIZ (MODO HAPPY DEL BOT) */
+    @keyframes evaHappyBounce {
+      0%, 100% { transform: translateY(3px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.06); }
+    }
+    .eva-ring-outer.mood-happy {
+      border-color: var(--emerald);
+      box-shadow: 0 0 40px rgba(0, 255, 157, 0.65), inset 0 0 25px rgba(0, 255, 157, 0.4);
+    }
+    .eva-ring-outer.mood-happy::before {
+      border-top-color: var(--emerald);
+      border-bottom-color: var(--emerald);
+      filter: drop-shadow(0 0 10px var(--emerald));
+    }
+    .eva-ring-outer.mood-happy .eva-sphere {
+      border-color: var(--emerald);
+      box-shadow: inset 0 14px 26px rgba(255, 255, 255, 0.25), 0 0 28px rgba(0, 255, 157, 0.6);
+    }
+    .eva-ring-outer.mood-happy #evaEyesBox {
+      animation: evaHappyBounce 0.9s ease-in-out infinite !important;
+    }
+    .eva-ring-outer.mood-happy .eva-eye {
+      width: 56px;
+      height: 26px;
+      background: transparent;
+      border-top: 8px solid var(--emerald);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-radius: 50% 50% 0 0;
+      box-shadow: 0 -8px 18px rgba(0, 255, 157, 0.9);
+      animation: none;
+      transform: translateY(4px);
+    }
+
+    .eva-mood-pill {
+      margin-top: 14px;
+      background: rgba(4, 9, 18, 0.92);
+      border: 1.5px solid #244973;
+      border-radius: 16px;
+      padding: 5px 16px;
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--eva-cyan);
+      letter-spacing: 0.4px;
+      text-align: center;
+      box-shadow: 0 0 14px rgba(0, 240, 255, 0.22);
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* CHISPAS SCI-FI AL HACER CLIC EN EVA */
+    .spark-fx {
+      position: fixed;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--eva-cyan);
+      box-shadow: 0 0 14px var(--eva-cyan), 0 0 24px #fff;
+      z-index: 9999;
+      animation: sparkFly 0.7s ease-out forwards;
+    }
+    @keyframes sparkFly {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+    }
 
     /* DOWNLOAD BUTTONS */
     .dl-box { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
@@ -766,13 +520,8 @@
       .nav-links { width: 100%; justify-content: center; gap: 6px; }
       .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 110px; }
       .hero { padding: 24px 0 20px 0; }
-      .audio-master-bar { flex-direction: column; text-align: center; padding: 10px 12px; }
-      .stage-subtitle { text-align: center; font-size: 12px; }
-      .btn-sound-stage { width: 100%; justify-content: center; padding: 12px 16px; font-size: 14px; }
-      .movie-stage { height: 260px; }
-      .eva-full { left: 6%; transform: scale(0.82); }
-      .laser-scan-cone { left: 19%; width: 175px; }
-      .walle-stage-actor { right: 6%; transform: scale(0.84); }
+      .eva-ring-outer { width: 210px; height: 210px; }
+      .eva-sphere { width: 178px; height: 178px; }
       .dl-box { flex-direction: column; width: 100%; }
       .btn-download-main, .btn-download-zip { width: 100%; padding: 15px 16px; font-size: 14.5px; }
       .guarantee-banner { flex-direction: column; text-align: center; padding: 18px 16px; gap: 12px; }
@@ -785,13 +534,6 @@
   </style>
 </head>
 <body>
-
-  <!-- CARGA AUTOMÁTICA DEL AUDIO REAL DEL VIDEO -->
-  <video id="mediaOriginalWalleEva" preload="auto" autoplay loop playsinline style="display:none;">
-    <source src="walle_eva.mp4.mp4" type="video/mp4">
-    <source src="Evaaaa%20Wall-EEEE.mp4" type="video/mp4">
-    <source src="walle_eva.mp4" type="video/mp4">
-  </video>
 
   <nav class="navbar">
     <div class="container nav-wrap">
@@ -813,63 +555,26 @@
 
   <header class="hero container">
     <div class="top-badges">
-      <span class="badge-version">🟢 VERSIÓN OFICIAL v7.2 DISPONIBLE</span>
+      <span class="badge-version">🟢 VERSIÓN OFICIAL v7.2 DISPONIBLE // MOTOR C++ &amp; AUTO-AJUSTE IA</span>
       <span class="badge-garantia">🛡️ GARANTÍA DE 48 HORAS (100% REEMBOLSO)</span>
     </div>
     <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
     <p>Opera 100% por API Directa Oficial sin Tampermonkey. Reconocimiento óptico Turbo-OCR, pagos verificados en <b>4.41 segundos</b>, envío de comprobante al chat, marcado como pagado automático y Bóveda Contable en Excel (<code>.XLSX</code>).</p>
 
-    <!-- BARRA SUPERIOR CON BOTÓN GRANDE PARA DESACTIVAR O ACTIVAR EL AUDIO REAL -->
-    <div class="audio-master-bar">
-      <div class="stage-subtitle" id="lblSubtituloEscena">🎬 [00:00] EVA gira hacia WALL·E mientras él se acerca tímidamente...</div>
-      <button type="button" id="btnAudioEscena" class="btn-sound-stage" onclick="alternarSonidoEscena(event)">
-        🔇 DESACTIVAR AUDIO REAL
-      </button>
-    </div>
-
-    <!-- ESCENARIO DE CINE RECREADO (00:00 A 00:30 CON AUDIO REAL DE LA PELÍCULA) -->
-    <div class="movie-stage" onclick="alternarSonidoEscena(event)" title="Haz clic para silenciar o activar el audio de WALL·E y EVA">
-      <div class="stage-stars"></div>
-      <div class="floating-hearts" id="fxCorazones">💙 ✨ 💚 ⚡</div>
-
-      <!-- EVA COMPLETA (CABEZA + VISOR + CUERPO BLANCO + 2 BRAZOS ARTICULADOS) -->
-      <div class="eva-full" id="actorEva">
-        <div class="eva-float-wrap">
-          <div class="eva-head">
-            <div class="eva-visor">
-              <div class="eva-led-eye"></div>
-              <div class="eva-led-eye"></div>
+    <!-- ESFERA 3D OFICIAL DE EVA CON LAS ANIMACIONES REALES DEL BOT BDV -->
+    <div class="eva-center-wrap">
+      <div class="eva-ring-outer" id="evaRing" onclick="interaccionEvaWeb(event)" title="Haz clic en EVA para interactuar">
+        <div class="eva-sphere">
+          <div class="eva-inner-visor">
+            <div class="eva-eyes-box" id="evaEyesBox">
+              <div class="eva-eye left"></div>
+              <div class="eva-eye right"></div>
             </div>
           </div>
-          <div class="eva-torso">
-            <div class="eva-arm left"></div>
-            <div class="eva-arm right"></div>
-          </div>
+          <div class="eva-visor-gloss"></div>
         </div>
       </div>
-
-      <!-- RAYO ESCÁNER LÁSER AZUL HOLOGRÁFICO (00:01 - 00:04) -->
-      <div class="laser-scan-cone" id="rayoEscanerAzul"></div>
-
-      <!-- WALL·E CON BINOCULARES INDEPENDIENTES, BRAZOS Y ORUGAS MOTORIZADAS -->
-      <div class="walle-stage-actor" id="actorWalle">
-        <div class="walle-binoculars-head">
-          <div class="walle-eye-shell left"><div class="walle-lens"><div class="walle-lens-iris"></div></div></div>
-          <div class="walle-eye-shell right"><div class="walle-lens"><div class="walle-lens-iris"></div></div></div>
-        </div>
-        <div class="walle-neck-post"></div>
-        <div class="walle-cube-chest">
-          <div class="walle-arm-left"></div>
-          <div class="walle-arm-right"></div>
-          <span class="walle-logo-tag">WALL·E</span>
-        </div>
-        <div class="walle-treads-pair">
-          <div class="walle-tri-tread"></div>
-          <div class="walle-tri-tread"></div>
-        </div>
-      </div>
-
-      <div class="stage-ground" id="pisoEscena"></div>
+      <div class="eva-mood-pill" id="lblEvaMood">🤖 EVA: ESCANEANDO MERCADO P2P...</div>
     </div>
 
     <div class="dl-box">
@@ -880,7 +585,7 @@
         📦 DESCARGAR PAQUETE COMPLETO (.ZIP)
       </a>
     </div>
-    <div class="dl-note">💻 Para Windows 10 y Windows 11 (64-bit) • No requiere instalar Python • Auto-Actualizable en 1 Clic</div>
+    <div class="dl-note">💻 Compatible con Windows 10 y Windows 11 (64-bit) • No requiere instalar Python • Auto-Actualizable en 1 Clic</div>
 
     <!-- SELLO DORADO DE GARANTÍA DE 48 HORAS -->
     <div id="garantia" class="guarantee-banner">
@@ -898,25 +603,25 @@
     <div class="kpi-strip">
       <div class="kpi-item">
         <b>4.41s</b>
-        <span>Transferencia + Captura</span>
+        <span>Velocidad de Transferencia + Captura</span>
       </div>
       <div class="kpi-item">
         <b>100% Nativo</b>
-        <span>API Directa (Cero Extensiones)</span>
+        <span>API Directa SAPI + WebSocket (Cero Extensiones)</span>
       </div>
       <div class="kpi-item">
-        <b>48 Horas</b>
-        <span>Garantía 100% Reembolsable</span>
+        <b>9 Velocidades</b>
+        <span>Calibración por Acción + Auto-Ajuste IA</span>
       </div>
       <div class="kpi-item">
         <b>100% Local</b>
-        <span>Claves Seguras en tu PC</span>
+        <span>Tus Claves Nunca Salen de tu Computadora</span>
       </div>
     </div>
   </header>
 
   <section id="funciones" class="container">
-    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E & EVA 3D</span></h2>
+    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E &amp; EVA 3D</span></h2>
     <div class="grid-cards">
       <div class="card">
         <h3>⚡ 1. Ciclo Completo en 4.41 Segundos</h3>
@@ -931,8 +636,8 @@
         <p>Calcula automáticamente tu ganancia limpia de Hoy, de la Semana, del Mes y Total Acumulado en USDT y Bolívares, organizando todos los captures de pago en carpetas por fecha (DD-MM-YYYY).</p>
       </div>
       <div class="card">
-        <h3>🗣️ 4. Asistente de Voz EVA + Detector Inteligente</h3>
-        <p>Si estás en Binance o fuera del banco cuando entra una orden, EVA detiene los toques y te avisa por voz para que entres a Transferencias a Terceros o presiones "🚀 ABRIR BDV" para iniciar sesión automáticamente.</p>
+        <h3>🔍 4. Detector Inteligente de Pantalla BDV</h3>
+        <p>Si estás en Binance o fuera del banco cuando entra una orden, el sistema detiene los toques automáticamente y espera a que entres a Transferencias a Terceros o presiones "🚀 ABRIR BDV" para iniciar sesión por ti.</p>
       </div>
       <div class="card">
         <h3>🛑 5. Freno en Seco 0.05s + Reanudación Quirúrgica</h3>
@@ -991,145 +696,67 @@
   </div>
 
   <script>
-    const vidEl = document.getElementById('mediaOriginalWalleEva');
-    const actorEva = document.getElementById('actorEva');
-    const actorWalle = document.getElementById('actorWalle');
-    const rayoAzul = document.getElementById('rayoEscanerAzul');
-    const pisoEl = document.getElementById('pisoEscena');
-    const fxCor = document.getElementById('fxCorazones');
-    const lblSub = document.getElementById('lblSubtituloEscena');
-    const btnAudio = document.getElementById('btnAudioEscena');
+    let modoForzadoHasta = 0;
+    let indiceCicloEva = 0;
+    const ESTADOS_CICLO_EVA = [
+      { modo: 'scan', texto: '🤖 EVA: ESCANEANDO MERCADO P2P...' },
+      { modo: 'reading', texto: '⚡ EVA: ¡LEYENDO Y PAGANDO ORDEN EN 4.41s!' },
+      { modo: 'happy', texto: '💚 EVA: ¡PAGO + CAP + MARCADO API COMPLETADO!' }
+    ];
 
-    let sonidoActivo = true;
-    let desactivadoManualPorUsuario = false;
-    let relojEscena = 0;
-
-    function actualizarCoreografiaSegundo(t) {
-      actorEva.className = 'eva-full';
-      actorWalle.className = 'walle-stage-actor';
-      rayoAzul.classList.remove('active');
-      pisoEl.classList.remove('moving');
-      fxCor.classList.remove('show');
-
-      if (t < 1.2) {
-        actorWalle.classList.add('pose-back', 'eyes-puppy', 'rolling');
-        pisoEl.classList.add('moving');
-        lblSub.textContent = '🎬 [00:00] EVA gira hacia WALL·E mientras él se acerca tímidamente...';
-      } else if (t >= 1.2 && t < 4.1) {
-        actorEva.classList.add('pose-scan');
-        actorWalle.classList.add('pose-back', 'scanned', 'eyes-shy');
-        rayoAzul.classList.add('active');
-        lblSub.textContent = '🔵 [00:02] EVA escanea a WALL·E con su rayo láser azul holográfico...';
-      } else if (t >= 4.1 && t < 7.7) {
-        actorWalle.classList.add('pose-step-forward', 'eyes-puppy', 'arms-point-self', 'rolling');
-        pisoEl.classList.add('moving');
-        lblSub.textContent = '🤖 [00:05] WALL·E se toca el pecho: "Waaall-E... Waaall-E..."';
-      } else if (t >= 7.7 && t < 9.5) {
-        actorEva.classList.add('pose-curious', 'soft-eyes');
-        actorWalle.classList.add('pose-step-forward', 'eyes-puppy');
-        lblSub.textContent = '💙 [00:08] EVA inclina su cabeza y pronuncia su nombre: "Wall-E..."';
-      } else if (t >= 9.5 && t < 11.4) {
-        actorWalle.classList.add('pose-jump-joy', 'eyes-excited', 'arms-reach-eva');
-        actorEva.classList.add('soft-eyes');
-        fxCor.classList.add('show');
-        lblSub.textContent = '🤩 [00:10] WALL·E salta de emoción al escucharla: "¡Waaall-E!"';
-      } else if (t >= 11.4 && t < 13.3) {
-        actorEva.classList.add('happy-eyes', 'pose-giggle');
-        actorWalle.classList.add('pose-step-forward', 'eyes-excited');
-        fxCor.classList.add('show');
-        lblSub.textContent = '💙 [00:12] EVA se tapa con sus bracitos y se ríe: "Hehehe..."';
-      } else if (t >= 13.3 && t < 17.8) {
-        actorEva.classList.add('pose-teach', 'happy-eyes');
-        actorWalle.classList.add('pose-step-forward', 'eyes-puppy');
-        lblSub.textContent = '💙 [00:14] EVA se señala el pecho enseñándole su nombre: "Eee-va..."';
-      } else if (t >= 17.8 && t < 23.2) {
-        actorEva.classList.add('pose-fly-away');
-        actorWalle.classList.add('pose-chase-eva', 'eyes-puppy', 'arms-reach-eva', 'rolling');
-        pisoEl.classList.add('moving');
-        lblSub.textContent = '🤖 [00:19] WALL·E la sigue intentando pronunciarlo: "Eee... aaah" ➔ "Eee-va"';
-      } else if (t >= 23.2 && t < 25.3) {
-        actorEva.classList.add('pose-teach', 'soft-eyes');
-        actorWalle.classList.add('pose-chase-eva', 'eyes-excited', 'arms-reach-eva');
-        fxCor.classList.add('show');
-        lblSub.textContent = '🤖 [00:24] ¡WALL·E lo logra!: "¡Eee-vaaa!"';
-      } else if (t >= 25.3 && t < 28.0) {
-        actorEva.classList.add('happy-eyes', 'pose-giggle', 'pose-spin');
-        actorWalle.classList.add('pose-chase-eva', 'eyes-excited');
-        fxCor.classList.add('show');
-        lblSub.textContent = '💚 [00:26] EVA da vueltas y se ríe encantada: "¡Jijiji! ¡Eee-va!"';
-      } else {
-        actorEva.classList.add('happy-eyes');
-        actorWalle.classList.add('pose-love-sigh', 'eyes-puppy', 'arms-point-self');
-        fxCor.classList.add('show');
-        lblSub.textContent = '💛 [00:29] WALL·E suspira enamorado mirándola: "Eee-vaa..."';
+    function lanzarChispasSciFi(x, y) {
+      for (let i = 0; i < 10; i++) {
+        const sp = document.createElement('div');
+        sp.className = 'spark-fx';
+        sp.style.left = x + 'px';
+        sp.style.top = y + 'px';
+        const ang = (Math.PI * 2 * i) / 10;
+        const dist = 35 + Math.random() * 45;
+        sp.style.setProperty('--tx', Math.cos(ang) * dist + 'px');
+        sp.style.setProperty('--ty', Math.sin(ang) * dist + 'px');
+        document.body.appendChild(sp);
+        setTimeout(() => sp.remove(), 700);
       }
     }
 
-    setInterval(() => {
-      if (sonidoActivo && vidEl && !vidEl.paused && vidEl.duration > 0) {
-        relojEscena = vidEl.currentTime;
+    function fijarExpresionEva(modo, texto) {
+      const ring = document.getElementById('evaRing');
+      const lbl = document.getElementById('lblEvaMood');
+      if (!ring || !lbl) return;
+      ring.className = 'eva-ring-outer' + (modo === 'scan' ? '' : ' mood-' + modo);
+      lbl.textContent = texto;
+      if (modo === 'happy') {
+        lbl.style.color = '#00ff9d';
+        lbl.style.borderColor = '#00ff9d';
+      } else if (modo === 'reading' || modo === 'work') {
+        lbl.style.color = '#ffb800';
+        lbl.style.borderColor = '#ffb800';
       } else {
-        relojEscena = (relojEscena + 0.2) % 30.5;
-      }
-      actualizarCoreografiaSegundo(relojEscena);
-    }, 200);
-
-    function actualizarBotonAudioUI() {
-      if (!btnAudio) return;
-      if (sonidoActivo && vidEl && !vidEl.paused && !vidEl.muted) {
-        btnAudio.innerHTML = '🔇 DESACTIVAR AUDIO REAL';
-        btnAudio.classList.remove('muted');
-      } else {
-        btnAudio.innerHTML = '🔊 ACTIVAR AUDIO REAL';
-        btnAudio.classList.add('muted');
+        lbl.style.color = '#00f0ff';
+        lbl.style.borderColor = '#244973';
       }
     }
 
-    function intentarAutoplayInicial() {
-      if (desactivadoManualPorUsuario || !vidEl) return;
-      vidEl.muted = false;
-      vidEl.volume = 1.0;
-      vidEl.play().then(() => {
-        sonidoActivo = true;
-        actualizarBotonAudioUI();
-      }).catch(() => {
-        actualizarBotonAudioUI();
-      });
+    function interaccionEvaWeb(ev) {
+      if (ev && ev.clientX) lanzarChispasSciFi(ev.clientX, ev.clientY);
+      modoForzadoHasta = Date.now() + 3000;
+      fijarExpresionEva('happy', '💚 EVA: ¡MOTOR DIRECTO v7.2 ACTIVO!');
     }
 
-    window.addEventListener('DOMContentLoaded', intentarAutoplayInicial);
-    window.addEventListener('load', intentarAutoplayInicial);
-
-    ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
-      document.addEventListener(evt, (e) => {
-        if (desactivadoManualPorUsuario) return;
-        if (e.target && e.target.id === 'btnAudioEscena') return;
-        if (vidEl && (vidEl.paused || vidEl.muted)) {
-          vidEl.muted = false;
-          vidEl.volume = 1.0;
-          vidEl.play().then(() => {
-            sonidoActivo = true;
-            actualizarBotonAudioUI();
-          }).catch(() => {});
-        }
-      }, { passive: true });
+    document.addEventListener('mousemove', (ev) => {
+      const box = document.getElementById('evaEyesBox');
+      if (!box) return;
+      const nx = (ev.clientX / window.innerWidth - 0.5) * 2;
+      const ny = (ev.clientY / window.innerHeight - 0.5) * 2;
+      box.style.transform = `translate(${(nx * 9).toFixed(1)}px, ${(ny * 6).toFixed(1)}px)`;
     });
 
-    function alternarSonidoEscena(ev) {
-      if (ev) ev.stopPropagation();
-      if (vidEl && !vidEl.paused && !vidEl.muted) {
-        sonidoActivo = false;
-        desactivadoManualPorUsuario = true;
-        vidEl.pause();
-      } else if (vidEl) {
-        sonidoActivo = true;
-        desactivadoManualPorUsuario = false;
-        vidEl.muted = false;
-        vidEl.volume = 1.0;
-        vidEl.play().catch(() => {});
-      }
-      actualizarBotonAudioUI();
-    }
+    setInterval(() => {
+      if (Date.now() < modoForzadoHasta) return;
+      indiceCicloEva = (indiceCicloEva + 1) % ESTADOS_CICLO_EVA.length;
+      const est = ESTADOS_CICLO_EVA[indiceCicloEva];
+      fijarExpresionEva(est.modo, est.texto);
+    }, 4200);
   </script>
 </body>
 </html>
