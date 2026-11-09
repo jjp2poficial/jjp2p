@@ -99,18 +99,69 @@
     .hero h1 span { color: var(--cyan); }
     .hero p {
       max-width: 760px;
-      margin: 0 auto 18px auto;
+      margin: 0 auto 16px auto;
       font-size: clamp(14px, 2.2vw, 16.5px);
       color: #cbd5e1;
     }
+
+    /* BARRA DE CONTROL DE AUDIO GRANDE Y VISIBLE ENCIMA DEL ESCENARIO */
+    .audio-master-bar {
+      max-width: 780px;
+      margin: 0 auto 10px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(6, 14, 28, 0.95);
+      border: 2px solid var(--cyan);
+      border-radius: 16px;
+      padding: 10px 16px;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+      flex-wrap: wrap;
+    }
+    .stage-subtitle {
+      color: #fff;
+      font-size: 13.5px;
+      font-weight: 900;
+      text-align: left;
+      flex: 1;
+      min-width: 220px;
+    }
+    .btn-sound-stage {
+      background: linear-gradient(180deg, #ff2a5f 0%, #b80d38 100%);
+      color: #fff;
+      border: 2px solid #ff8fab;
+      padding: 11px 22px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(255, 42, 95, 0.65);
+      transition: 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-sound-stage:hover {
+      transform: scale(1.04);
+    }
+    .btn-sound-stage.muted {
+      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
+      color: #011f12;
+      border-color: #fff;
+      box-shadow: 0 0 24px rgba(0, 255, 157, 0.8);
+      animation: pulseSoundBtn 1.5s infinite;
+    }
+    @keyframes pulseSoundBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
     /* ==========================================================================
        🎬 ESCENARIO DE CINE ANIMADO (00:00 A 00:30 CON AUDIO REAL DE LA PELÍCULA)
        ========================================================================== */
     .movie-stage {
       max-width: 780px;
-      height: 315px;
-      margin: 12px auto 26px auto;
+      height: 295px;
+      margin: 0 auto 26px auto;
       background:
         radial-gradient(circle at 50% 78%, rgba(217, 119, 6, 0.26) 0%, transparent 62%),
         radial-gradient(circle at 20% 25%, rgba(0, 240, 255, 0.12) 0%, transparent 45%),
@@ -145,46 +196,6 @@
       animation: groundMove 0.9s linear infinite;
     }
     @keyframes groundMove { 0% { background-position: 0 0; } 100% { background-position: -68px 0; } }
-
-    .stage-subtitle {
-      position: absolute;
-      top: 12px;
-      left: 14px;
-      background: rgba(4, 10, 22, 0.92);
-      border: 1.5px solid var(--cyan);
-      color: #fff;
-      padding: 6px 15px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 900;
-      z-index: 30;
-      max-width: calc(100% - 195px);
-      box-shadow: 0 0 18px rgba(0,240,255,0.3);
-      text-align: left;
-    }
-    .btn-sound-stage {
-      position: absolute;
-      top: 11px;
-      right: 12px;
-      z-index: 35;
-      background: linear-gradient(180deg, #ffb800 0%, #d97706 100%);
-      color: #1a1000;
-      border: 2px solid #fff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 11.5px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 0 18px rgba(255, 184, 0, 0.85);
-      animation: pulseSoundBtn 1.5s infinite;
-    }
-    .btn-sound-stage.on {
-      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
-      color: #011f12;
-      box-shadow: 0 0 18px rgba(0, 255, 157, 0.85);
-      animation: none;
-    }
-    @keyframes pulseSoundBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
 
     /* CORAZONES Y NOTAS MUSICALES FLOTANTES */
     .floating-hearts {
@@ -225,7 +236,6 @@
       0%, 100% { transform: translateY(0px) rotate(1deg); }
       50% { transform: translateY(-11px) rotate(-1.5deg); }
     }
-    /* ESTADOS COREOGRÁFICOS DE EVA */
     .eva-full.pose-scan {
       left: 22%;
       bottom: 62px;
@@ -296,7 +306,6 @@
       box-shadow: 0 0 14px #00e1ff, 0 0 24px rgba(0, 225, 255, 0.95);
       transition: all 0.2s ease;
     }
-    /* OJOS EN ARCO FELIZ CUANDO SE RÍE */
     .eva-full.happy-eyes .eva-led-eye {
       background: transparent;
       border-top: 5.5px solid #00f0ff;
@@ -306,7 +315,6 @@
       box-shadow: 0 -6px 14px #00f0ff;
       transform: translateY(3px) scaleX(1.08);
     }
-    /* OJOS TIERNOS ENTRECERRADOS CUANDO DICE "WALL-E" */
     .eva-full.soft-eyes .eva-led-eye {
       height: 10px;
       border-radius: 40% 40% 55% 55%;
@@ -335,7 +343,6 @@
     }
     .eva-arm.left { left: -15px; transform: rotate(8deg); }
     .eva-arm.right { right: -13px; transform: rotate(-10deg); }
-    /* CUANDO EVA SE RÍE SE TAPA CON SUS BRACITOS COMO EN EL VIDEO (00:12 y 00:26) */
     .eva-full.pose-giggle .eva-arm.right {
       transform: rotate(-115deg) translate(-8px, -18px);
     }
@@ -383,7 +390,6 @@
       z-index: 19;
       transition: right 0.85s cubic-bezier(0.34, 1.2, 0.64, 1), bottom 0.4s ease, transform 0.35s ease;
     }
-    /* POSICIONES COREOGRÁFICAS DE WALL·E */
     .walle-stage-actor.pose-back {
       right: 14%;
       transform: rotate(3deg);
@@ -430,7 +436,6 @@
     .walle-eye-shell.left { transform: rotate(5deg); }
     .walle-eye-shell.right { transform: rotate(-5deg); }
 
-    /* GESTO TIERNO DE BINOCULARES DE WALL·E (00:06, 00:09, 00:15) */
     .walle-stage-actor.eyes-puppy .walle-eye-shell.left {
       transform: rotate(16deg) translateY(3px);
     }
@@ -497,7 +502,6 @@
       padding-bottom: 5px;
       transition: all 0.25s ease;
     }
-    /* EFECTO DE REJILLA LÁSER AZUL EN EL PECHO DE WALL·E CUANDO EVA LO ESCANEA (00:02 - 00:03) */
     .walle-stage-actor.scanned .walle-cube-chest {
       box-shadow: 0 0 32px #00f0ff, inset 0 0 28px #00f0ff !important;
       border-color: #00f0ff !important;
@@ -517,7 +521,6 @@
       letter-spacing: 0.6px;
     }
 
-    /* BRAZOS ARTICULADOS DE WALL·E */
     .walle-arm-left, .walle-arm-right {
       position: absolute;
       top: 14px;
@@ -538,14 +541,12 @@
       transform-origin: right center;
       transform: rotate(8deg);
     }
-    /* GESTO TOCÁNDOSE EL PECHO ("WALL-E") */
     .walle-stage-actor.arms-point-self .walle-arm-left {
       transform: rotate(22deg) translateX(12px) translateY(-4px);
     }
     .walle-stage-actor.arms-point-self .walle-arm-right {
       transform: rotate(-18deg) translateX(-6px);
     }
-    /* GESTO APUNTANDO A EVA ("¡EEE-VAAA!") */
     .walle-stage-actor.arms-reach-eva .walle-arm-left {
       transform: rotate(-38deg) translateX(-10px) scaleX(1.15);
     }
@@ -765,9 +766,10 @@
       .nav-links { width: 100%; justify-content: center; gap: 6px; }
       .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 110px; }
       .hero { padding: 24px 0 20px 0; }
-      .movie-stage { height: 275px; }
-      .stage-subtitle { font-size: 10px; max-width: calc(100% - 140px); left: 8px; padding: 5px 10px; }
-      .btn-sound-stage { font-size: 9.5px; padding: 5px 9px; right: 8px; }
+      .audio-master-bar { flex-direction: column; text-align: center; padding: 10px 12px; }
+      .stage-subtitle { text-align: center; font-size: 12px; }
+      .btn-sound-stage { width: 100%; justify-content: center; padding: 12px 16px; font-size: 14px; }
+      .movie-stage { height: 260px; }
       .eva-full { left: 6%; transform: scale(0.82); }
       .laser-scan-cone { left: 19%; width: 175px; }
       .walle-stage-actor { right: 6%; transform: scale(0.84); }
@@ -784,8 +786,8 @@
 </head>
 <body>
 
-  <!-- CARGA AUTOMÁTICA DEL AUDIO REAL DEL VIDEO (ACEPTA LOS NOMBRES SUBIDOS A GITHUB) -->
-  <video id="mediaOriginalWalleEva" preload="auto" loop playsinline style="display:none;">
+  <!-- CARGA AUTOMÁTICA DEL AUDIO REAL DEL VIDEO -->
+  <video id="mediaOriginalWalleEva" preload="auto" autoplay loop playsinline style="display:none;">
     <source src="walle_eva.mp4.mp4" type="video/mp4">
     <source src="Evaaaa%20Wall-EEEE.mp4" type="video/mp4">
     <source src="walle_eva.mp4" type="video/mp4">
@@ -817,11 +819,17 @@
     <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
     <p>Opera 100% por API Directa Oficial sin Tampermonkey. Reconocimiento óptico Turbo-OCR, pagos verificados en <b>4.41 segundos</b>, envío de comprobante al chat, marcado como pagado automático y Bóveda Contable en Excel (<code>.XLSX</code>).</p>
 
+    <!-- BARRA SUPERIOR CON BOTÓN GRANDE PARA DESACTIVAR O ACTIVAR EL AUDIO REAL -->
+    <div class="audio-master-bar">
+      <div class="stage-subtitle" id="lblSubtituloEscena">🎬 [00:00] EVA gira hacia WALL·E mientras él se acerca tímidamente...</div>
+      <button type="button" id="btnAudioEscena" class="btn-sound-stage" onclick="alternarSonidoEscena(event)">
+        🔇 DESACTIVAR AUDIO REAL
+      </button>
+    </div>
+
     <!-- ESCENARIO DE CINE RECREADO (00:00 A 00:30 CON AUDIO REAL DE LA PELÍCULA) -->
-    <div class="movie-stage" onclick="activarSonidoEscena(event)" title="¡Toca aquí para escuchar el audio real de WALL·E y EVA!">
+    <div class="movie-stage" onclick="alternarSonidoEscena(event)" title="Haz clic para silenciar o activar el audio de WALL·E y EVA">
       <div class="stage-stars"></div>
-      <div class="stage-subtitle" id="lblSubtituloEscena">🎬 Toca aquí para escuchar las voces reales de WALL·E y EVA</div>
-      <button type="button" id="btnAudioEscena" class="btn-sound-stage" onclick="alternarSonidoEscena(event)">🔊 ESCUCHAR VOCES REALES</button>
       <div class="floating-hearts" id="fxCorazones">💙 ✨ 💚 ⚡</div>
 
       <!-- EVA COMPLETA (CABEZA + VISOR + CUERPO BLANCO + 2 BRAZOS ARTICULADOS) -->
@@ -983,10 +991,6 @@
   </div>
 
   <script>
-    /* ==========================================================================
-       🎬 COREOGRAFÍA COMPLETA SINCRONIZADA AL MILISEGUNDO CON EL AUDIO ORIGINAL
-       (CERO VOZ ROBÓTICA DE WINDOWS — 100% AUDIO REAL DEL VIDEO DE LA PELÍCULA)
-       ========================================================================== */
     const vidEl = document.getElementById('mediaOriginalWalleEva');
     const actorEva = document.getElementById('actorEva');
     const actorWalle = document.getElementById('actorWalle');
@@ -996,7 +1000,8 @@
     const lblSub = document.getElementById('lblSubtituloEscena');
     const btnAudio = document.getElementById('btnAudioEscena');
 
-    let sonidoActivo = false;
+    let sonidoActivo = true;
+    let desactivadoManualPorUsuario = false;
     let relojEscena = 0;
 
     function actualizarCoreografiaSegundo(t) {
@@ -1061,7 +1066,7 @@
     }
 
     setInterval(() => {
-      if (sonidoActivo && vidEl && !vidEl.paused && vidEl. duration > 0) {
+      if (sonidoActivo && vidEl && !vidEl.paused && vidEl.duration > 0) {
         relojEscena = vidEl.currentTime;
       } else {
         relojEscena = (relojEscena + 0.2) % 30.5;
@@ -1071,37 +1076,59 @@
 
     function actualizarBotonAudioUI() {
       if (!btnAudio) return;
-      if (sonidoActivo) {
-        btnAudio.textContent = '🔊 AUDIO REAL ACTIVO';
-        btnAudio.classList.add('on');
+      if (sonidoActivo && vidEl && !vidEl.paused && !vidEl.muted) {
+        btnAudio.innerHTML = '🔇 DESACTIVAR AUDIO REAL';
+        btnAudio.classList.remove('muted');
       } else {
-        btnAudio.textContent = '🔊 ESCUCHAR VOCES REALES';
-        btnAudio.classList.remove('on');
+        btnAudio.innerHTML = '🔊 ACTIVAR AUDIO REAL';
+        btnAudio.classList.add('muted');
       }
     }
 
-    function activarSonidoEscena(ev) {
-      if (!sonidoActivo) {
-        alternarSonidoEscena(ev);
-      }
+    function intentarAutoplayInicial() {
+      if (desactivadoManualPorUsuario || !vidEl) return;
+      vidEl.muted = false;
+      vidEl.volume = 1.0;
+      vidEl.play().then(() => {
+        sonidoActivo = true;
+        actualizarBotonAudioUI();
+      }).catch(() => {
+        actualizarBotonAudioUI();
+      });
     }
+
+    window.addEventListener('DOMContentLoaded', intentarAutoplayInicial);
+    window.addEventListener('load', intentarAutoplayInicial);
+
+    ['pointerdown', 'touchstart', 'keydown'].forEach(evt => {
+      document.addEventListener(evt, (e) => {
+        if (desactivadoManualPorUsuario) return;
+        if (e.target && e.target.id === 'btnAudioEscena') return;
+        if (vidEl && (vidEl.paused || vidEl.muted)) {
+          vidEl.muted = false;
+          vidEl.volume = 1.0;
+          vidEl.play().then(() => {
+            sonidoActivo = true;
+            actualizarBotonAudioUI();
+          }).catch(() => {});
+        }
+      }, { passive: true });
+    });
 
     function alternarSonidoEscena(ev) {
       if (ev) ev.stopPropagation();
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-      sonidoActivo = !sonidoActivo;
-      actualizarBotonAudioUI();
-      if (sonidoActivo && vidEl) {
-        vidEl.currentTime = 0;
-        relojEscena = 0;
+      if (vidEl && !vidEl.paused && !vidEl.muted) {
+        sonidoActivo = false;
+        desactivadoManualPorUsuario = true;
+        vidEl.pause();
+      } else if (vidEl) {
+        sonidoActivo = true;
+        desactivadoManualPorUsuario = false;
         vidEl.muted = false;
         vidEl.volume = 1.0;
         vidEl.play().catch(() => {});
-      } else if (vidEl) {
-        vidEl.pause();
       }
+      actualizarBotonAudioUI();
     }
   </script>
 </body>
