@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JJp2p // QUANTUM P2P CORE v7.2 — Sistema Automatizado Binance P2P & BDV</title>
+  <style>
+    :root {
+      --bg-dark: #02050b;
+      --bg-card: #081120;
+      --cyan: #00f0ff;
+      --blue: #00b8ff;
+      --emerald: #00ff9d;
+      --amber: #ffb800;
+      --crimson: #ff2a5f;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at 50% 0%, #0f2547 0%, #030710 60%, #010307 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+    /* NAVBAR */
+    .navbar {
+      background: rgba(5, 11, 22, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1.5px solid rgba(0, 240, 255, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 0;
+    }
+    .nav-wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-dot {
+      width: 13px; height: 13px; border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 14px var(--emerald);
+      border: 2px solid var(--cyan);
+    }
+    .brand-title { font-size: 19px; font-weight: 900; letter-spacing: 0.5px; color: #fff; }
+    .brand-sub { font-size: 11px; color: var(--emerald); font-weight: 800; display: block; }
+    .nav-links { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .btn-nav {
+      background: linear-gradient(180deg, #132238 0%, #09111e 100%);
+      border: 1.5px solid #2b456b;
+      color: #e2e8f0;
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 12px;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+    .btn-nav:hover { border-color: var(--cyan); color: #fff; box-shadow: 0 0 15px rgba(0,240,255,0.35); transform: translateY(-1px); }
+    .btn-nav.cta { background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%); color: #011f12; border-color: var(--emerald); font-weight: 900; }
+
+    /* HERO */
+    .hero { padding: 55px 0 45px 0; text-align: center; position: relative; }
+    .badge-version {
+      display: inline-block;
+      background: rgba(0, 255, 157, 0.12);
+      border: 1.5px solid var(--emerald);
+      color: var(--emerald);
+      padding: 5px 16px;
+      border-radius: 25px;
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 18px;
+      box-shadow: 0 0 20px rgba(0,255,157,0.2);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4.8vw, 50px);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      text-shadow: 0 0 25px rgba(0,240,255,0.25);
+    }
+    .hero h1 span { color: var(--cyan); }
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 28px auto;
+      font-size: 16.5px;
+      color: #cbd5e1;
+    }
+
+    /* EVA 3D HERO ORB */
+    .eva-showcase {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0 32px 0;
+    }
+    .eva-orb-ring {
+      width: 190px; height: 190px; border-radius: 50%; padding: 12px;
+      background: radial-gradient(circle, #071c36 0%, #02060d 100%);
+      border: 2.5px solid var(--cyan);
+      box-shadow: 0 0 45px rgba(0,240,255,0.45), inset 0 0 25px rgba(0,240,255,0.35);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      animation: floatOrb 4.5s ease-in-out infinite;
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-10px) scale(1.03); }
+    }
+    .eva-orb-sphere {
+      width: 158px; height: 158px; border-radius: 50%;
+      background: radial-gradient(circle at 50% 18%, #38567d 0%, #0b1320 36%, #020408 72%, #000 100%);
+      border: 2.5px solid #00e1ff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: inset 0 12px 24px rgba(255,255,255,0.28), 0 0 22px rgba(0,225,255,0.5);
+    }
+    .eva-eyes { display: flex; gap: 20px; }
+    .eva-eye {
+      width: 44px; height: 24px; border-radius: 50%;
+      background: repeating-linear-gradient(180deg, #00f7ff 0px, #00f7ff 3px, #042c47 3px, #042c47 5.5px);
+      box-shadow: 0 0 18px #00f0ff, 0 0 32px rgba(0,240,255,0.9);
+      animation: blinkEva 5s infinite;
+    }
+    @keyframes blinkEva { 0%, 93%, 97%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.08); } }
+
+    /* DOWNLOAD BUTTONS */
+    .dl-box {
+      display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .btn-download-main {
+      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
+      color: #021c10;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 900;
+      border: 2px solid #7affc9;
+      box-shadow: 0 0 30px rgba(0,255,157,0.55);
+      transition: 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-download-main:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 42px rgba(0,255,157,0.85); }
+    .btn-download-zip {
+      background: linear-gradient(180deg, #132540 0%, #081222 100%);
+      color: var(--cyan);
+      padding: 16px 26px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 900;
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 22px rgba(0,240,255,0.25);
+      transition: 0.22s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-download-zip:hover { background: #163052; color: #fff; transform: translateY(-2px); }
+    .dl-note { font-size: 12px; color: var(--text-muted); }
+
+    /* KPI BAR */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin: 40px 0;
+    }
+    .kpi-item {
+      background: linear-gradient(180deg, #0c172b 0%, #060c18 100%);
+      border: 1.5px solid #243b5e;
+      border-top: 3px solid var(--cyan);
+      border-radius: 14px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+    }
+    .kpi-item b { font-size: 26px; color: var(--emerald); font-weight: 900; display: block; }
+    .kpi-item span { font-size: 12px; color: #cbd5e1; font-weight: 700; }
+
+    /* SECTIONS */
+    .sec-title {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 900;
+      margin: 50px 0 24px 0;
+      color: #fff;
+    }
+    .sec-title span { color: var(--amber); }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: linear-gradient(180deg, #0b1528 0%, #060b15 100%);
+      border: 1.5px solid #223859;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.8);
+      transition: 0.2s;
+    }
+    .card:hover { border-color: var(--cyan); transform: translateY(-3px); }
+    .card h3 { font-size: 17px; color: var(--cyan); margin-bottom: 10px; font-weight: 900; }
+    .card p { font-size: 13.5px; color: #cbd5e1; }
+
+    /* CHANGELOG & UPDATE GUIDE */
+    .update-panel {
+      background: linear-gradient(135deg, #09192f 0%, #050c18 100%);
+      border: 2px solid var(--emerald);
+      border-radius: 18px;
+      padding: 26px;
+      margin: 45px 0;
+      box-shadow: 0 0 32px rgba(0,255,157,0.15);
+    }
+    .update-panel h3 { color: var(--emerald); font-size: 21px; margin-bottom: 12px; font-weight: 900; }
+    .update-list { list-style: none; display: grid; gap: 10px; margin-top: 14px; }
+    .update-list li {
+      background: rgba(3, 8, 18, 0.8);
+      border-left: 4px solid var(--cyan);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      color: #e2e8f0;
+    }
+
+    /* CONTACT FOOTER */
+    .contact-box {
+      background: linear-gradient(180deg, #101e36 0%, #060b16 100%);
+      border: 2px solid var(--amber);
+      border-radius: 18px;
+      padding: 32px 22px;
+      text-align: center;
+      margin: 50px 0 40px 0;
+    }
+    .contact-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+    .btn-wa {
+      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      color: #fff; padding: 14px 26px; border-radius: 12px; font-weight: 900; font-size: 15px;
+      box-shadow: 0 0 22px rgba(37,211,102,0.45);
+    }
+    .btn-tg {
+      background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
+      color: #fff; padding: 14px 26px; border-radius: 12px; font-weight: 900; font-size: 15px;
+      box-shadow: 0 0 22px rgba(42,171,238,0.45);
+    }
+    footer {
+      border-top: 1px solid #16243b;
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-wrap">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div>
+          <span class="brand-title">JJp2p // QUANTUM P2P CORE</span>
+          <span class="brand-sub">Creador Oficial: Jimmy Rojas (+58 414-7744352)</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#funciones" class="btn-nav">⚡ Funciones</a>
+        <a href="#seguridad" class="btn-nav">🛡️ Seguridad Local</a>
+        <a href="#actualizaciones" class="btn-nav">🔄 Actualizaciones</a>
+        <a href="#contacto" class="btn-nav cta">🔑 Adquirir Licencia</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero container">
+    <div class="badge-version">🟢 VERSIÓN OFICIAL v7.2 DISPONIBLE // MOTOR C++ & AUTO-AJUSTE IA</div>
+    <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
+    <p>Opera 100% por API Directa Oficial sin Tampermonkey. Reconocimiento óptico Turbo-OCR, pagos verificados en <b>4.41 segundos</b>, envío de comprobante al chat, marcado como pagado automático y Bóveda Contable en Excel (<code>.XLSX</code>).</p>
+
+    <div class="eva-showcase">
+      <div class="eva-orb-ring">
+        <div class="eva-orb-sphere">
+          <div class="eva-eyes">
+            <div class="eva-eye"></div>
+            <div class="eva-eye"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dl-box">
+      <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="btn-download-main">
+        📥 DESCARGAR EJECUTABLE OFICIAL (.EXE)
+      </a>
+      <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="btn-download-zip">
+        📦 DESCARGAR PAQUETE COMPLETO (.ZIP)
+      </a>
+    </div>
+    <div class="dl-note">💻 Compatible con Windows 10 y Windows 11 (64-bit) • No requiere instalar Python • Auto-Actualizable en 1 Clic</div>
+
+    <div class="kpi-strip">
+      <div class="kpi-item">
+        <b>4.41s</b>
+        <span>Velocidad de Transferencia + Captura</span>
+      </div>
+      <div class="kpi-item">
+        <b>100% Nativo</b>
+        <span>API Directa SAPI + WebSocket (Cero Extensiones)</span>
+      </div>
+      <div class="kpi-item">
+        <b>9 Velocidades</b>
+        <span>Calibración por Acción + Auto-Ajuste IA</span>
+      </div>
+      <div class="kpi-item">
+        <b>100% Local</b>
+        <span>Tus Claves Nunca Salen de tu Computadora</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="funciones" class="container">
+    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E & EVA 3D</span></h2>
+    <div class="grid-cards">
+      <div class="card">
+        <h3>⚡ 1. Ciclo Completo en 4.41 Segundos</h3>
+        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, verifica que sea cuenta 0102 (o pide los 20 dígitos si envió Pago Móvil), ejecuta la transferencia en BDV, captura el recibo en RAM, lo sube al chat y marca la orden como pagada automáticamente.</p>
+      </div>
+      <div class="card">
+        <h3>🧠 2. 9 Velocidades + Auto-Ajuste IA</h3>
+        <p>Adapta cada toque a la velocidad de tu teléfono (Samsung S26 Ultra, Xiaomi, Motorola, etc.) por Cable USB o Wi-Fi en 1 Clic. Su inteligencia interna diagnostica y ajusta automáticamente los tiempos de carga.</p>
+      </div>
+      <div class="card">
+        <h3>📊 3. Bóveda Contable y Fiscal (.XLSX)</h3>
+        <p>Calcula automáticamente tu ganancia limpia de Hoy, de la Semana, del Mes y Total Acumulado en USDT y Bolívares, organizando todos los captures de pago en carpetas por fecha (DD-MM-YYYY).</p>
+      </div>
+      <div class="card">
+        <h3>🗣️ 4. Asistente de Voz EVA + Detector Inteligente</h3>
+        <p>Si estás en Binance o fuera del banco cuando entra una orden, EVA detiene los toques y te avisa por voz para que entres a Transferencias a Terceros o presiones "🚀 ABRIR BDV" para iniciar sesión automáticamente.</p>
+      </div>
+      <div class="card">
+        <h3>🛑 5. Freno en Seco 0.05s + Reanudación Quirúrgica</h3>
+        <p>Si apagas el bot a mitad de una transferencia, frena instantáneamente en 0.05 segundos sin pulsaciones fantasma. Al volver a encender, lee la pantalla por OCR y retoma la orden sin sobrescribir ni duplicar montos.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 6. 3 Interfaces Visuales a Elección</h3>
+        <p>Alterna en vivo entre el modo <b>1. 3D WALL·E & EVA Sci-Fi</b>, <b>2. Modo Lite (Ultra rápido sin efectos)</b> y <b>3. Modo Ejecutivo Pro</b> desde el menú superior.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguridad" class="container">
+    <h2 class="sec-title">Seguridad Criptográfica <span>100% Local</span></h2>
+    <div class="grid-cards">
+      <div class="card" style="border-color:var(--emerald);">
+        <h3>🔒 Cero Servidores Externos (Zero-Cloud Keys)</h3>
+        <p>A diferencia de bots en servidores VPS extranjeros que bloquean tus cuentas bancarias, <b>JJp2p corre directamente en tu propia laptop</b>. Tu contraseña del BDV y tus API Keys se guardan únicamente en tu disco duro (<code>config_local.json</code>).</p>
+      </div>
+      <div class="card" style="border-color:var(--emerald);">
+        <h3>🛡️ API Key de Binance Sin Permiso de Retiro</h3>
+        <p>El sistema opera con una API Key configurada <b>SIN permiso de retiro (Enable Withdrawals = OFF)</b>. Es matemáticamente imposible retirar fondos; la llave solo lee órdenes P2P y entrega comprobantes firmados con HMAC-SHA256.</p>
+      </div>
+      <div class="card" style="border-color:var(--emerald);">
+        <h3>📱 Enlace Directo a tu Teléfono Físico</h3>
+        <p>Tu sesión del Banco de Venezuela corre en tu propio teléfono conectado por Cable USB o Wi-Fi local, usando tu propia IP residencial de Venezuela con cero riesgo de bloqueo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="actualizaciones" class="container">
+    <div class="update-panel">
+      <h3>🔄 Novedades de la Versión v7.2 + Auto-Actualizador en 1 Clic</h3>
+      <p>¿Ya eres cliente activo de JJp2p? Ahora no necesitas descargar archivos manualmente cada vez que sale una mejora:</p>
+      <ul class="update-list">
+        <li>✅ <b>Auto-Actualización en 1 Clic:</b> Abre tu bot, entra arriba a la derecha en <b>🖥️ Interfaz ▾</b> y presiona <b>🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> (o simplemente descarga el nuevo <code>NEXUS_P2P_BDV.exe</code> arriba y reemplázalo en tu carpeta).</li>
+        <li>✅ <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bs al encender y cada 15 segundos en reposo.</li>
+        <li>✅ <b>Escape Automático del Histórico de Operaciones:</b> Nunca confunde un comprobante viejo con el formulario vacío.</li>
+        <li>✅ <b>Blindaje Binario C++ Nuitka Pro:</b> Arranque en modo aplicación nativa de escritorio de máxima estabilidad.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacto" class="container">
+    <div class="contact-box">
+      <h2 style="font-size:26px;font-weight:900;color:#fff;">🔑 ¿Listo para Automatizar tu Operativa P2P al 100%?</h2>
+      <p style="color:#cbd5e1;margin-top:8px;">Descarga el sistema, copia tu código <b>NODO (NX-XXXX-XXXX-XXXX)</b> desde la barra superior del programa y escríbenos para activar tu licencia hoy mismo:</p>
+      <div class="contact-btns">
+        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20informacion%20y%20activar%20mi%20licencia%20de%20JJp2p%20Quantum%20Core" target="_blank" class="btn-wa">
+          💬 WhatsApp Oficial: +58 414-7744352
+        </a>
+        <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg">
+          ✈️ Telegram Oficial: @jjp2poficial
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    JJp2p // QUANTUM P2P CORE v7.2 — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
