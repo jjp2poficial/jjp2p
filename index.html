@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#02050b">
-  <title>JJp2p // QUANTUM P2P CORE v7.2 — Sistema Automatizado Binance P2P & BDV</title>
+  <title>JJp2p // QUANTUM P2P CORE v7.2 — WALL·E & EVA EDITION</title>
   <style>
     :root {
       --bg-dark: #02050b;
@@ -25,7 +25,7 @@
       color: var(--text-main);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 74px;
+      padding-bottom: 76px;
     }
     a { text-decoration: none; }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 18px; }
@@ -65,8 +65,8 @@
     .btn-nav.cta { background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%); color: #011f12; border-color: var(--emerald); font-weight: 900; }
 
     /* HERO */
-    .hero { padding: 42px 0 35px 0; text-align: center; position: relative; }
-    .top-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero { padding: 34px 0 32px 0; text-align: center; position: relative; }
+    .top-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
     .badge-version {
       display: inline-block;
       background: rgba(0, 255, 157, 0.12);
@@ -93,47 +93,314 @@
       font-size: clamp(24px, 4.8vw, 48px);
       font-weight: 900;
       line-height: 1.18;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       text-shadow: 0 0 25px rgba(0,240,255,0.25);
     }
     .hero h1 span { color: var(--cyan); }
     .hero p {
       max-width: 760px;
-      margin: 0 auto 24px auto;
+      margin: 0 auto 18px auto;
       font-size: clamp(14px, 2.2vw, 16.5px);
       color: #cbd5e1;
     }
 
-    /* EVA 3D HERO ORB */
-    .eva-showcase { display: flex; justify-content: center; margin: 20px 0 28px 0; }
-    .eva-orb-ring {
-      width: 176px; height: 176px; border-radius: 50%; padding: 11px;
-      background: radial-gradient(circle, #071c36 0%, #02060d 100%);
-      border: 2.5px solid var(--cyan);
-      box-shadow: 0 0 42px rgba(0,240,255,0.45), inset 0 0 25px rgba(0,240,255,0.35);
-      display: flex; align-items: center; justify-content: center;
+    /* ==========================================================================
+       🎬 RECREACIÓN FIEL DEL VIDEO (00:00 a 00:30): ESCÁNER AZUL + DIÁLOGO + RISA
+       ========================================================================== */
+    .movie-stage {
+      max-width: 760px;
+      height: 290px;
+      margin: 12px auto 26px auto;
+      background:
+        radial-gradient(circle at 50% 80%, rgba(217, 119, 6, 0.22) 0%, transparent 60%),
+        linear-gradient(180deg, #060d1a 0%, #16110c 72%, #291809 100%);
+      border: 2.5px solid #2b4c7e;
+      border-radius: 24px;
       position: relative;
-      animation: floatOrb 4.5s ease-in-out infinite;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.9), inset 0 0 35px rgba(0,240,255,0.12);
+      cursor: pointer;
+      user-select: none;
     }
-    @keyframes floatOrb {
-      0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-9px) scale(1.03); }
+    .stage-ground {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 36px;
+      background: linear-gradient(180deg, #3b230d 0%, #1c1005 100%);
+      border-top: 2px solid rgba(255, 184, 0, 0.35);
     }
-    .eva-orb-sphere {
-      width: 146px; height: 146px; border-radius: 50%;
-      background: radial-gradient(circle at 50% 18%, #38567d 0%, #0b1320 36%, #020408 72%, #000 100%);
-      border: 2.5px solid #00e1ff;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: inset 0 12px 24px rgba(255,255,255,0.28), 0 0 22px rgba(0,225,255,0.5);
+    .stage-subtitle {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      background: rgba(4, 10, 22, 0.92);
+      border: 1.5px solid var(--cyan);
+      color: #fff;
+      padding: 6px 15px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 900;
+      z-index: 30;
+      max-width: calc(100% - 190px);
+      box-shadow: 0 0 18px rgba(0,240,255,0.3);
+      text-align: left;
     }
-    .eva-eyes { display: flex; gap: 18px; }
-    .eva-eye {
-      width: 40px; height: 22px; border-radius: 50%;
-      background: repeating-linear-gradient(180deg, #00f7ff 0px, #00f7ff 3px, #042c47 3px, #042c47 5.5px);
-      box-shadow: 0 0 18px #00f0ff, 0 0 32px rgba(0,240,255,0.9);
-      animation: blinkEva 5s infinite;
+    .btn-sound-stage {
+      position: absolute;
+      top: 11px;
+      right: 12px;
+      z-index: 35;
+      background: linear-gradient(180deg, #ffb800 0%, #d97706 100%);
+      color: #1a1000;
+      border: 2px solid #fff;
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(255, 184, 0, 0.8);
+      animation: pulseSoundBtn 1.5s infinite;
     }
-    @keyframes blinkEva { 0%, 93%, 97%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.08); } }
+    .btn-sound-stage.on {
+      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
+      color: #011f12;
+      box-shadow: 0 0 18px rgba(0, 255, 157, 0.8);
+      animation: none;
+    }
+    @keyframes pulseSoundBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+
+    /* EVA COMPLETA (IZQUIERDA): CABEZA + VISOR + CUERPO BLANCO OVOIDE + 2 BRAZOS */
+    .eva-full {
+      position: absolute;
+      left: 22%;
+      bottom: 48px;
+      width: 110px;
+      height: 175px;
+      z-index: 20;
+      transition: transform 0.35s ease;
+      animation: evaHover 3.2s ease-in-out infinite;
+    }
+    @keyframes evaHover {
+      0%, 100% { transform: translateY(0px) rotate(1deg); }
+      50% { transform: translateY(-10px) rotate(-1.5deg); }
+    }
+    .eva-full.giggle {
+      animation: evaGiggleBounce 0.32s ease-in-out infinite alternate !important;
+    }
+    @keyframes evaGiggleBounce {
+      0% { transform: translateY(-4px) rotate(-4deg) scale(1.03); }
+      100% { transform: translateY(-14px) rotate(4deg) scale(1.05); }
+    }
+    .eva-head {
+      width: 92px;
+      height: 68px;
+      margin: 0 auto 5px auto;
+      background: radial-gradient(circle at 35% 25%, #ffffff 0%, #e2e8f0 55%, #94a3b8 100%);
+      border-radius: 50% 50% 44% 44%;
+      position: relative;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6), inset 0 3px 8px #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .eva-visor {
+      width: 72px;
+      height: 44px;
+      background: #02050c;
+      border-radius: 48% 48% 42% 42%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: inset 0 0 10px #000;
+      transform: translateX(5px);
+    }
+    .eva-led-eye {
+      width: 23px;
+      height: 14px;
+      border-radius: 50%;
+      background: repeating-linear-gradient(180deg, #00d8ff 0px, #00d8ff 2px, #022b47 2px, #022b47 4px);
+      box-shadow: 0 0 12px #00d8ff, 0 0 22px rgba(0, 216, 255, 0.95);
+      transition: all 0.2s ease;
+    }
+    /* OJOS EN ARCO FELIZ CUANDO SE RÍE (00:11 y 00:25) */
+    .eva-full.happy-eyes .eva-led-eye {
+      background: transparent;
+      border-top: 5px solid #00f0ff;
+      border-left: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-radius: 50% 50% 0 0;
+      box-shadow: 0 -5px 12px #00f0ff;
+      transform: translateY(3px);
+    }
+    .eva-torso {
+      width: 84px;
+      height: 98px;
+      margin: 0 auto;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0%, #cbd5e1 65%, #64748b 100%);
+      border-radius: 18% 18% 50% 50% / 12% 12% 85% 85%;
+      position: relative;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.75), inset 0 2px 8px #fff;
+    }
+    .eva-arm {
+      position: absolute;
+      top: 6px;
+      width: 17px;
+      height: 76px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 75%, #94a3b8 100%);
+      border-radius: 12px 12px 22px 22px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+    .eva-arm.left { left: -14px; transform: rotate(6deg); }
+    .eva-arm.right { right: -12px; transform: rotate(-8deg); }
+    .eva-full.giggle .eva-arm.right {
+      transform: rotate(-38deg) translateY(-10px);
+    }
+    .eva-full.giggle .eva-arm.left {
+      transform: rotate(25deg) translateY(-6px);
+    }
+
+    /* RAYO ESCÁNER LÁSER AZUL HOLOGRÁFICO (00:01 a 00:04) */
+    .laser-scan-cone {
+      position: absolute;
+      left: 31%;
+      bottom: 62px;
+      width: 240px;
+      height: 115px;
+      background:
+        repeating-linear-gradient(90deg, rgba(0,240,255,0.22) 0px, rgba(0,240,255,0.22) 2px, transparent 2px, transparent 14px),
+        repeating-linear-gradient(0deg, rgba(0,240,255,0.22) 0px, rgba(0,240,255,0.22) 2px, transparent 2px, transparent 14px),
+        linear-gradient(90deg, rgba(0, 195, 255, 0.85) 0%, rgba(0, 140, 255, 0.42) 60%, rgba(0, 240, 255, 0.05) 100%);
+      clip-path: polygon(0% 22%, 100% 10%, 100% 95%, 0% 42%);
+      filter: drop-shadow(0 0 18px #00f0ff);
+      z-index: 22;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .laser-scan-cone.active {
+      opacity: 1;
+      animation: laserSweep 0.45s ease-in-out infinite alternate;
+    }
+    @keyframes laserSweep {
+      0% { transform: scaleY(0.92) rotate(-2deg); }
+      100% { transform: scaleY(1.08) rotate(3deg); }
+    }
+
+    /* WALL·E COMPLETO (DERECHA MIRANDO A EVA HACIA ARRIBA) */
+    .walle-stage-actor {
+      position: absolute;
+      right: 21%;
+      bottom: 30px;
+      width: 130px;
+      z-index: 19;
+      transition: transform 0.35s ease;
+    }
+    .walle-binoculars-head {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+      width: 94px;
+      margin: 0 auto;
+      padding: 5px;
+      background: linear-gradient(135deg, #5c3a08, #d99326, #4a2d05);
+      border: 2px solid #f59e0b;
+      border-radius: 16px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.85);
+      transform: rotate(12deg) translateY(-2px);
+      transition: transform 0.35s ease;
+    }
+    .walle-stage-actor.speaking .walle-binoculars-head {
+      transform: rotate(18deg) translateY(-7px) scale(1.06);
+    }
+    .walle-stage-actor.shy .walle-binoculars-head {
+      transform: rotate(5deg) translateY(3px);
+    }
+    .walle-lens {
+      width: 36px;
+      height: 30px;
+      background: radial-gradient(circle at 40% 40%, #1e3a5f 0%, #050b14 80%);
+      border: 3px solid #cbd5e1;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .walle-lens-iris {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 10%, #00f0ff 55%, #0284c7 100%);
+      box-shadow: 0 0 10px #00f0ff;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+    }
+    .walle-neck-post {
+      width: 18px;
+      height: 12px;
+      background: linear-gradient(90deg, #334155, #94a3b8, #334155);
+      margin: -2px auto;
+      border: 1.5px solid #1e293b;
+    }
+    .walle-cube-chest {
+      width: 86px;
+      height: 58px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, #eab308 0%, #ca8a04 26%, #1e293b 26%, #334155 42%, #b45309 42%, #92400e 100%);
+      border: 2.5px solid #f59e0b;
+      border-radius: 9px;
+      position: relative;
+      box-shadow: inset 0 0 14px rgba(0,0,0,0.85), 0 6px 14px rgba(0,0,0,0.8);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 5px;
+    }
+    .walle-stage-actor.scanned .walle-cube-chest {
+      box-shadow: 0 0 28px #00f0ff, inset 0 0 22px #00f0ff !important;
+      border-color: #00f0ff !important;
+    }
+    .walle-logo-tag {
+      font-size: 9.5px;
+      font-weight: 900;
+      color: #fff;
+      background: #090d16;
+      padding: 1px 7px;
+      border-radius: 4px;
+      border: 1px solid #f59e0b;
+      letter-spacing: 0.6px;
+    }
+    /* MANITAS DE WALL·E JUNTÁNDOSE TÍMIDAMENTE */
+    .walle-hands-front {
+      position: absolute;
+      top: 16px;
+      left: -14px;
+      width: 44px;
+      height: 14px;
+      background: repeating-linear-gradient(45deg, #eab308, #eab308 5px, #1e293b 5px, #1e293b 10px);
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      transform: rotate(-12deg);
+      transition: transform 0.3s ease;
+    }
+    .walle-stage-actor.speaking .walle-hands-front {
+      transform: rotate(-28deg) translateX(-6px);
+    }
+    .walle-treads-pair {
+      display: flex;
+      justify-content: space-between;
+      width: 108px;
+      margin: -6px auto 0 auto;
+    }
+    .walle-tri-tread {
+      width: 32px;
+      height: 24px;
+      background: repeating-linear-gradient(90deg, #0f172a 0px, #0f172a 4px, #64748b 4px, #64748b 8px);
+      border: 2.5px solid #94a3b8;
+      border-radius: 10px 10px 6px 6px;
+    }
 
     /* DOWNLOAD BUTTONS */
     .dl-box { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
@@ -322,13 +589,18 @@
       gap: 4px;
     }
 
-    /* ADAPTACIÓN AUTOMÁTICA PARA CELULARES Y TABLETS */
     @media (max-width: 768px) {
       .nav-wrap { flex-direction: column; text-align: center; gap: 10px; }
       .brand { justify-content: center; }
       .nav-links { width: 100%; justify-content: center; gap: 6px; }
       .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 110px; }
-      .hero { padding: 28px 0 24px 0; }
+      .hero { padding: 24px 0 20px 0; }
+      .movie-stage { height: 265px; }
+      .stage-subtitle { font-size: 10.5px; max-width: calc(100% - 145px); left: 8px; padding: 5px 10px; }
+      .btn-sound-stage { font-size: 9.5px; padding: 5px 9px; right: 8px; }
+      .eva-full { left: 8%; transform: scale(0.86); }
+      .laser-scan-cone { left: 22%; width: 170px; }
+      .walle-stage-actor { right: 8%; transform: scale(0.88); }
       .dl-box { flex-direction: column; width: 100%; }
       .btn-download-main, .btn-download-zip { width: 100%; padding: 15px 16px; font-size: 14.5px; }
       .guarantee-banner { flex-direction: column; text-align: center; padding: 18px 16px; gap: 12px; }
@@ -341,6 +613,9 @@
   </style>
 </head>
 <body>
+
+  <!-- AUDIO/VIDEO ORIGINAL DE LA ESCENA (walle_eva.mp4) -->
+  <video id="mediaOriginalWalleEva" src="walle_eva.mp4" preload="auto" loop playsinline style="display:none;"></video>
 
   <nav class="navbar">
     <div class="container nav-wrap">
@@ -368,15 +643,46 @@
     <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
     <p>Opera 100% por API Directa Oficial sin Tampermonkey. Reconocimiento óptico Turbo-OCR, pagos verificados en <b>4.41 segundos</b>, envío de comprobante al chat, marcado como pagado automático y Bóveda Contable en Excel (<code>.XLSX</code>).</p>
 
-    <div class="eva-showcase">
-      <div class="eva-orb-ring">
-        <div class="eva-orb-sphere">
-          <div class="eva-eyes">
-            <div class="eva-eye"></div>
-            <div class="eva-eye"></div>
+    <!-- ESCENARIO RECREANDO EL VIDEO (00:00 a 00:30) -->
+    <div class="movie-stage" onclick="activarSonidoEscena(event)" title="¡Haz clic para activar las voces reales de WALL·E y EVA!">
+      <div class="stage-subtitle" id="lblSubtituloEscena">🎬 Toca aquí para escuchar a WALL·E y EVA en vivo</div>
+      <button type="button" id="btnAudioEscena" class="btn-sound-stage" onclick="alternarSonidoEscena(event)">🔊 ACTIVAR VOCES</button>
+
+      <!-- EVA COMPLETA (CABEZA + VISOR + CUERPO BLANCO + 2 BRAZOS) -->
+      <div class="eva-full" id="actorEva">
+        <div class="eva-head">
+          <div class="eva-visor">
+            <div class="eva-led-eye"></div>
+            <div class="eva-led-eye"></div>
           </div>
         </div>
+        <div class="eva-torso">
+          <div class="eva-arm left"></div>
+          <div class="eva-arm right"></div>
+        </div>
       </div>
+
+      <!-- RAYO ESCÁNER LÁSER AZUL HOLOGRÁFICO (00:01 - 00:04) -->
+      <div class="laser-scan-cone" id="rayoEscanerAzul"></div>
+
+      <!-- WALL·E MIRANDO A EVA CON SUS BINOCULARES Y MANITAS -->
+      <div class="walle-stage-actor" id="actorWalle">
+        <div class="walle-binoculars-head">
+          <div class="walle-lens"><div class="walle-lens-iris"></div></div>
+          <div class="walle-lens"><div class="walle-lens-iris"></div></div>
+        </div>
+        <div class="walle-neck-post"></div>
+        <div class="walle-cube-chest">
+          <div class="walle-hands-front"></div>
+          <span class="walle-logo-tag">WALL·E</span>
+        </div>
+        <div class="walle-treads-pair">
+          <div class="walle-tri-tread"></div>
+          <div class="walle-tri-tread"></div>
+        </div>
+      </div>
+
+      <div class="stage-ground"></div>
     </div>
 
     <div class="dl-box">
@@ -497,5 +803,154 @@
     </a>
   </div>
 
+  <script>
+    /* ==========================================================================
+       🎬 DIRECTOR DE ESCENA SINCRONIZADO SEGUNDO A SEGUNDO (00:00 a 00:30)
+       ========================================================================== */
+    const vidEl = document.getElementById('mediaOriginalWalleEva');
+    const actorEva = document.getElementById('actorEva');
+    const actorWalle = document.getElementById('actorWalle');
+    const rayoAzul = document.getElementById('rayoEscanerAzul');
+    const lblSub = document.getElementById('lblSubtituloEscena');
+    const btnAudio = document.getElementById('btnAudioEscena');
+
+    let sonidoActivo = false;
+    let usandoAudioRealMp4 = false;
+    let relojEscena = 0;
+    let audioCtx = null;
+    let ultimoEventoSintetico = -1;
+
+    function getCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function synthLaserScan() {
+      if (!sonidoActivo || usandoAudioRealMp4) return;
+      try {
+        const ctx = getCtx(), now = ctx.currentTime;
+        const osc = ctx.createOscillator(), g = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(920, now);
+        osc.frequency.linearRampToValueAtTime(1480, now + 0.35);
+        osc.frequency.setValueAtTime(1318.5, now + 0.4);
+        osc.frequency.setValueAtTime(1760, now + 0.52);
+        g.gain.setValueAtTime(0.05, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.72);
+        osc.connect(g); g.connect(ctx.destination);
+        osc.start(now); osc.stop(now + 0.72);
+      } catch (e) {}
+    }
+
+    function synthVozPersonaje(quien, texto, pitchVal, rateVal) {
+      if (!sonidoActivo || usandoAudioRealMp4 || !('speechSynthesis' in window)) return;
+      try {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(texto);
+        u.lang = 'es-ES';
+        u.pitch = pitchVal;
+        u.rate = rateVal;
+        window.speechSynthesis.speak(u);
+      } catch (e) {}
+    }
+
+    function actualizarCoreografiaSegundo(t) {
+      actorEva.classList.remove('happy-eyes', 'giggle');
+      actorWalle.classList.remove('speaking', 'shy', 'scanned');
+      rayoAzul.classList.remove('active');
+
+      if (t >= 1 && t < 4.2) {
+        rayoAzul.classList.add('active');
+        actorWalle.classList.add('scanned', 'shy');
+        lblSub.textContent = '🔵 [00:02] EVA escaneando a WALL·E con rayo láser azul...';
+        if (ultimoEventoSintetico !== 1) { ultimoEventoSintetico = 1; synthLaserScan(); }
+      } else if (t >= 4.2 && t < 7.8) {
+        actorWalle.classList.add('speaking');
+        lblSub.textContent = '🤖 [00:05] WALL·E (tímido): "Waaall-E... Waaall-E..."';
+        if (ultimoEventoSintetico !== 2) { ultimoEventoSintetico = 2; synthVozPersonaje('walle', 'Uaaal-i... Uaaal-i', 0.6, 0.68); }
+      } else if (t >= 7.8 && t < 10.5) {
+        lblSub.textContent = '💙 [00:08] EVA: "Wall-E..."';
+        if (ultimoEventoSintetico !== 3) { ultimoEventoSintetico = 3; synthVozPersonaje('eva', 'Uaal-i', 1.6, 0.92); }
+      } else if (t >= 10.5 && t < 13.2) {
+        actorWalle.classList.add('speaking');
+        actorEva.classList.add('happy-eyes', 'giggle');
+        lblSub.textContent = '💙 [00:11] WALL·E: "¡Wall-E!" ➔ EVA se ríe feliz (Jijiji)';
+        if (ultimoEventoSintetico !== 4) { ultimoEventoSintetico = 4; synthVozPersonaje('eva', 'Jijiji', 1.8, 1.15); }
+      } else if (t >= 13.2 && t < 17.8) {
+        actorEva.classList.add('happy-eyes');
+        lblSub.textContent = '💙 [00:14] EVA se presenta: "Eee-va... Eee-va"';
+        if (ultimoEventoSintetico !== 5) { ultimoEventoSintetico = 5; synthVozPersonaje('eva', 'Iii-va... Iii-va', 1.55, 0.85); }
+      } else if (t >= 17.8 && t < 23.2) {
+        actorWalle.classList.add('speaking');
+        lblSub.textContent = '🤖 [00:19] WALL·E intentando decirlo: "Eee... aaah" ➔ EVA: "Eee-va"';
+        if (ultimoEventoSintetico !== 6) { ultimoEventoSintetico = 6; synthVozPersonaje('walle', 'Iii... aaa', 0.65, 0.72); }
+      } else if (t >= 23.2 && t < 25.4) {
+        actorWalle.classList.add('speaking');
+        lblSub.textContent = '🤖 [00:24] WALL·E lo logra: "¡Eee-vaaa!"';
+        if (ultimoEventoSintetico !== 7) { ultimoEventoSintetico = 7; synthVozPersonaje('walle', '¡Iii-vaaa!', 0.7, 0.75); }
+      } else if (t >= 25.4 && t < 28.0) {
+        actorEva.classList.add('happy-eyes', 'giggle');
+        lblSub.textContent = '💚 [00:26] EVA riéndose encantada: "¡Jijiji! ¡Jajaja!"';
+        if (ultimoEventoSintetico !== 8) { ultimoEventoSintetico = 8; synthVozPersonaje('eva', '¡Jijiji! ¡Iii-va!', 1.75, 1.1); }
+      } else if (t >= 28.0) {
+        actorWalle.classList.add('speaking');
+        actorEva.classList.add('happy-eyes');
+        lblSub.textContent = '💛 [00:29] WALL·E enamorado: "Eee-vaa... Eee-vaa..."';
+        if (ultimoEventoSintetico !== 9) { ultimoEventoSintetico = 9; synthVozPersonaje('walle', 'Iii-vaaa', 0.68, 0.72); }
+      } else {
+        lblSub.textContent = '🎬 [00:00] EVA aterriza frente a WALL·E...';
+        ultimoEventoSintetico = 0;
+      }
+    }
+
+    setInterval(() => {
+      if (usandoAudioRealMp4 && vidEl && !vidEl.paused) {
+        relojEscena = vidEl.currentTime % 30.5;
+      } else {
+        relojEscena = (relojEscena + 0.25) % 30.5;
+      }
+      actualizarCoreografiaSegundo(relojEscena);
+    }, 250);
+
+    function actualizarBotonAudioUI() {
+      if (!btnAudio) return;
+      if (sonidoActivo) {
+        btnAudio.textContent = '🔊 VOCES ACTIVAS';
+        btnAudio.classList.add('on');
+      } else {
+        btnAudio.textContent = '🔇 ACTIVAR VOCES';
+        btnAudio.classList.remove('on');
+      }
+    }
+
+    function activarSonidoEscena(ev) {
+      if (!sonidoActivo) {
+        alternarSonidoEscena(ev);
+      }
+    }
+
+    function alternarSonidoEscena(ev) {
+      if (ev) ev.stopPropagation();
+      sonidoActivo = !sonidoActivo;
+      actualizarBotonAudioUI();
+      if (sonidoActivo) {
+        if (vidEl) {
+          vidEl.currentTime = relojEscena;
+          vidEl.muted = false;
+          vidEl.volume = 1.0;
+          vidEl.play().then(() => {
+            usandoAudioRealMp4 = true;
+          }).catch(() => {
+            usandoAudioRealMp4 = false;
+            ultimoEventoSintetico = -1;
+          });
+        }
+      } else {
+        if (vidEl) vidEl.pause();
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      }
+    }
+  </script>
 </body>
 </html>
