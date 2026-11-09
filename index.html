@@ -438,147 +438,169 @@
     .card p { font-size: 13.5px; color: #cbd5e1; }
 
     /* ==========================================================================
-       🚀 SECCIÓN: ¿CÓMO EMPEZAR EN 3 PASOS? + CAPTURA VISUAL DEL NODO
+       🚀 SECCIÓN XL GRANDE: ¿CÓMO EMPEZAR EN 3 PASOS? + CAPTURA TAMAÑO REAL
        ========================================================================== */
+    .steps-section-title {
+      text-align: center;
+      font-size: clamp(28px, 4.6vw, 42px);
+      font-weight: 900;
+      margin: 54px 0 28px 0;
+      color: #fff;
+      text-shadow: 0 0 22px rgba(0,240,255,0.22);
+    }
+    .steps-section-title span { color: var(--amber); }
+
     .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
+      max-width: 980px;
+      margin: 0 auto 24px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
     }
     .step-card {
-      background: linear-gradient(180deg, #0d182e 0%, #060b16 100%);
-      border: 1.5px solid #28446e;
-      border-top: 3px solid var(--emerald);
-      border-radius: 16px;
-      padding: 20px;
+      background: linear-gradient(180deg, #0e1b33 0%, #060c18 100%);
+      border: 2px solid #2c4c7c;
+      border-left: 6px solid var(--emerald);
+      border-radius: 20px;
+      padding: 28px 30px;
       position: relative;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.85);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.9);
+    }
+    .step-card.step-2-spotlight {
+      border-left-color: var(--amber);
+      border-color: rgba(255, 184, 0, 0.65);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.95), 0 0 30px rgba(255, 184, 0, 0.14);
     }
     .step-num {
       display: inline-block;
       background: var(--emerald);
       color: #011f12;
       font-weight: 900;
-      font-size: 12px;
-      padding: 3px 11px;
-      border-radius: 20px;
-      margin-bottom: 10px;
+      font-size: 15px;
+      padding: 5px 16px;
+      border-radius: 25px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
     }
     .step-card h3 {
-      font-size: 17px;
+      font-size: clamp(21px, 3vw, 26px);
       color: #fff;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       font-weight: 900;
     }
     .step-card p {
-      font-size: 13.5px;
-      color: #cbd5e1;
+      font-size: clamp(15.5px, 2.2vw, 18px);
+      color: #e2e8f0;
+      line-height: 1.65;
     }
 
-    /* RÉPLICA EXACTA DE LA CAPTURA DEL BOT MOSTRANDO EL NODO A COPIAR */
+    /* RÉPLICA A TAMAÑO REAL (GRANDE Y NÍTIDA) DE LA CAPTURA DEL BOT */
     .bot-capture-mockup {
-      margin-top: 14px;
+      max-width: 640px;
+      margin: 22px auto 4px auto;
       background: linear-gradient(180deg, #111b2e 0%, #080d18 100%);
-      border: 2px solid #2c4060;
-      border-top: 2.5px solid var(--cyan);
-      border-radius: 14px;
-      padding: 12px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.9);
+      border: 2.5px solid #355079;
+      border-top: 3px solid var(--cyan);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.12);
       position: relative;
       font-family: 'Segoe UI', sans-serif;
     }
     .mock-top-row {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 12px;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
     }
     .mock-brand {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 10px;
     }
     .mock-dot {
-      width: 10px; height: 10px; border-radius: 50%;
+      width: 14px; height: 14px; border-radius: 50%;
       background: var(--crimson);
-      border: 2px solid var(--cyan);
-      box-shadow: 0 0 8px var(--crimson);
+      border: 2.5px solid var(--cyan);
+      box-shadow: 0 0 12px var(--crimson);
     }
     .mock-brand-txt b {
-      display: block; font-size: 13px; color: #fff; font-weight: 900;
+      display: block; font-size: 19px; color: #fff; font-weight: 900;
     }
     .mock-brand-txt span {
-      display: block; font-size: 9px; color: var(--emerald); font-weight: 800; line-height: 1.2;
+      display: block; font-size: 12px; color: var(--emerald); font-weight: 800; line-height: 1.25;
     }
     .mock-btns {
-      display: flex; gap: 4px; flex-wrap: wrap;
+      display: flex; gap: 7px; flex-wrap: wrap;
     }
     .mock-chip {
-      background: #131f33;
-      border: 1px solid #354c70;
-      color: #cbd5e1;
-      font-size: 8.5px;
+      background: linear-gradient(180deg, #17243a 0%, #0b1220 100%);
+      border: 1.5px solid #354c70;
+      color: #e2e8f0;
+      font-size: 11.5px;
       font-weight: 800;
-      padding: 4px 7px;
-      border-radius: 6px;
+      padding: 7px 12px;
+      border-radius: 9px;
       text-align: center;
+      line-height: 1.2;
     }
     .mock-green-callout {
       text-align: right;
       color: #00ff66;
       font-weight: 900;
-      font-size: 12.5px;
-      margin-bottom: 6px;
-      text-shadow: 0 0 10px rgba(0,255,102,0.45);
+      font-size: clamp(15px, 2.5vw, 18.5px);
+      margin-bottom: 10px;
+      text-shadow: 0 0 14px rgba(0,255,102,0.55);
     }
     .mock-license-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #04070e;
-      border: 1px solid #20324e;
-      border-radius: 8px;
-      padding: 6px 9px;
+      border: 1.5px solid #20324e;
+      border-radius: 11px;
+      padding: 10px 14px;
       font-family: Consolas, monospace;
-      font-size: 10.5px;
+      font-size: clamp(13px, 2.2vw, 15.5px);
       position: relative;
-      gap: 8px;
+      gap: 12px;
       flex-wrap: wrap;
     }
     .mock-orange-highlight {
-      border: 3px solid #ff9900;
-      border-radius: 7px;
-      padding: 4px 8px;
-      background: rgba(255, 153, 0, 0.12);
+      border: 3.5px solid #ff9900;
+      border-radius: 9px;
+      padding: 7px 14px;
+      background: rgba(255, 153, 0, 0.15);
       color: var(--cyan);
       font-weight: 900;
-      box-shadow: 0 0 16px rgba(255, 153, 0, 0.55);
+      box-shadow: 0 0 20px rgba(255, 153, 0, 0.65);
       position: relative;
       animation: pulseNodoBox 1.6s infinite;
     }
     @keyframes pulseNodoBox {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 14px rgba(255, 153, 0, 0.5); }
-      50% { transform: scale(1.03); box-shadow: 0 0 24px rgba(255, 184, 0, 0.9); }
+      0%, 100% { transform: scale(1); box-shadow: 0 0 16px rgba(255, 153, 0, 0.55); }
+      50% { transform: scale(1.03); box-shadow: 0 0 28px rgba(255, 184, 0, 0.95); }
     }
     .mock-yellow-arrow {
       color: #ffee55;
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 900;
-      margin-right: 4px;
+      margin-right: 6px;
     }
     .videocall-note {
-      background: linear-gradient(90deg, rgba(6, 54, 38, 0.92) 0%, rgba(10, 28, 52, 0.95) 100%);
-      border: 2px solid var(--emerald);
-      border-radius: 14px;
-      padding: 15px 20px;
+      max-width: 980px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, rgba(6, 54, 38, 0.95) 0%, rgba(10, 28, 52, 0.98) 100%);
+      border: 2.5px solid var(--emerald);
+      border-radius: 16px;
+      padding: 20px 26px;
       text-align: center;
-      font-size: 14.5px;
+      font-size: clamp(15.5px, 2.3vw, 18px);
       color: #fff;
       font-weight: 800;
-      box-shadow: 0 0 24px rgba(0, 255, 157, 0.22);
+      box-shadow: 0 0 30px rgba(0, 255, 157, 0.28);
     }
     .videocall-note span { color: var(--emerald); font-weight: 900; }
 
@@ -820,6 +842,9 @@
       .guarantee-banner { flex-direction: column; text-align: center; padding: 18px 16px; gap: 12px; }
       .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .kpi-item b { font-size: 20px; }
+      .step-card { padding: 22px 18px; }
+      .bot-capture-mockup { padding: 14px 12px; }
+      .mock-green-callout { text-align: center; }
       .contact-btns { flex-direction: column; }
       .btn-wa, .btn-tg { width: 100%; }
       .mobile-bottom-bar { display: grid; }
@@ -914,23 +939,24 @@
   </header>
 
   <!-- ==========================================================================
-       🚀 SECCIÓN NUEVA 1: ¿CÓMO EMPEZAR A USAR JJP2P EN 3 PASOS?
+       🚀 SECCIÓN XL GRANDE: ¿CÓMO EMPEZAR A USAR JJP2P EN 3 SIMPLES PASOS?
        ========================================================================== -->
   <section id="como-empezar" class="container">
-    <h2 class="sec-title">¿Cómo Empezar a Usar <span>JJp2p en 3 Simples Pasos?</span></h2>
+    <h2 class="steps-section-title">¿Cómo Empezar a Usar <span>JJp2p en 3 Simples Pasos?</span></h2>
     <div class="steps-grid">
+
       <div class="step-card">
         <span class="step-num">PASO 1</span>
-        <h3>📥 Descarga y Abre el Bot</h3>
-        <p>Descarga el paquete arriba en tu laptop o PC con Windows (10 u 11) y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar programas complicados ni saber de programación.</p>
+        <h3>📥 Descarga y Abre el Bot en tu PC</h3>
+        <p>Descarga el paquete arriba en tu laptop o computadora con <b>Windows 10 o Windows 11</b> y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar programas complicados ni saber de programación.</p>
       </div>
 
-      <div class="step-card" style="border-top-color:var(--amber);">
+      <div class="step-card step-2-spotlight">
         <span class="step-num" style="background:var(--amber);">PASO 2</span>
-        <h3>🔑 Copia tu NODO y Envíamelo</h3>
+        <h3>🔑 Copia tu NODO y Envíamelo por WhatsApp</h3>
         <p>Una vez abierto <b><code>NEXUS_P2P_BDV.exe</code></b>, en la parte de arriba del bot como te muestro en esta captura, haz clic en ese <b>NODO</b> donde dice <b>(COPIAR)</b> y me lo envías por WhatsApp con tu <b>Nombre y Apellido</b>:</p>
 
-        <!-- CAPTURA VISUAL EXACTA DEL ENCABEZADO DEL BOT CON EL RECUADRO NARANJA -->
+        <!-- CAPTURA VISUAL GRANDE A TAMAÑO REAL DEL ENCABEZADO DEL BOT -->
         <div class="bot-capture-mockup">
           <div class="mock-top-row">
             <div class="mock-brand">
@@ -959,13 +985,14 @@
 
       <div class="step-card">
         <span class="step-num">PASO 3</span>
-        <h3>📱 Calibra en 2 Minutos y Opera</h3>
-        <p>Conecta tu teléfono Android por cable USB o por Wi-Fi, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes y lleve tu Excel automáticamente.</p>
+        <h3>📱 Calibra en 2 Minutos y Empieza a Operar</h3>
+        <p>Conecta tu teléfono Android por cable USB o por Wi-Fi, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes en <b>4.41 segundos</b> y lleve tu Excel automáticamente.</p>
       </div>
+
     </div>
 
     <div class="videocall-note">
-      📹 <span>Nota importante:</span> Si necesitas ayuda para instalarlo o calibrarlo, escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para dejarlo funcionando contigo paso a paso.
+      📹 <span>Nota importante:</span> Si necesitas ayuda escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para instalarlo y calibrarlo contigo paso a paso.
     </div>
   </section>
 
