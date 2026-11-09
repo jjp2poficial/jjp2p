@@ -416,7 +416,7 @@
       text-align: center;
       font-size: clamp(22px, 3.8vw, 28px);
       font-weight: 900;
-      margin: 44px 0 22px 0;
+      margin: 46px 0 22px 0;
       color: #fff;
     }
     .sec-title span { color: var(--amber); }
@@ -436,6 +436,299 @@
     .card:hover { border-color: var(--cyan); transform: translateY(-2px); }
     .card h3 { font-size: 16.5px; color: var(--cyan); margin-bottom: 9px; font-weight: 900; }
     .card p { font-size: 13.5px; color: #cbd5e1; }
+
+    /* ==========================================================================
+       🚀 SECCIÓN: ¿CÓMO EMPEZAR EN 3 PASOS? + CAPTURA VISUAL DEL NODO
+       ========================================================================== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .step-card {
+      background: linear-gradient(180deg, #0d182e 0%, #060b16 100%);
+      border: 1.5px solid #28446e;
+      border-top: 3px solid var(--emerald);
+      border-radius: 16px;
+      padding: 20px;
+      position: relative;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.85);
+    }
+    .step-num {
+      display: inline-block;
+      background: var(--emerald);
+      color: #011f12;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 3px 11px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .step-card h3 {
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+    .step-card p {
+      font-size: 13.5px;
+      color: #cbd5e1;
+    }
+
+    /* RÉPLICA EXACTA DE LA CAPTURA DEL BOT MOSTRANDO EL NODO A COPIAR */
+    .bot-capture-mockup {
+      margin-top: 14px;
+      background: linear-gradient(180deg, #111b2e 0%, #080d18 100%);
+      border: 2px solid #2c4060;
+      border-top: 2.5px solid var(--cyan);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.9);
+      position: relative;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .mock-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .mock-brand {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .mock-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--crimson);
+      border: 2px solid var(--cyan);
+      box-shadow: 0 0 8px var(--crimson);
+    }
+    .mock-brand-txt b {
+      display: block; font-size: 13px; color: #fff; font-weight: 900;
+    }
+    .mock-brand-txt span {
+      display: block; font-size: 9px; color: var(--emerald); font-weight: 800; line-height: 1.2;
+    }
+    .mock-btns {
+      display: flex; gap: 4px; flex-wrap: wrap;
+    }
+    .mock-chip {
+      background: #131f33;
+      border: 1px solid #354c70;
+      color: #cbd5e1;
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 4px 7px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .mock-green-callout {
+      text-align: right;
+      color: #00ff66;
+      font-weight: 900;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+      text-shadow: 0 0 10px rgba(0,255,102,0.45);
+    }
+    .mock-license-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #04070e;
+      border: 1px solid #20324e;
+      border-radius: 8px;
+      padding: 6px 9px;
+      font-family: Consolas, monospace;
+      font-size: 10.5px;
+      position: relative;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mock-orange-highlight {
+      border: 3px solid #ff9900;
+      border-radius: 7px;
+      padding: 4px 8px;
+      background: rgba(255, 153, 0, 0.12);
+      color: var(--cyan);
+      font-weight: 900;
+      box-shadow: 0 0 16px rgba(255, 153, 0, 0.55);
+      position: relative;
+      animation: pulseNodoBox 1.6s infinite;
+    }
+    @keyframes pulseNodoBox {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 14px rgba(255, 153, 0, 0.5); }
+      50% { transform: scale(1.03); box-shadow: 0 0 24px rgba(255, 184, 0, 0.9); }
+    }
+    .mock-yellow-arrow {
+      color: #ffee55;
+      font-size: 18px;
+      font-weight: 900;
+      margin-right: 4px;
+    }
+    .videocall-note {
+      background: linear-gradient(90deg, rgba(6, 54, 38, 0.92) 0%, rgba(10, 28, 52, 0.95) 100%);
+      border: 2px solid var(--emerald);
+      border-radius: 14px;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 14.5px;
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 0 24px rgba(0, 255, 157, 0.22);
+    }
+    .videocall-note span { color: var(--emerald); font-weight: 900; }
+
+    /* ==========================================================================
+       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. JJP2P v7.2
+       ========================================================================== */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .compare-box {
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.85);
+    }
+    .compare-box.manual {
+      background: linear-gradient(180deg, #1f0a12 0%, #0b060a 100%);
+      border: 2px solid var(--crimson);
+    }
+    .compare-box.auto {
+      background: linear-gradient(180deg, #06261c 0%, #050e17 100%);
+      border: 2px solid var(--emerald);
+      box-shadow: 0 0 28px rgba(0,255,157,0.18);
+    }
+    .compare-box h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .compare-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+    .compare-list li {
+      background: rgba(0,0,0,0.38);
+      padding: 10px 12px;
+      border-radius: 9px;
+      color: #f1f5f9;
+    }
+
+    /* ==========================================================================
+       🎥 SECCIÓN: VIDEOS EN VIVO EN TELEGRAM
+       ========================================================================== */
+    .live-video-banner {
+      background: linear-gradient(135deg, #081e38 0%, #040c1a 100%);
+      border: 2px solid var(--cyan);
+      border-radius: 18px;
+      padding: 26px 22px;
+      margin: 44px 0;
+      text-align: center;
+      box-shadow: 0 0 32px rgba(0, 240, 255, 0.2);
+    }
+    .live-video-banner h3 {
+      font-size: clamp(19px, 3.2vw, 24px);
+      color: var(--cyan);
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .live-video-banner p {
+      max-width: 720px;
+      margin: 0 auto 18px auto;
+      font-size: 14px;
+      color: #e2e8f0;
+    }
+
+    /* ==========================================================================
+       ❓ SECCIÓN DE PREGUNTAS Y RESPUESTAS FRECUENTES (FAQ ACORDEÓN)
+       ========================================================================== */
+    .faq-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+    details.faq-item {
+      background: linear-gradient(180deg, #0b1629 0%, #060b15 100%);
+      border: 1.5px solid #243b5e;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: 0.2s;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.75);
+    }
+    details.faq-item[open] {
+      border-color: var(--cyan);
+      box-shadow: 0 0 22px rgba(0, 240, 255, 0.22);
+    }
+    details.faq-item.highlight-security {
+      border: 2px solid var(--emerald);
+      background: linear-gradient(180deg, #071f24 0%, #050c16 100%);
+    }
+    details.faq-item > summary {
+      list-style: none;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 900;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      user-select: none;
+    }
+    details.faq-item > summary::-webkit-details-marker { display: none; }
+    details.faq-item > summary::after {
+      content: '＋';
+      font-size: 18px;
+      color: var(--cyan);
+      font-weight: 900;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details.faq-item[open] > summary::after {
+      content: '－';
+      color: var(--emerald);
+    }
+    .faq-body {
+      padding: 0 20px 18px 20px;
+      font-size: 13.8px;
+      color: #cbd5e1;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 14px;
+    }
+    .proof-box {
+      background: rgba(3, 8, 16, 0.85);
+      border-left: 4px solid var(--emerald);
+      padding: 11px 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .proof-box b { color: var(--emerald); display: block; margin-bottom: 3px; }
+    .pay-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .pay-pill {
+      background: #050c18;
+      border: 1.5px solid var(--cyan);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 900;
+    }
 
     /* CHANGELOG & UPDATE GUIDE */
     .update-panel {
@@ -518,7 +811,7 @@
       .nav-wrap { flex-direction: column; text-align: center; gap: 10px; }
       .brand { justify-content: center; }
       .nav-links { width: 100%; justify-content: center; gap: 6px; }
-      .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 110px; }
+      .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 105px; }
       .hero { padding: 24px 0 20px 0; }
       .eva-ring-outer { width: 210px; height: 210px; }
       .eva-sphere { width: 178px; height: 178px; }
@@ -545,9 +838,9 @@
         </div>
       </div>
       <div class="nav-links">
+        <a href="#como-empezar" class="btn-nav">🚀 Cómo Empezar</a>
         <a href="#funciones" class="btn-nav">⚡ Funciones</a>
-        <a href="#garantia" class="btn-nav">🛡️ Garantía 48h</a>
-        <a href="#actualizaciones" class="btn-nav">🔄 Actualizaciones</a>
+        <a href="#preguntas" class="btn-nav">❓ Preguntas y Seguridad</a>
         <a href="#contacto" class="btn-nav cta">🔑 Activar Licencia</a>
       </div>
     </div>
@@ -596,7 +889,7 @@
       </div>
       <div class="guarantee-text">
         <h3>🛡️ GARANTÍA TOTAL DE SATISFACCIÓN DE 48 HORAS (RIESGO CERO)</h3>
-        <p>Prueba <b>JJp2p Quantum Core</b> en tu propia computadora y con tu flujo real de órdenes P2P. Al activar tu membresía cuentas con <b>48 horas completas de garantía</b>: si no estás 100% satisfecho con la velocidad y exactitud del sistema, solicitas tu reembolso y te devolvemos el <b>100% de tu dinero de inmediato</b>.</p>
+        <p>Cuando realizas el pago de tu licencia, <b>retenemos y resguardamos tu dinero durante 48 horas</b> mientras pruebas el sistema en tu propia computadora. Si en esas 48 horas decides cancelar tu decisión por cualquier motivo, <b>te devolvemos el 100% de tu dinero de inmediato</b>.</p>
       </div>
     </div>
 
@@ -620,16 +913,75 @@
     </div>
   </header>
 
+  <!-- ==========================================================================
+       🚀 SECCIÓN NUEVA 1: ¿CÓMO EMPEZAR A USAR JJP2P EN 3 PASOS?
+       ========================================================================== -->
+  <section id="como-empezar" class="container">
+    <h2 class="sec-title">¿Cómo Empezar a Usar <span>JJp2p en 3 Simples Pasos?</span></h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">PASO 1</span>
+        <h3>📥 Descarga y Abre el Bot</h3>
+        <p>Descarga el paquete arriba en tu laptop o PC con Windows (10 u 11) y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar programas complicados ni saber de programación.</p>
+      </div>
+
+      <div class="step-card" style="border-top-color:var(--amber);">
+        <span class="step-num" style="background:var(--amber);">PASO 2</span>
+        <h3>🔑 Copia tu NODO y Envíamelo</h3>
+        <p>Una vez abierto <b><code>NEXUS_P2P_BDV.exe</code></b>, en la parte de arriba del bot como te muestro en esta captura, haz clic en ese <b>NODO</b> donde dice <b>(COPIAR)</b> y me lo envías por WhatsApp con tu <b>Nombre y Apellido</b>:</p>
+
+        <!-- CAPTURA VISUAL EXACTA DEL ENCABEZADO DEL BOT CON EL RECUADRO NARANJA -->
+        <div class="bot-capture-mockup">
+          <div class="mock-top-row">
+            <div class="mock-brand">
+              <div class="mock-dot"></div>
+              <div class="mock-brand-txt">
+                <b>JJp2p v7.2</b>
+                <span>Creador Jimmy Rojas<br>+584147744352</span>
+              </div>
+            </div>
+            <div class="mock-btns">
+              <span class="mock-chip">📱<br>Calibrador</span>
+              <span class="mock-chip">🔑 CONFIG<br>BDV / API</span>
+              <span class="mock-chip">📈<br>Ganancias</span>
+              <span class="mock-chip" style="border-color:var(--cyan);color:var(--cyan);">🖥️<br>Interfaz ▾</span>
+            </div>
+          </div>
+          <div class="mock-green-callout">⬇ cópialo y envíamelo al WhatsApp</div>
+          <div class="mock-license-bar">
+            <span class="mock-orange-highlight">
+              <span class="mock-yellow-arrow">➔</span>NODO: NX-E571-E0E9-CBE6 (COPIAR)
+            </span>
+            <span style="color:var(--emerald);font-weight:900;">LICENCIA: PERMANENTE ∞</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <span class="step-num">PASO 3</span>
+        <h3>📱 Calibra en 2 Minutos y Opera</h3>
+        <p>Conecta tu teléfono Android por cable USB o por Wi-Fi, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes y lleve tu Excel automáticamente.</p>
+      </div>
+    </div>
+
+    <div class="videocall-note">
+      📹 <span>Nota importante:</span> Si necesitas ayuda para instalarlo o calibrarlo, escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para dejarlo funcionando contigo paso a paso.
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ⚡ SECCIÓN DE FUNCIONES
+       ========================================================================== -->
   <section id="funciones" class="container">
     <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E &amp; EVA 3D</span></h2>
     <div class="grid-cards">
       <div class="card">
         <h3>⚡ 1. Ciclo Completo en 4.41 Segundos</h3>
-        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, verifica que sea cuenta 0102 (o pide los 20 dígitos si envió Pago Móvil), ejecuta la transferencia en BDV, captura el recibo en RAM, lo sube al chat y marca la orden como pagada automáticamente.</p>
+        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, verifica que sea cuenta 0102 (o pide los 20 dígitos si envió Pago Móvil), ejecuta la transferencia en BDV, captura el recibo, lo sube al chat y marca la orden como pagada automáticamente.</p>
       </div>
       <div class="card">
         <h3>🧠 2. 9 Velocidades + Auto-Ajuste IA</h3>
-        <p>Adapta cada toque a la velocidad de tu teléfono (Samsung S26 Ultra, Xiaomi, Redmi, Motorola, etc.) por Cable USB o Wi-Fi en 1 Clic. Su inteligencia interna diagnostica y ajusta automáticamente los tiempos de carga.</p>
+        <p>Adapta cada toque a la velocidad de tu teléfono (Samsung, Xiaomi, Redmi, POCO, Motorola, etc.) por Cable USB o Wi-Fi en 1 Clic. Su inteligencia interna diagnostica y ajusta automáticamente los tiempos de carga.</p>
       </div>
       <div class="card">
         <h3>📊 3. Bóveda Contable y Fiscal (.XLSX)</h3>
@@ -641,15 +993,159 @@
       </div>
       <div class="card">
         <h3>🛑 5. Freno en Seco 0.05s + Reanudación Quirúrgica</h3>
-        <p>Si apagas el bot a mitad de una transferencia, frena instantáneamente en 0.05 segundos sin pulsaciones fantasma. Al volver a encender, lee la pantalla por OCR y retoma la orden sin sobrescribir ni duplicar montos.</p>
+        <p>Si apagas el bot a mitad de una transferencia, frena instantáneamente en 0.05 segundos sin pulsaciones fantasma. Al volver a encender, lee la pantalla y retoma la orden sin sobrescribir ni duplicar montos.</p>
       </div>
       <div class="card">
         <h3>🔒 6. Seguridad Criptográfica 100% Local</h3>
-        <p>Corre en tu propia laptop con tu IP residencial de Venezuela (sin servidores VPS extranjeros). Opera con API Key de Binance <b>SIN permiso de retiro</b> y guarda tus credenciales exclusivamente en tu disco duro.</p>
+        <p>Corre en tu propia laptop con tu IP residencial de Venezuela (sin servidores externos). Opera con conexión a Binance <b>SIN permiso de retiro</b> y guarda tus credenciales exclusivamente en tu computadora.</p>
       </div>
     </div>
   </section>
 
+  <!-- ==========================================================================
+       ⚖️ SECCIÓN NUEVA 2: PAGAR A MANO VS. OPERAR CON JJP2P v7.2
+       ========================================================================== -->
+  <section id="comparativa" class="container">
+    <h2 class="sec-title">¿Por qué JJp2p <span>se Paga Solo desde el Primer Día?</span></h2>
+    <div class="compare-grid">
+      <div class="compare-box manual">
+        <h3 style="color:var(--crimson);">❌ Pagando a Mano (Método Tradicional)</h3>
+        <ul class="compare-list">
+          <li>⏳ Tardas de <b>45 a 90 segundos</b> por cada transferencia copiando y pegando números.</li>
+          <li>⚠️ Riesgo constante de equivocarte en un dígito o en un decimal cuando estás cansado.</li>
+          <li>😰 Estrés y retrasos cuando te caen <b>5 o 10 órdenes al mismo tiempo</b> en Binance.</li>
+          <li>🧮 Pierdes horas al final del día sumando órdenes en calculadora para saber cuánto ganaste.</li>
+        </ul>
+      </div>
+
+      <div class="compare-box auto">
+        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core v7.2</h3>
+        <ul class="compare-list">
+          <li>⚡ Pagas, subes la foto del recibo al chat y marcas como pagado en <b>4.41 segundos</b>.</li>
+          <li>🎯 <b>0% error humano:</b> verifica los 20 dígitos 0102 y escribe el monto exacto con centavos.</li>
+          <li>🤖 Despacha colas enteras de órdenes de abajo hacia arriba mientras tú solo supervisas.</li>
+          <li>📊 Tu <b>Excel de ganancias (.XLSX)</b> y tus carpetas de captures por fecha se hacen solos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       🎥 SECCIÓN NUEVA 3: VIDEOS EN VIVO EN LA COMUNIDAD DE TELEGRAM
+       ========================================================================== -->
+  <section id="videos-en-vivo" class="container">
+    <div class="live-video-banner">
+      <h3>🎬 ¿Quieres Ver el Bot Pagando en Vivo Antes de Empezar?</h3>
+      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p v7.2</b> ejecutando transferencias en 4.41 segundos, enviando el capture al chat de Binance y generando el Excel de ganancias en tiempo real.</p>
+      <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg" style="padding:15px 30px;font-size:15.5px;">
+        ✈️ VER VIDEOS EN VIVO EN TELEGRAM (@jjp2poficial)
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ❓ SECCIÓN NUEVA 4: PREGUNTAS Y RESPUESTAS FRECUENTES (CON PRUEBAS DE SEGURIDAD)
+       ========================================================================== -->
+  <section id="preguntas" class="container">
+    <h2 class="sec-title">Preguntas Frecuentes y <span>Pruebas Reales de Seguridad</span></h2>
+    <div class="faq-wrap">
+
+      <!-- PREGUNTA 1: ABIERTA POR DEFECTO CON LAS 4 PRUEBAS VERIFICABLES -->
+      <details class="faq-item highlight-security" open>
+        <summary>1. 🔒 ¿Cómo sé que mi dinero, mis claves y mis datos de mercado están seguros? ¿Cómo compruebo yo mismo que JJp2p dice la verdad?</summary>
+        <div class="faq-body">
+          <p>No tienes que creerlo solo por nuestra palabra; <b>tú mismo puedes comprobarlo en tu computadora con estas 4 pruebas reales</b>:</p>
+
+          <div class="proof-box">
+            <b>🛡️ Prueba 1 — Tus USDT en Binance son 100% intocables:</b>
+            Cuando creas la conexión en Binance para el bot, la casilla <i>"Habilitar Retiros" (Enable Withdrawals)</i> se deja <b>APAGADA</b>.
+            <br><i>Ejemplo sencillo:</i> Es como darle a un empleado permiso únicamente para ver la lista de pedidos y entregar recibos en el mostrador, pero <b>sin darle la llave de la caja fuerte</b>. Por regla interna de Binance, es imposible retirar o transferir ni un solo centavo de tus USDT con esa conexión.
+          </div>
+
+          <div class="proof-box">
+            <b>📱 Prueba 2 — Tu Banco de Venezuela solo se mueve en tu mano y con tu permiso:</b>
+            El bot hace los toques directamente sobre tu propio teléfono conectado a tu laptop. Además, incluye el botón <b>"🛡️ Confirmar Monto"</b>: cuando lo activas, el bot llena los datos del pago pero <b>se detiene y te muestra la captura en pantalla</b> para que tú mismo revises el monto y presiones <i>"SÍ, TRANSFERIR"</i>.
+          </div>
+
+          <div class="proof-box">
+            <b>💻 Prueba 3 — Tus tasas, clientes y ganancias viven SOLO en tu PC (Haz la prueba en tu carpeta):</b>
+            Nosotros jamás vemos a qué tasa compras o vendes, ni quiénes son tus clientes, ni cuánto ganas.
+            <br><i>¿Cómo comprobarlo tú mismo?</i> Abre la carpeta donde descargaste el bot y tu carpeta <i>Mis Documentos</i>: verás que ahí se crean tus archivos locales (<code>config_local.json</code> y tu carpeta <code>JJP2P_BOVEDA_FISCAL_SENIAT</code>). Si tú borras esos archivos de tu computadora, el programa queda en blanco porque <b>nosotros no guardamos copia de nada en internet</b>.
+          </div>
+
+          <div class="proof-box">
+            <b>🔍 Prueba 4 — Audítalo tú mismo en el Monitor de Red de Windows:</b>
+            Si tú o cualquier técnico de tu confianza abren el <i>Administrador de Tareas de Windows ➔ Monitor de Recursos ➔ Red</i> mientras el bot trabaja, verán con sus propios ojos que <code>NEXUS_P2P_BDV.exe</code> <b>solo se comunica directamente con Binance Oficial (<code>api.binance.com</code>)</b> y únicamente consulta si tu código <code>NODO (NX-XXXX)</code> tiene licencia activa. Tus datos de mercado jamás salen de tu computadora.
+          </div>
+        </div>
+      </details>
+
+      <!-- PREGUNTA 2 -->
+      <details class="faq-item">
+        <summary>2. 🛡️ ¿Cómo funciona exactamente la Garantía de 48 Horas?</summary>
+        <div class="faq-body">
+          Es muy sencillo y transparente: cuando nos realizas el pago de tu licencia, <b>nosotros retenemos tu dinero guardado durante 48 horas</b> por si quieres cancelar tu decisión. Durante esos 2 días pruebas el bot en vivo en tu propia computadora; si por cualquier motivo decides no quedártelo, nos avisas dentro de las 48 horas y <b>te devolvemos el 100% de tu dinero de inmediato</b>.
+        </div>
+      </details>
+
+      <!-- PREGUNTA 3 -->
+      <details class="faq-item">
+        <summary>3. ⚡ ¿Qué funciones exactas hace el Bot por mí?</summary>
+        <div class="faq-body">
+          Hace todo el trabajo pesado de pago en <b>4.41 segundos</b>:
+          <br>1️⃣ Revisa tus órdenes abiertas en Binance de la más vieja a la más nueva y envía el saludo inicial al cliente por el chat.
+          <br>2️⃣ Busca los 20 dígitos de cuenta Banco de Venezuela (<code>0102</code>) en el perfil o en el chat. <i>(Si el cliente puso Pago Móvil u otro banco, el bot le pide automáticamente los 20 dígitos 0102 por el chat y pasa a pagar la siguiente orden sin detener tu cola).</i>
+          <br>3️⃣ Ejecuta la transferencia en tu teléfono, le toma capture al recibo, sube la foto y el número de referencia al chat de Binance, y <b>marca la orden como Pagada automáticamente</b>.
+        </div>
+      </details>
+
+      <!-- PREGUNTA 4 -->
+      <details class="faq-item">
+        <summary>4. 📊 ¿Qué funciones tiene el Excel Contable (.XLSX) y cómo guarda mis captures?</summary>
+        <div class="faq-body">
+          Lleva toda tu contabilidad automática sin que tengas que usar calculadora:
+          <br>• Te muestra en vivo cuánto ganaste <b>Hoy, en la Semana, en el Mes y en Total</b> (tanto en USDT como en Bolívares, ya descontando las comisiones de Binance).
+          <br>• Te genera un libro de <b>Excel (<code>.XLSX</code>)</b> con 4 hojas ordenadas: <i>Resumen y Gráfica de Crecimiento, Ganancia Diaria Fácil, Cierre Semanal/Mensual e Historial Bancario</i>.
+          <br>• Guarda automáticamente la foto de cada comprobante de pago en carpetas ordenadas por fecha (<b>Día-Mes-Año</b>) dentro de tus Documentos.
+        </div>
+      </details>
+
+      <!-- PREGUNTA 5 -->
+      <details class="faq-item">
+        <summary>5. 💳 ¿Qué métodos de pago aceptan para adquirir la licencia?</summary>
+        <div class="faq-body">
+          Aceptamos los siguientes métodos de pago:
+          <div class="pay-pills">
+            <span class="pay-pill" style="border-color:var(--emerald);">🟢 USDT (Binance Pay / Red Cripto)</span>
+            <span class="pay-pill" style="border-color:#a855f7;">🟣 Zelle</span>
+            <span class="pay-pill" style="border-color:var(--cyan);">🔵 Banesco Panamá</span>
+            <span class="pay-pill" style="border-color:var(--amber);">🟡 Bolívares (Bs)</span>
+          </div>
+        </div>
+      </details>
+
+      <!-- PREGUNTA 6 -->
+      <details class="faq-item">
+        <summary>6. 🚫 ¿El bot puede pagar dos veces la misma orden o equivocarse si lo apago?</summary>
+        <div class="faq-body">
+          <b>Jamás paga doble.</b> Cuenta con un escudo interno que prohíbe transferir dos veces a la misma orden o cuenta. Además, si apagas el bot a mitad de un pago, se frena en seco al instante (0.05 segundos); cuando lo vuelves a prender, lee la pantalla de tu teléfono y continúa exactamente desde el paso donde quedó sin duplicar montos.
+        </div>
+      </details>
+
+      <!-- PREGUNTA 7 -->
+      <details class="faq-item">
+        <summary>7. 📱 ¿Qué necesito para usarlo y me ayudan a instalarlo?</summary>
+        <div class="faq-body">
+          Solo necesitas una laptop o PC con <b>Windows 10 o Windows 11</b> y <b>cualquier teléfono Android</b> (conectado por cable USB o por Wi-Fi). Si necesitas ayuda, nos escribes al WhatsApp (<b>+58 414-7744352</b>) y <b>hacemos videollamada contigo</b> para dejarlo instalado y calibrado al 100%.
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       🔄 SECCIÓN DE ACTUALIZACIONES
+       ========================================================================== -->
   <section id="actualizaciones" class="container">
     <div class="update-panel">
       <h3>🔄 Novedades v7.2 + Auto-Actualizador en 1 Clic</h3>
@@ -663,12 +1159,15 @@
     </div>
   </section>
 
+  <!-- ==========================================================================
+       📞 CONTACTO FINAL
+       ========================================================================== -->
   <section id="contacto" class="container">
     <div class="contact-box">
       <h2 style="font-size:clamp(20px,3.5vw,26px);font-weight:900;color:#fff;">🔑 ¿Listo para Automatizar tu Operativa P2P con Garantía de 48 Horas?</h2>
-      <p style="color:#cbd5e1;margin-top:8px;font-size:14px;">Descarga el sistema en tu PC, copia tu código <b>NODO (NX-XXXX-XXXX-XXXX)</b> desde la barra superior del programa y escríbenos para activar tu licencia al instante:</p>
+      <p style="color:#cbd5e1;margin-top:8px;font-size:14px;">Descarga el sistema en tu PC, copia tu código <b>NODO (NX-XXXX-XXXX-XXXX)</b> desde la barra superior del programa y envíamelo por WhatsApp con tu <b>Nombre y Apellido</b> para activarte al instante:</p>
       <div class="contact-btns">
-        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20informacion%20y%20activar%20mi%20licencia%20de%20JJp2p%20Quantum%20Core" target="_blank" class="btn-wa">
+        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20ya%20descargue%20JJp2p.%20Te%20envio%20mi%20NODO%20y%20mi%20Nombre%20y%20Apellido%20para%20activar%20mi%20licencia:" target="_blank" class="btn-wa">
           💬 WhatsApp Oficial: +58 414-7744352
         </a>
         <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg">
