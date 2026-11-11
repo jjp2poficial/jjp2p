@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <meta name="theme-color" content="#02050b">
-  <title>JJp2p // QUANTUM P2P CORE v7.3 — WALL·E & EVA EDITION</title>
+  <!-- =========================================================================
+       ✏️ ZONA FÁCIL: CAMBIA AQUÍ LA VERSIÓN EN 1 SOLO LUGAR Y SE CAMBIA EN TODA LA WEB
+       ========================================================================= -->
+  <script>
+    const VERSION_OFICIAL_WEB = "7.5";
+  </script>
+  <title>JJp2p // QUANTUM P2P CORE v7.5 — WALL·E & EVA EDITION</title>
   <style>
     :root {
       --bg-dark: #02050b;
@@ -108,7 +114,7 @@
     }
 
     /* ==========================================================================
-       🤖 ESFERA 3D Y ANIMACIONES OFICIALES DE LA CARA DE EVA (DEL BOT BDV v7.3)
+       🤖 ESFERA 3D Y ANIMACIONES OFICIALES DE LA CARA DE EVA
        ========================================================================== */
     .eva-center-wrap {
       display: flex;
@@ -222,7 +228,6 @@
       95% { transform: scaleY(0.06); }
     }
 
-    /* EXPRESIÓN 1: LEYENDO Y PAGANDO A TODA VELOCIDAD (MODO READING / WORK DEL BOT) */
     @keyframes evaReadingPanic {
       0% { transform: translate(-14px, -2px) scaleY(1.18) scaleX(0.92); }
       20% { transform: translate(14px, -2px) scaleY(1.18) scaleX(0.92); }
@@ -261,7 +266,6 @@
       box-shadow: 0 0 22px #ffb800, 0 0 36px #00f0ff, inset 0 0 10px #fff !important;
     }
 
-    /* EXPRESIÓN 2: PAGO COMPLETADO FELIZ (MODO HAPPY DEL BOT) */
     @keyframes evaHappyBounce {
       0%, 100% { transform: translateY(3px) scale(1); }
       50% { transform: translateY(-4px) scale(1.06); }
@@ -310,7 +314,6 @@
       transition: color 0.3s ease, border-color 0.3s ease;
     }
 
-    /* CHISPAS SCI-FI AL HACER CLIC EN EVA */
     .spark-fx {
       position: fixed;
       pointer-events: none;
@@ -605,7 +608,7 @@
     .videocall-note span { color: var(--emerald); font-weight: 900; }
 
     /* ==========================================================================
-       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. JJP2P v7.3
+       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. JJP2P
        ========================================================================== */
     .compare-grid {
       display: grid;
@@ -752,23 +755,59 @@
       font-weight: 900;
     }
 
-    /* CHANGELOG & UPDATE GUIDE */
+    /* ==========================================================================
+       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES POR VERSIÓN (v7.5 + v7.4 + v7.3)
+       ========================================================================== */
     .update-panel {
       background: linear-gradient(135deg, #09192f 0%, #050c18 100%);
       border: 2px solid var(--emerald);
       border-radius: 18px;
-      padding: 22px;
+      padding: 24px 22px;
       margin: 40px 0;
       box-shadow: 0 0 32px rgba(0,255,157,0.15);
     }
-    .update-panel h3 { color: var(--emerald); font-size: 19px; margin-bottom: 10px; font-weight: 900; }
-    .update-list { list-style: none; display: grid; gap: 10px; margin-top: 12px; }
+    .update-panel h3 { color: var(--emerald); font-size: 20px; margin-bottom: 8px; font-weight: 900; }
+    .version-block {
+      background: rgba(3, 8, 18, 0.72);
+      border: 1.5px solid #1e3a5f;
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+    .version-block.latest {
+      border-color: var(--emerald);
+      box-shadow: 0 0 20px rgba(0, 255, 157, 0.14);
+    }
+    .version-tag-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .version-tag-head b {
+      font-size: 15.5px;
+      color: #fff;
+    }
+    .version-pill-badge {
+      background: rgba(0, 255, 157, 0.16);
+      border: 1px solid var(--emerald);
+      color: var(--emerald);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .update-list { list-style: none; display: grid; gap: 9px; }
     .update-list li {
-      background: rgba(3, 8, 18, 0.85);
+      background: rgba(6, 13, 26, 0.9);
       border-left: 4px solid var(--cyan);
       padding: 10px 13px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 13.2px;
       color: #e2e8f0;
     }
 
@@ -865,6 +904,7 @@
       <div class="nav-links">
         <a href="#como-empezar" class="btn-nav">🚀 Cómo Empezar</a>
         <a href="#funciones" class="btn-nav">⚡ Funciones</a>
+        <a href="#actualizaciones" class="btn-nav">🔄 Novedades <span class="ver-auto">v7.5</span></a>
         <a href="#preguntas" class="btn-nav">❓ Preguntas y Seguridad</a>
         <a href="#contacto" class="btn-nav cta">🔑 Activar Licencia</a>
       </div>
@@ -873,7 +913,7 @@
 
   <header class="hero container">
     <div class="top-badges">
-      <span class="badge-version">🟢 VERSIÓN OFICIAL v7.3 DISPONIBLE // MOTOR C++ &amp; AUTO-AJUSTE IA</span>
+      <span class="badge-version">🟢 VERSIÓN OFICIAL <span class="ver-auto">v7.5</span> DISPONIBLE // MOTOR C++ &amp; AUTO-AJUSTE IA</span>
       <span class="badge-garantia">🛡️ GARANTÍA DE 48 HORAS (100% REEMBOLSO)</span>
     </div>
     <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
@@ -897,7 +937,7 @@
 
     <div class="dl-box">
       <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="btn-download-main">
-        📥 DESCARGAR EJECUTABLE OFICIAL (.EXE)
+        📥 DESCARGAR EJECUTABLE OFICIAL <span class="ver-auto">v7.5</span> (.EXE)
       </a>
       <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="btn-download-zip">
         📦 DESCARGAR PAQUETE COMPLETO (.ZIP)
@@ -962,7 +1002,7 @@
             <div class="mock-brand">
               <div class="mock-dot"></div>
               <div class="mock-brand-txt">
-                <b>JJp2p v7.3</b>
+                <b>JJp2p <span class="ver-auto">v7.5</span></b>
                 <span>Creador Jimmy Rojas<br>+584147744352</span>
               </div>
             </div>
@@ -1030,7 +1070,7 @@
   </section>
 
   <!-- ==========================================================================
-       ⚖️ SECCIÓN NUEVA 2: PAGAR A MANO VS. OPERAR CON JJP2P v7.3
+       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. OPERAR CON JJP2P
        ========================================================================== -->
   <section id="comparativa" class="container">
     <h2 class="sec-title">¿Por qué JJp2p <span>se Paga Solo desde el Primer Día?</span></h2>
@@ -1046,7 +1086,7 @@
       </div>
 
       <div class="compare-box auto">
-        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core v7.3</h3>
+        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core <span class="ver-auto">v7.5</span></h3>
         <ul class="compare-list">
           <li>⚡ Pagas, subes la foto del recibo al chat y marcas como pagado en <b>4.41 segundos</b>.</li>
           <li>🎯 <b>0% error humano:</b> verifica los 20 dígitos 0102 y escribe el monto exacto con centavos.</li>
@@ -1058,12 +1098,12 @@
   </section>
 
   <!-- ==========================================================================
-       🎥 SECCIÓN NUEVA 3: VIDEOS EN VIVO EN LA COMUNIDAD DE TELEGRAM
+       🎥 SECCIÓN: VIDEOS EN VIVO EN LA COMUNIDAD DE TELEGRAM
        ========================================================================== -->
   <section id="videos-en-vivo" class="container">
     <div class="live-video-banner">
       <h3>🎬 ¿Quieres Ver el Bot Pagando en Vivo Antes de Empezar?</h3>
-      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p v7.3</b> ejecutando transferencias en 4.41 segundos, enviando el capture al chat de Binance y generando el Excel de ganancias en tiempo real.</p>
+      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p <span class="ver-auto">v7.5</span></b> ejecutando transferencias en 4.41 segundos, enviando el capture al chat de Binance y generando el Excel de ganancias en tiempo real.</p>
       <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg" style="padding:15px 30px;font-size:15.5px;">
         ✈️ VER VIDEOS EN VIVO EN TELEGRAM (@jjp2poficial)
       </a>
@@ -1071,7 +1111,7 @@
   </section>
 
   <!-- ==========================================================================
-       ❓ SECCIÓN NUEVA 4: PREGUNTAS Y RESPUESTAS FRECUENTES (CON PRUEBAS DE SEGURIDAD)
+       ❓ SECCIÓN: PREGUNTAS Y RESPUESTAS FRECUENTES (CON PRUEBAS DE SEGURIDAD)
        ========================================================================== -->
   <section id="preguntas" class="container">
     <h2 class="sec-title">Preguntas Frecuentes y <span>Pruebas Reales de Seguridad</span></h2>
@@ -1171,18 +1211,51 @@
   </section>
 
   <!-- ==========================================================================
-       🔄 SECCIÓN DE ACTUALIZACIONES
+       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES Y MEJORAS POR VERSIÓN
        ========================================================================== -->
   <section id="actualizaciones" class="container">
     <div class="update-panel">
-      <h3>🔄 Novedades v7.3 + Auto-Actualizador en 1 Clic</h3>
-      <p>¿Ya tienes instalado JJp2p? Mantén tu sistema al día en segundos:</p>
-      <ul class="update-list">
-        <li>✅ <b>Auto-Actualización en 1 Clic:</b> Abre tu bot, toca arriba a la derecha en <b>🖥️ Interfaz ▾</b> y presiona <b>🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> (conserva intactas tus llaves API, tu clave BDV y la calibración de tu teléfono).</li>
-        <li>✅ <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bs al encender y cada 15 segundos en reposo.</li>
-        <li>✅ <b>Escape Automático del Histórico de Operaciones:</b> Nunca confunde un comprobante viejo con el formulario vacío.</li>
-        <li>✅ <b>Blindaje Binario C++ Nuitka Pro:</b> Arranque en modo aplicación nativa de escritorio de máxima estabilidad.</li>
-      </ul>
+      <h3>🔄 Historial de Novedades y Mejoras (<span class="ver-auto">v7.5</span> + Anteriores)</h3>
+      <p style="color:#cbd5e1;font-size:13.8px;">¿Ya tienes instalado JJp2p? Toca arriba a la derecha en <b>🖥️ Interfaz ▾ ➔ 🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> (o el botón verde en pantalla) para actualizar en 1 clic conservando tus llaves y tu calibración:</p>
+
+      <!-- BLOQUE VERSIÓN 7.5 (ACTUAL) -->
+      <div class="version-block latest">
+        <div class="version-tag-head">
+          <b>🚀 Novedades de la Versión <span class="ver-auto">v7.5</span> (Actualización Actual)</b>
+          <span class="version-pill-badge">🟢 ÚLTIMA VERSIÓN</span>
+        </div>
+        <ul class="update-list">
+          <li>⚡ <b>Arranque Instantáneo Ultra-Rápido (~1.5 Segundos):</b> Nuevo motor de inicio asíncrono en segundo plano y chequeo instantáneo de puerto local, logrando que la ventana de EVA abra hasta 10 veces más rápido al hacer doble clic.</li>
+          <li>🔒 <b>Caché en Memoria RAM del Candado Físico de Hardware:</b> El serial físico de tu tarjeta madre se lee una sola vez en el microsegundo cero y permanece en memoria RAM durante toda la sesión, eliminando pausas del sistema en Windows 10 y Windows 11.</li>
+        </ul>
+      </div>
+
+      <!-- BLOQUE VERSIÓN 7.4 (INCLUIDA) -->
+      <div class="version-block">
+        <div class="version-tag-head">
+          <b>🔥 Mejoras Incluidas desde la Versión v7.4</b>
+          <span class="version-pill-badge" style="border-color:var(--cyan);color:var(--cyan);background:rgba(0,240,255,0.12);">INCLUIDO</span>
+        </div>
+        <ul class="update-list">
+          <li>📊 <b>Contabilidad P2P Exacta al Centavo + Rango VIP Automático:</b> El Excel (<code>.XLSX</code>) lee directamente de la API oficial de Binance la comisión exacta cobrada en cada orden según tu nivel VIP (Común, Bronce, Plata u Oro), alinea fechas completas y separa el dinero propio de tu banco para mostrar tu ganancia pura real.</li>
+          <li>🌐 <b>Auto-Actualizador en 1 Clic Blindado (SSL + Curl Nativo):</b> Descarga e instala las nuevas actualizaciones directamente desde la nube en cualquier versión de Windows sin errores de certificados SSL.</li>
+          <li>🛡️ <b>12 Blindajes de Seguridad y Candado Anti-Clon por PC:</b> Vinculación física al hardware de tu computadora y protección criptográfica de todas las rutas internas.</li>
+        </ul>
+      </div>
+
+      <!-- BLOQUE VERSIÓN 7.3 (INCLUIDA) -->
+      <div class="version-block">
+        <div class="version-tag-head">
+          <b>✅ Mejoras Base de la Versión v7.3</b>
+          <span class="version-pill-badge" style="border-color:var(--amber);color:var(--amber);background:rgba(255,184,0,0.12);">BASE CORE</span>
+        </div>
+        <ul class="update-list">
+          <li>🔄 <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bolívares al encender el bot y cada 15 segundos en reposo sin tocar la pantalla.</li>
+          <li>🧭 <b>Escape Automático del Histórico de Operaciones:</b> Nunca confunde un comprobante viejo con el formulario vacío.</li>
+          <li>🛑 <b>Freno en Seco (0.05s) + Reanudación Quirúrgica:</b> Detiene cualquier ráfaga al instante al apagar el bot y retoma la orden en el paso exacto al volver a encender.</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
@@ -1205,7 +1278,7 @@
   </section>
 
   <footer>
-    JJp2p // QUANTUM P2P CORE v7.3 — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
+    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.5</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
   </footer>
 
   <!-- BARRA FIJA INFERIOR EXCLUSIVA PARA CELULARES -->
@@ -1222,6 +1295,13 @@
   </div>
 
   <script>
+    // Actualiza automáticamente la versión en toda la página web usando VERSION_OFICIAL_WEB
+    (function aplicarVersionAutomaticaWeb() {
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.5').replace(/^v/i, '');
+      document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — WALL·E & EVA EDITION`;
+      document.querySelectorAll('.ver-auto').forEach(el => { el.textContent = vTxt; });
+    })();
+
     let modoForzadoHasta = 0;
     let indiceCicloEva = 0;
     const ESTADOS_CICLO_EVA = [
@@ -1266,7 +1346,8 @@
     function interaccionEvaWeb(ev) {
       if (ev && ev.clientX) lanzarChispasSciFi(ev.clientX, ev.clientY);
       modoForzadoHasta = Date.now() + 3000;
-      fijarExpresionEva('happy', '💚 EVA: ¡MOTOR DIRECTO v7.3 ACTIVO!');
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.5').replace(/^v/i, '');
+      fijarExpresionEva('happy', `💚 EVA: ¡MOTOR DIRECTO ${vTxt} ACTIVO!`);
     }
 
     document.addEventListener('mousemove', (ev) => {
