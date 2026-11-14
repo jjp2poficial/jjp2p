@@ -10,7 +10,7 @@
   <script>
     const VERSION_OFICIAL_WEB = "7.6";
   </script>
-  <title>JJp2p // QUANTUM P2P CORE v7.5 — WALL·E & EVA EDITION</title>
+  <title>JJp2p // QUANTUM P2P CORE v7.6 — WALL·E & EVA EDITION</title>
   <style>
     :root {
       --bg-dark: #02050b;
@@ -87,6 +87,19 @@
       font-weight: 900;
       box-shadow: 0 0 20px rgba(0,255,157,0.2);
     }
+    .badge-trial {
+      display: inline-block;
+      background: rgba(0, 240, 255, 0.15);
+      border: 1.5px solid var(--cyan);
+      color: #fff;
+      padding: 6px 15px;
+      border-radius: 25px;
+      font-size: 11.5px;
+      font-weight: 900;
+      box-shadow: 0 0 22px rgba(0,240,255,0.35);
+      animation: pulseTrial 2s infinite;
+    }
+    @keyframes pulseTrial { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
     .badge-garantia {
       display: inline-block;
       background: rgba(255, 184, 0, 0.14);
@@ -107,7 +120,7 @@
     }
     .hero h1 span { color: var(--cyan); }
     .hero p {
-      max-width: 760px;
+      max-width: 790px;
       margin: 0 auto 22px auto;
       font-size: clamp(14px, 2.2vw, 16.5px);
       color: #cbd5e1;
@@ -335,7 +348,7 @@
     .btn-download-main {
       background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
       color: #021c10;
-      padding: 15px 28px;
+      padding: 15px 26px;
       border-radius: 13px;
       font-size: 15.5px;
       font-weight: 900;
@@ -349,10 +362,27 @@
       text-align: center;
     }
     .btn-download-main:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 40px rgba(0,255,157,0.85); }
+    .btn-trial-wa {
+      background: linear-gradient(180deg, #ffb800 0%, #d48800 100%);
+      color: #1a0f00;
+      padding: 15px 24px;
+      border-radius: 13px;
+      font-size: 15px;
+      font-weight: 900;
+      border: 2px solid #ffe082;
+      box-shadow: 0 0 26px rgba(255,184,0,0.5);
+      transition: 0.22s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .btn-trial-wa:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 38px rgba(255,184,0,0.85); }
     .btn-download-zip {
       background: linear-gradient(180deg, #132540 0%, #081222 100%);
       color: var(--cyan);
-      padding: 15px 24px;
+      padding: 15px 22px;
       border-radius: 13px;
       font-size: 14.5px;
       font-weight: 900;
@@ -366,16 +396,28 @@
       text-align: center;
     }
     .btn-download-zip:hover { background: #163052; color: #fff; transform: translateY(-2px); }
-    .dl-note { font-size: 12px; color: var(--text-muted); padding: 0 8px; }
+    .dl-note { font-size: 12.5px; color: var(--text-muted); padding: 0 8px; }
+    .banesco-soon-pill {
+      display: inline-block;
+      margin-top: 12px;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px dashed var(--cyan);
+      color: #e2e8f0;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 800;
+    }
+    .banesco-soon-pill b { color: var(--cyan); }
 
-    /* GUARANTEE BANNER 48H */
+    /* GUARANTEE BANNER 3 DIAS GRATIS + 48H */
     .guarantee-banner {
       background: linear-gradient(135deg, rgba(43, 29, 4, 0.92) 0%, rgba(12, 20, 36, 0.96) 100%);
       border: 2px solid var(--amber);
       border-radius: 18px;
       padding: 22px 24px;
-      margin: 32px auto;
-      max-width: 920px;
+      margin: 28px auto 32px auto;
+      max-width: 960px;
       display: flex;
       align-items: center;
       gap: 18px;
@@ -383,7 +425,7 @@
       text-align: left;
     }
     .guarantee-seal {
-      width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+      width: 76px; height: 76px; border-radius: 50%; flex-shrink: 0;
       background: radial-gradient(circle, #ffd000 0%, #b87b00 100%);
       color: #1a1000;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -392,8 +434,8 @@
       box-shadow: 0 0 20px rgba(255, 184, 0, 0.7);
       text-align: center;
     }
-    .guarantee-text h3 { color: var(--amber); font-size: 18.5px; font-weight: 900; margin-bottom: 5px; }
-    .guarantee-text p { color: #f1f5f9; font-size: 13.5px; }
+    .guarantee-text h3 { color: var(--amber); font-size: 18.5px; font-weight: 900; margin-bottom: 6px; }
+    .guarantee-text p { color: #f1f5f9; font-size: 13.8px; }
 
     /* KPI BAR */
     .kpi-strip {
@@ -649,6 +691,52 @@
     }
 
     /* ==========================================================================
+       🏆 SECCIÓN CASOS DE ÉXITO REALES AUDITADOS
+       ========================================================================== */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .case-card {
+      background: linear-gradient(180deg, #0d1b32 0%, #050a14 100%);
+      border: 1.5px solid #2b4a78;
+      border-top: 4px solid var(--emerald);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.85);
+    }
+    .case-badge {
+      display: inline-block;
+      background: rgba(0, 255, 157, 0.14);
+      border: 1px solid var(--emerald);
+      color: var(--emerald);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .case-card h3 {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .case-kpi {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--amber);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .case-card p {
+      font-size: 13.5px;
+      color: #cbd5e1;
+    }
+
+    /* ==========================================================================
        🎥 SECCIÓN: VIDEOS EN VIVO EN TELEGRAM
        ========================================================================== */
     .live-video-banner {
@@ -756,7 +844,7 @@
     }
 
     /* ==========================================================================
-       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES POR VERSIÓN (v7.5 + v7.4 + v7.3)
+       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES POR VERSIÓN (v7.6 + v7.5 + v7.4 + v7.3)
        ========================================================================== */
     .update-panel {
       background: linear-gradient(135deg, #09192f 0%, #050c18 100%);
@@ -877,7 +965,7 @@
       .eva-ring-outer { width: 210px; height: 210px; }
       .eva-sphere { width: 178px; height: 178px; }
       .dl-box { flex-direction: column; width: 100%; }
-      .btn-download-main, .btn-download-zip { width: 100%; padding: 15px 16px; font-size: 14.5px; }
+      .btn-download-main, .btn-trial-wa, .btn-download-zip { width: 100%; padding: 15px 16px; font-size: 14.5px; }
       .guarantee-banner { flex-direction: column; text-align: center; padding: 18px 16px; gap: 12px; }
       .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .kpi-item b { font-size: 20px; }
@@ -904,20 +992,22 @@
       <div class="nav-links">
         <a href="#como-empezar" class="btn-nav">🚀 Cómo Empezar</a>
         <a href="#funciones" class="btn-nav">⚡ Funciones</a>
-        <a href="#actualizaciones" class="btn-nav">🔄 Novedades <span class="ver-auto">v7.5</span></a>
-        <a href="#preguntas" class="btn-nav">❓ Preguntas y Seguridad</a>
-        <a href="#contacto" class="btn-nav cta">🔑 Activar Licencia</a>
+        <a href="#casos-reales" class="btn-nav">🏆 Casos Reales</a>
+        <a href="#actualizaciones" class="btn-nav">🔄 Novedades <span class="ver-auto">v7.6</span></a>
+        <a href="#preguntas" class="btn-nav">❓ Seguridad</a>
+        <a href="#contacto" class="btn-nav cta">🎁 3 Días Gratis</a>
       </div>
     </div>
   </nav>
 
   <header class="hero container">
     <div class="top-badges">
-      <span class="badge-version">🟢 VERSIÓN OFICIAL <span class="ver-auto">v7.5</span> DISPONIBLE // MOTOR C++ &amp; AUTO-AJUSTE IA</span>
+      <span class="badge-version">🟢 VERSIÓN OFICIAL <span class="ver-auto">v7.6</span> // SALTO DE COLA + SALDO EN VIVO</span>
+      <span class="badge-trial">🎁 3 DÍAS DE PRUEBA GRATUITA (SIN COMPROMISO)</span>
       <span class="badge-garantia">🛡️ GARANTÍA DE 48 HORAS (100% REEMBOLSO)</span>
     </div>
     <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
-    <p>Opera 100% por API Directa Oficial sin Tampermonkey. Reconocimiento óptico Turbo-OCR, pagos verificados en <b>4.41 segundos</b>, envío de comprobante al chat, marcado como pagado automático y Bóveda Contable en Excel (<code>.XLSX</code>).</p>
+    <p>Opera 100% por API Directa Oficial sin Tampermonkey. Pagos verificados en <b>4.41 segundos</b>, <b>Salto Inteligente de Cola por Liquidez</b>, lectura de saldo en cada pago sin salir al Inicio, envío de comprobante al chat y Bóveda Contable en Excel (<code>.XLSX</code>) exacta al centavo.</p>
 
     <!-- ESFERA 3D OFICIAL DE EVA CON LAS ANIMACIONES REALES DEL BOT BDV -->
     <div class="eva-center-wrap">
@@ -937,24 +1027,30 @@
 
     <div class="dl-box">
       <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="btn-download-main">
-        📥 DESCARGAR EJECUTABLE OFICIAL <span class="ver-auto">v7.5</span> (.EXE)
+        📥 DESCARGAR EJECUTABLE OFICIAL <span class="ver-auto">v7.6</span> (.EXE)
+      </a>
+      <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATUITA%20de%20JJp2p" target="_blank" class="btn-trial-wa">
+        🎁 PEDIR 3 DÍAS DE PRUEBA GRATIS (WHATSAPP)
       </a>
       <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="btn-download-zip">
-        📦 DESCARGAR PAQUETE COMPLETO (.ZIP)
+        📦 PAQUETE COMPLETO (.ZIP)
       </a>
     </div>
     <div class="dl-note">💻 Compatible con Windows 10 y Windows 11 (64-bit) • No requiere instalar Python • Auto-Actualizable en 1 Clic</div>
+    <div>
+      <span class="banesco-soon-pill">🏦 <b>Activo al 100%:</b> Banco de Venezuela (0102) • 🚀 <b>Próximo Lanzamiento:</b> Banesco Online Web (0134)</span>
+    </div>
 
-    <!-- SELLO DORADO DE GARANTÍA DE 48 HORAS -->
+    <!-- SELLO DORADO DE 3 DÍAS GRATIS + GARANTÍA DE 48 HORAS -->
     <div id="garantia" class="guarantee-banner">
       <div class="guarantee-seal">
-        <span>100%</span>
-        <small style="font-size:9.5px;">GARANTÍA</small>
-        <span>48H</span>
+        <span>3 DÍAS</span>
+        <small style="font-size:9px;">GRATIS</small>
+        <span>+ 48H</span>
       </div>
       <div class="guarantee-text">
-        <h3>🛡️ GARANTÍA TOTAL DE SATISFACCIÓN DE 48 HORAS (RIESGO CERO)</h3>
-        <p>Cuando realizas el pago de tu licencia, <b>retenemos y resguardamos tu dinero durante 48 horas</b> mientras pruebas el sistema en tu propia computadora. Si en esas 48 horas decides cancelar tu decisión por cualquier motivo, <b>te devolvemos el 100% de tu dinero de inmediato</b>.</p>
+        <h3>🎁 3 DÍAS DE PRUEBA GRATUITA + 🛡️ GARANTÍA DE REEMBOLSO DE 48 HORAS (RIESGO CERO)</h3>
+        <p>Primero <b>pruebas el bot totalmente GRATIS durante 3 días sin compromiso</b> en tu propia computadora. Y cuando decidas adquirir tu licencia, <b>retenemos tu pago en garantía durante 48 horas</b>: si decides cancelar por cualquier motivo, <b>te devolvemos el 100% de tu dinero de inmediato</b>.</p>
       </div>
     </div>
 
@@ -964,16 +1060,16 @@
         <span>Velocidad de Transferencia + Captura</span>
       </div>
       <div class="kpi-item">
-        <b>100% Nativo</b>
-        <span>API Directa SAPI + WebSocket (Cero Extensiones)</span>
+        <b>0.00s</b>
+        <span>Salto Inteligente de Cola + Saldo en Vivo</span>
       </div>
       <div class="kpi-item">
-        <b>9 Velocidades</b>
-        <span>Calibración por Acción + Auto-Ajuste IA</span>
+        <b>100% Exacto</b>
+        <span>Excel (.XLSX) Auditado con Nivel VIP</span>
       </div>
       <div class="kpi-item">
         <b>100% Local</b>
-        <span>Tus Claves Nunca Salen de tu Computadora</span>
+        <span>API Sin Retiro • Tus Claves en tu PC</span>
       </div>
     </div>
   </header>
@@ -988,13 +1084,13 @@
       <div class="step-card">
         <span class="step-num">PASO 1</span>
         <h3>📥 Descarga y Abre el Bot en tu PC</h3>
-        <p>Descarga el paquete arriba en tu laptop o computadora con <b>Windows 10 o Windows 11</b> y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar programas complicados ni saber de programación.</p>
+        <p>Descarga el ejecutable arriba en tu laptop o computadora con <b>Windows 10 o Windows 11</b> y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar Python ni extensiones peligrosas en el navegador.</p>
       </div>
 
       <div class="step-card step-2-spotlight">
         <span class="step-num" style="background:var(--amber);">PASO 2</span>
-        <h3>🔑 Copia tu NODO y Envíamelo por WhatsApp</h3>
-        <p>Una vez abierto <b><code>NEXUS_P2P_BDV.exe</code></b>, en la parte de arriba del bot como te muestro en esta captura, haz clic en ese <b>NODO</b> donde dice <b>(COPIAR)</b> y me lo envías por WhatsApp con tu <b>Nombre y Apellido</b>:</p>
+        <h3>🔑 Copia tu NODO y Envíamelo por WhatsApp (Activa tus 3 Días Gratis)</h3>
+        <p>Una vez abierto <b><code>NEXUS_P2P_BDV.exe</code></b>, en la parte de arriba del bot como te muestro en esta captura, haz clic en ese <b>NODO</b> donde dice <b>(COPIAR)</b> y me lo envías por WhatsApp con tu <b>Nombre y Apellido</b> para activarte al instante:</p>
 
         <!-- CAPTURA VISUAL GRANDE A TAMAÑO REAL DEL ENCABEZADO DEL BOT -->
         <div class="bot-capture-mockup">
@@ -1002,7 +1098,7 @@
             <div class="mock-brand">
               <div class="mock-dot"></div>
               <div class="mock-brand-txt">
-                <b>JJp2p <span class="ver-auto">v7.5</span></b>
+                <b>JJp2p <span class="ver-auto">v7.6</span></b>
                 <span>Creador Jimmy Rojas<br>+584147744352</span>
               </div>
             </div>
@@ -1018,7 +1114,7 @@
             <span class="mock-orange-highlight">
               <span class="mock-yellow-arrow">➔</span>NODO: NX-E571-E0E9-CBE6 (COPIAR)
             </span>
-            <span style="color:var(--emerald);font-weight:900;">LICENCIA: PERMANENTE ∞</span>
+            <span style="color:var(--emerald);font-weight:900;">LICENCIA: ACTIVA / PERMANENTE ∞</span>
           </div>
         </div>
       </div>
@@ -1026,13 +1122,13 @@
       <div class="step-card">
         <span class="step-num">PASO 3</span>
         <h3>📱 Calibra en 2 Minutos y Empieza a Operar</h3>
-        <p>Conecta tu teléfono Android por cable USB o por Wi-Fi, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes en <b>4.41 segundos</b> y lleve tu Excel automáticamente.</p>
+        <p>Conecta tu teléfono Android por cable USB o por <b>Wi-Fi en 1 Clic</b>, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes en <b>4.41 segundos</b> y lleve tu Excel automáticamente.</p>
       </div>
 
     </div>
 
     <div class="videocall-note">
-      📹 <span>Nota importante:</span> Si necesitas ayuda escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para instalarlo y calibrarlo contigo paso a paso.
+      📹 <span>Atención Personalizada 1 a 1:</span> Escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para instalarlo y calibrarlo contigo paso a paso en minutos.
     </div>
   </section>
 
@@ -1040,31 +1136,31 @@
        ⚡ SECCIÓN DE FUNCIONES
        ========================================================================== -->
   <section id="funciones" class="container">
-    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E &amp; EVA 3D</span></h2>
+    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E &amp; EVA 3D (<span class="ver-auto">v7.6</span>)</span></h2>
     <div class="grid-cards">
       <div class="card">
         <h3>⚡ 1. Ciclo Completo en 4.41 Segundos</h3>
-        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, verifica que sea cuenta 0102 (o pide los 20 dígitos si envió Pago Móvil), ejecuta la transferencia en BDV, captura el recibo, lo sube al chat y marca la orden como pagada automáticamente.</p>
+        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, extrae los 20 dígitos 0102 (o los pide por chat si envió Pago Móvil), transfiere en BDV, captura el recibo en RAM, lo sube al chat y marca como pagado por API.</p>
       </div>
       <div class="card">
-        <h3>🧠 2. 9 Velocidades + Auto-Ajuste IA</h3>
-        <p>Adapta cada toque a la velocidad de tu teléfono (Samsung, Xiaomi, Redmi, POCO, Motorola, etc.) por Cable USB o Wi-Fi en 1 Clic. Su inteligencia interna diagnostica y ajusta automáticamente los tiempos de carga.</p>
+        <h3>🚀 2. Salto Inteligente de Cola + Saldo en Vivo</h3>
+        <p>Si la primera orden supera tu saldo disponible en BDV, el bot <b>no se detiene</b>: la salta en 0.00s y paga las siguientes órdenes de menor monto. Además, lee tu nuevo saldo en cada pago sin salir al menú Inicio.</p>
       </div>
       <div class="card">
-        <h3>📊 3. Bóveda Contable y Fiscal (.XLSX)</h3>
-        <p>Calcula automáticamente tu ganancia limpia de Hoy, de la Semana, del Mes y Total Acumulado en USDT y Bolívares, organizando todos los captures de pago en carpetas por fecha (DD-MM-YYYY).</p>
+        <h3>📊 3. Bóveda Contable y Fiscal (.XLSX) al Centavo</h3>
+        <p>Lee tus compras y ventas por API, detecta tu Nivel VIP (Común, Bronce, Plata u Oro), descuenta comisiones reales, separa tus Bolívares viejos para mostrar tu ganancia pura por vuelta y guarda los captures por fecha.</p>
       </div>
       <div class="card">
-        <h3>🔍 4. Detector Inteligente de Pantalla BDV</h3>
-        <p>Si estás en Binance o fuera del banco cuando entra una orden, el sistema detiene los toques automáticamente y espera a que entres a Transferencias a Terceros o presiones "🚀 ABRIR BDV" para iniciar sesión por ti.</p>
+        <h3>🧠 4. 9 Velocidades + Wi-Fi 1 Clic + 3 Temas</h3>
+        <p>Conecta cualquier Android por USB o Wi-Fi en 1 Clic. Incluye Calibrador Guiado por Voz y 3 interfaces: <b>3D WALL·E Sci-Fi</b>, <b>Modo Lite</b> (para PCs básicas) y <b>Ejecutivo Pro</b>.</p>
       </div>
       <div class="card">
-        <h3>🛑 5. Freno en Seco 0.05s + Reanudación Quirúrgica</h3>
-        <p>Si apagas el bot a mitad de una transferencia, frena instantáneamente en 0.05 segundos sin pulsaciones fantasma. Al volver a encender, lee la pantalla y retoma la orden sin sobrescribir ni duplicar montos.</p>
+        <h3>🛑 5. Freno en Seco 0.05s + Cero Pago Doble</h3>
+        <p>Escudo interno que prohíbe pagar dos veces la misma orden. Si apagas el bot a mitad de una transferencia, frena en 0.05s; al volver a encender, lee la pantalla y retoma donde quedó.</p>
       </div>
       <div class="card">
         <h3>🔒 6. Seguridad Criptográfica 100% Local</h3>
-        <p>Corre en tu propia laptop con tu IP residencial de Venezuela (sin servidores externos). Opera con conexión a Binance <b>SIN permiso de retiro</b> y guarda tus credenciales exclusivamente en tu computadora.</p>
+        <p>Corre en tu propia PC con tu IP residencial de Venezuela (cero servidores externos ni Tampermonkey). Opera con API de Binance <b>SIN permiso de retiro</b> y botón opcional <b>🛡️ Confirmar Monto</b>.</p>
       </div>
     </div>
   </section>
@@ -1080,19 +1176,48 @@
         <ul class="compare-list">
           <li>⏳ Tardas de <b>45 a 90 segundos</b> por cada transferencia copiando y pegando números.</li>
           <li>⚠️ Riesgo constante de equivocarte en un dígito o en un decimal cuando estás cansado.</li>
-          <li>😰 Estrés y retrasos cuando te caen <b>5 o 10 órdenes al mismo tiempo</b> en Binance.</li>
-          <li>🧮 Pierdes horas al final del día sumando órdenes en calculadora para saber cuánto ganaste.</li>
+          <li>😰 Se te tranca la cola cuando una orden grande supera tu saldo o te caen 10 órdenes juntas.</li>
+          <li>🧮 Pierdes horas al final del día sumando órdenes y comisiones para saber cuánto ganaste.</li>
         </ul>
       </div>
 
       <div class="compare-box auto">
-        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core <span class="ver-auto">v7.5</span></h3>
+        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core <span class="ver-auto">v7.6</span></h3>
         <ul class="compare-list">
           <li>⚡ Pagas, subes la foto del recibo al chat y marcas como pagado en <b>4.41 segundos</b>.</li>
-          <li>🎯 <b>0% error humano:</b> verifica los 20 dígitos 0102 y escribe el monto exacto con centavos.</li>
-          <li>🤖 Despacha colas enteras de órdenes de abajo hacia arriba mientras tú solo supervisas.</li>
-          <li>📊 Tu <b>Excel de ganancias (.XLSX)</b> y tus carpetas de captures por fecha se hacen solos.</li>
+          <li>🎯 <b>0% error humano:</b> verifica los 20 dígitos 0102 y escribe el monto exacto al centavo.</li>
+          <li>🚀 <b>Salto Inteligente de Cola:</b> salta órdenes que superen tu saldo y despacha las demás al instante.</li>
+          <li>📊 Tu <b>Excel de ganancias (.XLSX)</b> con descuento VIP y carpetas de captures se hacen solos.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       🏆 SECCIÓN: CASOS DE ÉXITO REALES AUDITADOS EN PRODUCCIÓN
+       ========================================================================== -->
+  <section id="casos-reales" class="container">
+    <h2 class="sec-title">Resultados Reales Auditados de <span>Comerciantes Usando JJp2p</span></h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <span class="case-badge">🥇 COMERCIANTE VIP ORO (0.125%)</span>
+        <h3>Jonathan Ramos</h3>
+        <span class="case-kpi">+161,78 USDT Libres en 1 Día</span>
+        <p>Más de <b>2.058 compras</b> auditadas en su bóveda. En un solo día (5 vueltas) movió <b>58.829,02 USDT vendidos</b> y <b>59.149,37 USDT comprados</b> (+61,6 millones de Bs), logrando <b>+161,78 USDT de ganancia neta pura</b> después de comisiones, calculada al centavo por el Excel del bot.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-badge">⚡ RÁFAGAS EN MODO TURBO</span>
+        <h3>Luis Guzmán</h3>
+        <span class="case-kpi">146 a +170 Órdenes por Sesión</span>
+        <p>Despacha ráfagas continuas de más de <b>170 órdenes pagadas en una sola sesión</b> con tiempos de <b>4.41s a 5.11s por transferencia</b> y <b>100% de efectividad</b> en saludo, pago en BDV, subida de comprobante al chat de Binance y marcado automático.</p>
+      </div>
+
+      <div class="case-card">
+        <span class="case-badge">🏦 OPERATIVA MULTIBANCO</span>
+        <h3>Daniel Ramón</h3>
+        <span class="case-kpi">+78,10 USDT Libres en el Día</span>
+        <p>Más de <b>2.335 compras</b> registradas en su bóveda contable. Opera vueltas continuas moviendo millones de Bolívares al día mientras el Excel separa automáticamente cada banco, descuenta comisiones y le indica el saldo exacto restante en cuenta.</p>
       </div>
     </div>
   </section>
@@ -1103,7 +1228,7 @@
   <section id="videos-en-vivo" class="container">
     <div class="live-video-banner">
       <h3>🎬 ¿Quieres Ver el Bot Pagando en Vivo Antes de Empezar?</h3>
-      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p <span class="ver-auto">v7.5</span></b> ejecutando transferencias en 4.41 segundos, enviando el capture al chat de Binance y generando el Excel de ganancias en tiempo real.</p>
+      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p <span class="ver-auto">v7.6</span></b> ejecutando transferencias en 4.41 segundos, saltando órdenes sin saldo y generando el Excel de ganancias en tiempo real.</p>
       <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg" style="padding:15px 30px;font-size:15.5px;">
         ✈️ VER VIDEOS EN VIVO EN TELEGRAM (@jjp2poficial)
       </a>
@@ -1149,20 +1274,21 @@
 
       <!-- PREGUNTA 2 -->
       <details class="faq-item">
-        <summary>2. 🛡️ ¿Cómo funciona exactamente la Garantía de 48 Horas?</summary>
+        <summary>2. 🎁 ¿Cómo funcionan los 3 Días de Prueba Gratuita y la Garantía de 48 Horas?</summary>
         <div class="faq-body">
-          Es muy sencillo y transparente: cuando nos realizas el pago de tu licencia, <b>nosotros retenemos tu dinero guardado durante 48 horas</b> por si quieres cancelar tu decisión. Durante esos 2 días pruebas el bot en vivo en tu propia computadora; si por cualquier motivo decides no quedártelo, nos avisas dentro de las 48 horas y <b>te devolvemos el 100% de tu dinero de inmediato</b>.
+          Tienes doble respaldo total:
+          <br>1️⃣ <b>3 Días de Prueba Gratuita:</b> Descargas el bot, me envías tu código <code>NODO</code> por WhatsApp (<b>+58 414-7744352</b>) y te activo <b>3 días completos gratis sin compromiso</b> para que lo pruebes pagando en vivo.
+          <br>2️⃣ <b>Garantía de Reembolso de 48 Horas:</b> Cuando decides adquirir tu licencia paga, <b>retenemos tu dinero en garantía durante 48 horas</b>. Si por cualquier motivo decides cancelar dentro de esas 48 horas, <b>te devolvemos el 100% de tu dinero de inmediato</b>.
         </div>
       </details>
 
       <!-- PREGUNTA 3 -->
       <details class="faq-item">
-        <summary>3. ⚡ ¿Qué funciones exactas hace el Bot por mí?</summary>
+        <summary>3. ⚡ ¿Qué hace el Bot si una orden supera mi saldo o si me entran Bolívares mientras opera?</summary>
         <div class="faq-body">
-          Hace todo el trabajo pesado de pago en <b>4.41 segundos</b>:
-          <br>1️⃣ Revisa tus órdenes abiertas en Binance de la más vieja a la más nueva y envía el saludo inicial al cliente por el chat.
-          <br>2️⃣ Busca los 20 dígitos de cuenta Banco de Venezuela (<code>0102</code>) en el perfil o en el chat. <i>(Si el cliente puso Pago Móvil u otro banco, el bot le pide automáticamente los 20 dígitos 0102 por el chat y pasa a pagar la siguiente orden sin detener tu cola).</i>
-          <br>3️⃣ Ejecuta la transferencia en tu teléfono, le toma capture al recibo, sube la foto y el número de referencia al chat de Binance, y <b>marca la orden como Pagada automáticamente</b>.
+          Con el nuevo motor <b><span class="ver-auto">v7.6</span></b> tu operativa nunca se detiene:
+          <br>• <b>Salto Inteligente de Cola (0.00s):</b> Si tienes <code>143.000 Bs</code> en tu cuenta BDV y la primera orden es de <code>150.000 Bs</code>, el bot la salta instantáneamente y paga las siguientes órdenes de la cola (ej. de <code>80.000 Bs</code> o <code>50.000 Bs</code>) que sí alcancen con tu saldo.
+          <br>• <b>Lectura de Saldo en Cada Pago:</b> Cuando recibes Bolívares por tus ventas de USDT, no tienes que detener el bot ni ir al menú Inicio; en cada transferencia lee tu nuevo saldo disponible automáticamente por Turbo-OCR.
         </div>
       </details>
 
@@ -1170,18 +1296,19 @@
       <details class="faq-item">
         <summary>4. 📊 ¿Qué funciones tiene el Excel Contable (.XLSX) y cómo guarda mis captures?</summary>
         <div class="faq-body">
-          Lleva toda tu contabilidad automática sin que tengas que usar calculadora:
-          <br>• Te muestra en vivo cuánto ganaste <b>Hoy, en la Semana, en el Mes y en Total</b> (tanto en USDT como en Bolívares, ya descontando las comisiones de Binance).
-          <br>• Te genera un libro de <b>Excel (<code>.XLSX</code>)</b> con 4 hojas ordenadas: <i>Resumen y Gráfica de Crecimiento, Ganancia Diaria Fácil, Cierre Semanal/Mensual e Historial Bancario</i>.
-          <br>• Guarda automáticamente la foto de cada comprobante de pago en carpetas ordenadas por fecha (<b>Día-Mes-Año</b>) dentro de tus Documentos.
+          Es un motor contable P2P profesional auditado al centavo:
+          <br>• Lee directamente de la API de Binance tanto tus <b>Ventas (SELL)</b> como tus <b>Compras (BUY)</b>.
+          <br>• Detecta automáticamente tu <b>Nivel VIP en Binance</b> (Común <code>0.25%</code>, Bronce <code>0.20%</code>, Plata <code>0.175%</code>, Oro <code>0.125%</code>) y descuenta la comisión exacta de cada orden.
+          <br>• Divide el día por vueltas y <b>separa automáticamente los Bolívares propios viejos</b> que ya tenías en el banco para mostrarte tu ganancia neta pura real.
+          <br>• Guarda todos los comprobantes <code>.png</code> en carpetas ordenadas por fecha (<b>DD-MM-YYYY</b>) dentro de tus Documentos.
         </div>
       </details>
 
       <!-- PREGUNTA 5 -->
       <details class="faq-item">
-        <summary>5. 💳 ¿Qué métodos de pago aceptan para adquirir la licencia?</summary>
+        <summary>5. 💳 ¿Qué planes de licencia tienen y qué métodos de pago aceptan?</summary>
         <div class="faq-body">
-          Aceptamos los siguientes métodos de pago:
+          Contamos con planes flexibles: <b>Prueba Gratis (3 Días), Semanal (7 Días), Quincenal (15 Días), Mensual (30 Días) y Licencia Permanente</b>. Aceptamos:
           <div class="pay-pills">
             <span class="pay-pill" style="border-color:var(--emerald);">🟢 USDT (Binance Pay / Red Cripto)</span>
             <span class="pay-pill" style="border-color:#a855f7;">🟣 Zelle</span>
@@ -1201,9 +1328,9 @@
 
       <!-- PREGUNTA 7 -->
       <details class="faq-item">
-        <summary>7. 📱 ¿Qué necesito para usarlo y me ayudan a instalarlo?</summary>
+        <summary>7. 📱 ¿Qué necesito para usarlo y me ayudan a instalarlo por videollamada?</summary>
         <div class="faq-body">
-          Solo necesitas una laptop o PC con <b>Windows 10 o Windows 11</b> y <b>cualquier teléfono Android</b> (conectado por cable USB o por Wi-Fi). Si necesitas ayuda, nos escribes al WhatsApp (<b>+58 414-7744352</b>) y <b>hacemos videollamada contigo</b> para dejarlo instalado y calibrado al 100%.
+          Solo necesitas una laptop o PC con <b>Windows 10 o Windows 11</b> y <b>cualquier teléfono Android</b> (conectado por cable USB o por Wi-Fi en 1 Clic). Escríbenos al WhatsApp (<b>+58 414-7744352</b>) y <b>hacemos videollamada contigo</b> para dejarlo instalado y calibrado al 100%.
         </div>
       </details>
 
@@ -1215,18 +1342,31 @@
        ========================================================================== -->
   <section id="actualizaciones" class="container">
     <div class="update-panel">
-      <h3>🔄 Historial de Novedades y Mejoras (<span class="ver-auto">v7.5</span> + Anteriores)</h3>
-      <p style="color:#cbd5e1;font-size:13.8px;">¿Ya tienes instalado JJp2p? Toca arriba a la derecha en <b>🖥️ Interfaz ▾ ➔ 🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> (o el botón verde en pantalla) para actualizar en 1 clic conservando tus llaves y tu calibración:</p>
+      <h3>🔄 Historial de Novedades y Mejoras (<span class="ver-auto">v7.6</span> + Anteriores)</h3>
+      <p style="color:#cbd5e1;font-size:13.8px;">¿Ya tienes instalado JJp2p? Toca arriba a la derecha en <b>🖥️ Interfaz ▾ ➔ 🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> para actualizar en 1 clic conservando tus llaves y tu calibración:</p>
 
-      <!-- BLOQUE VERSIÓN 7.5 (ACTUAL) -->
+      <!-- BLOQUE VERSIÓN 7.6 (ACTUAL) -->
       <div class="version-block latest">
         <div class="version-tag-head">
-          <b>🚀 Novedades de la Versión <span class="ver-auto">v7.5</span> (Actualización Actual)</b>
+          <b>🚀 Novedades de la Versión <span class="ver-auto">v7.6</span> (Actualización Actual)</b>
           <span class="version-pill-badge">🟢 ÚLTIMA VERSIÓN</span>
         </div>
         <ul class="update-list">
-          <li>⚡ <b>Arranque Instantáneo Ultra-Rápido (~1.5 Segundos):</b> Nuevo motor de inicio asíncrono en segundo plano y chequeo instantáneo de puerto local, logrando que la ventana de EVA abra hasta 10 veces más rápido al hacer doble clic.</li>
-          <li>🔒 <b>Caché en Memoria RAM del Candado Físico de Hardware:</b> El serial físico de tu tarjeta madre se lee una sola vez en el microsegundo cero y permanece en memoria RAM durante toda la sesión, eliminando pausas del sistema en Windows 10 y Windows 11.</li>
+          <li>🚀 <b>Salto Inteligente de Cola por Liquidez (0.000s):</b> Si una orden abierta supera tu saldo actual en BDV, el bot no se detiene ni se bloquea: la salta instantáneamente y paga las siguientes órdenes de la cola que sí alcancen con tus Bolívares disponibles.</li>
+          <li>🔄 <b>Actualización Automática de Saldo en Cada Pago (0.00s de Espera Extra):</b> Cuando haces ciclos continuos y te caen Bolívares de tus ventas de USDT, no necesitas detener el bot ni ir al menú Inicio; al desplegar la cuenta a debitar en <i>Transferencias a terceros</i>, lee el nuevo saldo en vivo por Turbo-OCR (con blindaje para cifras millonarias) y descuenta el pago al instante.</li>
+          <li>⏱️ <b>Auto-Refresco en Espera (Cada 6 Segundos):</b> Si todas las órdenes en cola superan tu saldo mientras esperas que te paguen una venta de USDT, el bot refresca la cuenta cada 6 segundos, detecta los nuevos Bolívares apenas caen y dispara los pagos pendientes automáticamente.</li>
+        </ul>
+      </div>
+
+      <!-- BLOQUE VERSIÓN 7.5 (INCLUIDA) -->
+      <div class="version-block">
+        <div class="version-tag-head">
+          <b>⚡ Mejoras Incluidas desde la Versión v7.5</b>
+          <span class="version-pill-badge" style="border-color:var(--cyan);color:var(--cyan);background:rgba(0,240,255,0.12);">INCLUIDO</span>
+        </div>
+        <ul class="update-list">
+          <li>⚡ <b>Arranque Instantáneo Ultra-Rápido (~1.5 Segundos):</b> Motor de inicio asíncrono en segundo plano y chequeo instantáneo de puerto local, logrando que la ventana de EVA abra hasta 10 veces más rápido.</li>
+          <li>🔒 <b>Caché en Memoria RAM del Candado Físico de Hardware:</b> El serial físico de tu tarjeta madre se lee una sola vez en el microsegundo cero y permanece en memoria RAM durante toda la sesión.</li>
         </ul>
       </div>
 
@@ -1237,8 +1377,8 @@
           <span class="version-pill-badge" style="border-color:var(--cyan);color:var(--cyan);background:rgba(0,240,255,0.12);">INCLUIDO</span>
         </div>
         <ul class="update-list">
-          <li>📊 <b>Contabilidad P2P Exacta al Centavo + Rango VIP Automático:</b> El Excel (<code>.XLSX</code>) lee directamente de la API oficial de Binance la comisión exacta cobrada en cada orden según tu nivel VIP (Común, Bronce, Plata u Oro), alinea fechas completas y separa el dinero propio de tu banco para mostrar tu ganancia pura real.</li>
-          <li>🌐 <b>Auto-Actualizador en 1 Clic Blindado (SSL + Curl Nativo):</b> Descarga e instala las nuevas actualizaciones directamente desde la nube en cualquier versión de Windows sin errores de certificados SSL.</li>
+          <li>📊 <b>Contabilidad P2P Exacta al Centavo + Rango VIP Automático:</b> El Excel (<code>.XLSX</code>) lee directamente de la API oficial de Binance la comisión exacta cobrada en cada orden según tu nivel VIP (Común, Bronce, Plata u Oro) y separa el dinero propio de tu banco para mostrar tu ganancia pura real.</li>
+          <li>🌐 <b>Auto-Actualizador en 1 Clic Blindado (SSL + Curl Nativo):</b> Descarga e instala las nuevas actualizaciones directamente desde la nube en cualquier versión de Windows.</li>
           <li>🛡️ <b>12 Blindajes de Seguridad y Candado Anti-Clon por PC:</b> Vinculación física al hardware de tu computadora y protección criptográfica de todas las rutas internas.</li>
         </ul>
       </div>
@@ -1250,7 +1390,7 @@
           <span class="version-pill-badge" style="border-color:var(--amber);color:var(--amber);background:rgba(255,184,0,0.12);">BASE CORE</span>
         </div>
         <ul class="update-list">
-          <li>🔄 <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bolívares al encender el bot y cada 15 segundos en reposo sin tocar la pantalla.</li>
+          <li>🔄 <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bolívares al encender el bot y en reposo.</li>
           <li>🧭 <b>Escape Automático del Histórico de Operaciones:</b> Nunca confunde un comprobante viejo con el formulario vacío.</li>
           <li>🛑 <b>Freno en Seco (0.05s) + Reanudación Quirúrgica:</b> Detiene cualquier ráfaga al instante al apagar el bot y retoma la orden en el paso exacto al volver a encender.</li>
         </ul>
@@ -1264,11 +1404,11 @@
        ========================================================================== -->
   <section id="contacto" class="container">
     <div class="contact-box">
-      <h2 style="font-size:clamp(20px,3.5vw,26px);font-weight:900;color:#fff;">🔑 ¿Listo para Automatizar tu Operativa P2P con Garantía de 48 Horas?</h2>
+      <h2 style="font-size:clamp(20px,3.5vw,26px);font-weight:900;color:#fff;">🎁 ¿Listo para Probar JJp2p <span class="ver-auto">v7.6</span> GRATIS por 3 Días + Garantía de 48 Horas?</h2>
       <p style="color:#cbd5e1;margin-top:8px;font-size:14px;">Descarga el sistema en tu PC, copia tu código <b>NODO (NX-XXXX-XXXX-XXXX)</b> desde la barra superior del programa y envíamelo por WhatsApp con tu <b>Nombre y Apellido</b> para activarte al instante:</p>
       <div class="contact-btns">
-        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20ya%20descargue%20JJp2p.%20Te%20envio%20mi%20NODO%20y%20mi%20Nombre%20y%20Apellido%20para%20activar%20mi%20licencia:" target="_blank" class="btn-wa">
-          💬 WhatsApp Oficial: +58 414-7744352
+        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20ya%20descargue%20JJp2p%20v7.6.%20Te%20envio%20mi%20NODO%20y%20mi%20Nombre%20y%20Apellido%20para%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATIS:" target="_blank" class="btn-wa">
+          💬 WhatsApp Oficial (3 Días Gratis): +58 414-7744352
         </a>
         <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg">
           ✈️ Telegram Oficial: @jjp2poficial
@@ -1278,13 +1418,13 @@
   </section>
 
   <footer>
-    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.5</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
+    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.6</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
   </footer>
 
   <!-- BARRA FIJA INFERIOR EXCLUSIVA PARA CELULARES -->
   <div class="mobile-bottom-bar">
-    <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mi%20licencia%20de%20JJp2p" target="_blank" class="m-bar-btn" style="background:#128c7e;">
-      💬 WhatsApp
+    <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20GRATIS%20de%20JJp2p%20v7.6" target="_blank" class="m-bar-btn" style="background:#128c7e;">
+      🎁 3 Días Gratis
     </a>
     <a href="https://t.me/jjp2poficial" target="_blank" class="m-bar-btn" style="background:#229ed9;">
       ✈️ Telegram
@@ -1297,7 +1437,7 @@
   <script>
     // Actualiza automáticamente la versión en toda la página web usando VERSION_OFICIAL_WEB
     (function aplicarVersionAutomaticaWeb() {
-      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.5').replace(/^v/i, '');
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.6').replace(/^v/i, '');
       document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — WALL·E & EVA EDITION`;
       document.querySelectorAll('.ver-auto').forEach(el => { el.textContent = vTxt; });
     })();
@@ -1346,7 +1486,7 @@
     function interaccionEvaWeb(ev) {
       if (ev && ev.clientX) lanzarChispasSciFi(ev.clientX, ev.clientY);
       modoForzadoHasta = Date.now() + 3000;
-      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.5').replace(/^v/i, '');
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.6').replace(/^v/i, '');
       fijarExpresionEva('happy', `💚 EVA: ¡MOTOR DIRECTO ${vTxt} ACTIVO!`);
     }
 
