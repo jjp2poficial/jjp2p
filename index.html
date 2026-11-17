@@ -10,7 +10,7 @@
   <script>
     const VERSION_OFICIAL_WEB = "7.6";
   </script>
-  <title>JJp2p // QUANTUM P2P CORE v7.6 — WALL·E & EVA EDITION</title>
+  <title>JJp2p // QUANTUM P2P CORE v7.6 — BDV + BANESCO MULTICUENTAS</title>
   <style>
     :root {
       --bg-dark: #02050b;
@@ -30,22 +30,22 @@
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: radial-gradient(circle at 50% 0%, #0f2547 0%, #030710 60%, #010307 100%);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.55;
       overflow-x: hidden;
       padding-bottom: 76px;
     }
     a { text-decoration: none; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 18px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
 
-    /* NAVBAR */
+    /* NAVBAR LIMPIA Y DIRECTA */
     .navbar {
-      background: rgba(5, 11, 22, 0.92);
+      background: rgba(5, 11, 22, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1.5px solid rgba(0, 240, 255, 0.25);
       position: sticky;
       top: 0;
       z-index: 100;
-      padding: 12px 0;
+      padding: 11px 0;
     }
     .nav-wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     .brand { display: flex; align-items: center; gap: 10px; }
@@ -70,81 +70,71 @@
       font-weight: 800;
       transition: 0.2s;
     }
-    .btn-nav:hover { border-color: var(--cyan); color: #fff; box-shadow: 0 0 15px rgba(0,240,255,0.35); transform: translateY(-1px); }
-    .btn-nav.cta { background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%); color: #011f12; border-color: var(--emerald); font-weight: 900; }
+    .btn-nav:hover { border-color: var(--cyan); color: #fff; transform: translateY(-1px); }
+    .btn-nav.cta-wa {
+      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      color: #fff;
+      border-color: #4ade80;
+      font-weight: 900;
+      box-shadow: 0 0 16px rgba(37,211,102,0.4);
+    }
 
-    /* HERO */
-    .hero { padding: 34px 0 32px 0; text-align: center; position: relative; }
-    .top-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
-    .badge-version {
-      display: inline-block;
-      background: rgba(0, 255, 157, 0.12);
+    /* HERO PRINCIPAL (TODO EN LA PRIMERA PANTALLA) */
+    .hero { padding: 26px 0 24px 0; text-align: center; }
+    .top-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .badge-banks {
+      background: rgba(0, 255, 157, 0.14);
       border: 1.5px solid var(--emerald);
       color: var(--emerald);
-      padding: 6px 15px;
+      padding: 6px 16px;
       border-radius: 25px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 900;
       box-shadow: 0 0 20px rgba(0,255,157,0.2);
     }
     .badge-trial {
-      display: inline-block;
-      background: rgba(0, 240, 255, 0.15);
-      border: 1.5px solid var(--cyan);
-      color: #fff;
-      padding: 6px 15px;
-      border-radius: 25px;
-      font-size: 11.5px;
-      font-weight: 900;
-      box-shadow: 0 0 22px rgba(0,240,255,0.35);
-      animation: pulseTrial 2s infinite;
-    }
-    @keyframes pulseTrial { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.03); } }
-    .badge-garantia {
-      display: inline-block;
-      background: rgba(255, 184, 0, 0.14);
+      background: rgba(255, 184, 0, 0.16);
       border: 1.5px solid var(--amber);
       color: var(--amber);
-      padding: 6px 15px;
+      padding: 6px 16px;
       border-radius: 25px;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 900;
       box-shadow: 0 0 20px rgba(255,184,0,0.25);
     }
     .hero h1 {
-      font-size: clamp(24px, 4.8vw, 48px);
+      font-size: clamp(23px, 4.4vw, 44px);
       font-weight: 900;
       line-height: 1.18;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       text-shadow: 0 0 25px rgba(0,240,255,0.25);
     }
     .hero h1 span { color: var(--cyan); }
     .hero p {
-      max-width: 790px;
-      margin: 0 auto 22px auto;
-      font-size: clamp(14px, 2.2vw, 16.5px);
+      max-width: 780px;
+      margin: 0 auto 18px auto;
+      font-size: clamp(14px, 2vw, 16px);
       color: #cbd5e1;
     }
 
     /* ==========================================================================
-       🤖 ESFERA 3D Y ANIMACIONES OFICIALES DE LA CARA DE EVA
+       🤖 ESFERA 3D DE EVA
        ========================================================================== */
     .eva-center-wrap {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      position: relative;
-      margin: 18px auto 28px auto;
+      margin: 10px auto 22px auto;
     }
     .eva-ring-outer {
-      width: 236px;
-      height: 236px;
+      width: 196px;
+      height: 196px;
       border-radius: 50%;
-      padding: 12px;
+      padding: 10px;
       background: radial-gradient(circle, #071c36 0%, #02060d 100%);
       border: 2.5px solid rgba(0, 225, 255, 0.65);
-      box-shadow: 0 0 35px rgba(0, 200, 255, 0.42), inset 0 0 25px rgba(0, 200, 255, 0.35);
+      box-shadow: 0 0 32px rgba(0, 200, 255, 0.42), inset 0 0 22px rgba(0, 200, 255, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -157,7 +147,7 @@
     .eva-ring-outer::before {
       content: '';
       position: absolute;
-      inset: -8px;
+      inset: -7px;
       border-radius: 50%;
       border: 3px solid transparent;
       border-top-color: var(--eva-cyan);
@@ -178,61 +168,53 @@
     @keyframes evaSpin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     @keyframes evaSpinRev { 0% { transform: rotate(360deg); } 100% { transform: rotate(0deg); } }
     @keyframes evaFloat3D {
-      0%, 100% { transform: translateY(0px) rotateZ(0deg) rotateX(0deg) scale(1); }
-      25% { transform: translateY(-6px) rotateZ(-2.2deg) rotateX(4deg) scale(1.015); }
-      50% { transform: translateY(-2px) rotateZ(0deg) rotateX(-3deg) scale(1.02); }
-      75% { transform: translateY(-7px) rotateZ(2.2deg) rotateX(3deg) scale(1.015); }
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-6px) scale(1.02); }
     }
-
     .eva-sphere {
-      width: 202px;
-      height: 202px;
+      width: 166px;
+      height: 166px;
       border-radius: 50%;
       background: radial-gradient(circle at 50% 18%, #38567d 0%, #0b1320 34%, #020408 70%, #000 100%);
       border: 3px solid #00e1ff;
-      box-shadow: inset 0 15px 28px rgba(255, 255, 255, 0.28), inset 0 -18px 34px #000, 0 0 25px rgba(0, 225, 255, 0.55);
+      box-shadow: inset 0 12px 24px rgba(255, 255, 255, 0.28), inset 0 -15px 28px #000, 0 0 22px rgba(0, 225, 255, 0.55);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      transition: 0.3s;
     }
     .eva-visor-gloss {
       position: absolute;
-      top: 6%;
-      left: 14%;
-      width: 72%;
-      height: 35%;
+      top: 6%; left: 14%; width: 72%; height: 35%;
       border-radius: 50%;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(190, 235, 255, 0.08) 55%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
     }
     .eva-inner-visor {
       position: absolute;
-      inset: 14px;
+      inset: 12px;
       border-radius: 50%;
       background: radial-gradient(circle at 50% 55%, #040811 0%, #010204 85%);
-      box-shadow: inset 0 6px 16px rgba(0, 0, 0, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
     }
     .eva-eyes-box {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
       justify-content: center;
       z-index: 3;
-      margin-top: 8px;
+      margin-top: 6px;
       transition: transform 0.15s ease-out;
     }
     .eva-eye {
-      width: 56px;
-      height: 30px;
+      width: 46px;
+      height: 25px;
       border-radius: 50%;
       background: repeating-linear-gradient(180deg, #00f7ff 0px, #00f7ff 3px, #042c47 3px, #042c47 5.5px);
-      box-shadow: 0 0 18px #00f0ff, 0 0 34px rgba(0, 240, 255, 0.85), inset 0 0 8px #fff;
+      box-shadow: 0 0 16px #00f0ff, 0 0 30px rgba(0, 240, 255, 0.85), inset 0 0 8px #fff;
       transition: all 0.25s ease;
       animation: evaBlink 5.2s infinite;
     }
@@ -240,472 +222,256 @@
       0%, 93%, 97%, 100% { transform: scaleY(1); }
       95% { transform: scaleY(0.06); }
     }
-
     @keyframes evaReadingPanic {
-      0% { transform: translate(-14px, -2px) scaleY(1.18) scaleX(0.92); }
-      20% { transform: translate(14px, -2px) scaleY(1.18) scaleX(0.92); }
-      40% { transform: translate(-12px, 3px) scaleY(1.25) scaleX(0.88); }
-      60% { transform: translate(12px, 3px) scaleY(1.25) scaleX(0.88); }
-      80% { transform: translate(-6px, -4px) scaleY(0.95) scaleX(1.08); }
-      100% { transform: translate(8px, 1px) scaleY(1.2) scaleX(0.9); }
+      0% { transform: translate(-10px, -2px) scaleY(1.15); }
+      50% { transform: translate(10px, 2px) scaleY(1.2); }
+      100% { transform: translate(-6px, 0px) scaleY(1.1); }
     }
-    .eva-ring-outer.mood-reading,
-    .eva-ring-outer.mood-work {
+    .eva-ring-outer.mood-reading {
       border-color: var(--amber) !important;
-      box-shadow: 0 0 42px rgba(255, 184, 0, 0.7), inset 0 0 28px rgba(0, 240, 255, 0.4) !important;
+      box-shadow: 0 0 38px rgba(255, 184, 0, 0.7) !important;
     }
-    .eva-ring-outer.mood-reading::before,
-    .eva-ring-outer.mood-work::before {
-      border-top-color: var(--amber);
-      border-bottom-color: var(--amber);
-      filter: drop-shadow(0 0 8px var(--amber));
-      animation-duration: 3s;
-    }
-    .eva-ring-outer.mood-reading .eva-sphere,
-    .eva-ring-outer.mood-work .eva-sphere {
-      border-color: var(--amber);
-      box-shadow: inset 0 14px 26px rgba(255, 255, 255, 0.22), 0 0 26px rgba(255, 184, 0, 0.55);
-    }
-    .eva-ring-outer.mood-reading #evaEyesBox,
-    .eva-ring-outer.mood-work #evaEyesBox {
-      animation: evaReadingPanic 0.55s steps(4, end) infinite !important;
-    }
-    .eva-ring-outer.mood-reading .eva-eye,
-    .eva-ring-outer.mood-work .eva-eye {
-      width: 52px !important;
-      height: 34px !important;
-      border-radius: 45% !important;
+    .eva-ring-outer.mood-reading::before { border-top-color: var(--amber); border-bottom-color: var(--amber); }
+    .eva-ring-outer.mood-reading .eva-sphere { border-color: var(--amber); }
+    .eva-ring-outer.mood-reading #evaEyesBox { animation: evaReadingPanic 0.55s steps(4, end) infinite !important; }
+    .eva-ring-outer.mood-reading .eva-eye {
       background: repeating-linear-gradient(180deg, #ffb800 0px, #ffb800 2.5px, #00f0ff 2.5px, #042c47 5px) !important;
-      box-shadow: 0 0 22px #ffb800, 0 0 36px #00f0ff, inset 0 0 10px #fff !important;
-    }
-
-    @keyframes evaHappyBounce {
-      0%, 100% { transform: translateY(3px) scale(1); }
-      50% { transform: translateY(-4px) scale(1.06); }
+      box-shadow: 0 0 20px #ffb800 !important;
     }
     .eva-ring-outer.mood-happy {
       border-color: var(--emerald);
-      box-shadow: 0 0 40px rgba(0, 255, 157, 0.65), inset 0 0 25px rgba(0, 255, 157, 0.4);
+      box-shadow: 0 0 36px rgba(0, 255, 157, 0.65);
     }
-    .eva-ring-outer.mood-happy::before {
-      border-top-color: var(--emerald);
-      border-bottom-color: var(--emerald);
-      filter: drop-shadow(0 0 10px var(--emerald));
-    }
-    .eva-ring-outer.mood-happy .eva-sphere {
-      border-color: var(--emerald);
-      box-shadow: inset 0 14px 26px rgba(255, 255, 255, 0.25), 0 0 28px rgba(0, 255, 157, 0.6);
-    }
-    .eva-ring-outer.mood-happy #evaEyesBox {
-      animation: evaHappyBounce 0.9s ease-in-out infinite !important;
-    }
+    .eva-ring-outer.mood-happy::before { border-top-color: var(--emerald); border-bottom-color: var(--emerald); }
+    .eva-ring-outer.mood-happy .eva-sphere { border-color: var(--emerald); }
     .eva-ring-outer.mood-happy .eva-eye {
-      width: 56px;
-      height: 26px;
+      width: 46px; height: 22px;
       background: transparent;
-      border-top: 8px solid var(--emerald);
+      border-top: 7px solid var(--emerald);
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
       border-radius: 50% 50% 0 0;
-      box-shadow: 0 -8px 18px rgba(0, 255, 157, 0.9);
+      box-shadow: 0 -6px 16px rgba(0, 255, 157, 0.9);
       animation: none;
-      transform: translateY(4px);
     }
-
     .eva-mood-pill {
-      margin-top: 14px;
+      margin-top: 12px;
       background: rgba(4, 9, 18, 0.92);
       border: 1.5px solid #244973;
       border-radius: 16px;
-      padding: 5px 16px;
+      padding: 4px 15px;
       font-size: 11px;
       font-weight: 900;
       color: var(--eva-cyan);
-      letter-spacing: 0.4px;
-      text-align: center;
-      box-shadow: 0 0 14px rgba(0, 240, 255, 0.22);
-      transition: color 0.3s ease, border-color 0.3s ease;
     }
-
     .spark-fx {
-      position: fixed;
-      pointer-events: none;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--eva-cyan);
-      box-shadow: 0 0 14px var(--eva-cyan), 0 0 24px #fff;
-      z-index: 9999;
-      animation: sparkFly 0.7s ease-out forwards;
+      position: fixed; pointer-events: none; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--eva-cyan); box-shadow: 0 0 14px var(--eva-cyan), 0 0 24px #fff;
+      z-index: 9999; animation: sparkFly 0.7s ease-out forwards;
     }
     @keyframes sparkFly {
       0% { transform: translate(0, 0) scale(1); opacity: 1; }
       100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
     }
 
-    /* DOWNLOAD BUTTONS */
-    .dl-box { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
-    .btn-download-main {
-      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
-      color: #021c10;
-      padding: 15px 26px;
-      border-radius: 13px;
-      font-size: 15.5px;
-      font-weight: 900;
-      border: 2px solid #7affc9;
-      box-shadow: 0 0 28px rgba(0,255,157,0.55);
-      transition: 0.22s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      text-align: center;
-    }
-    .btn-download-main:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 40px rgba(0,255,157,0.85); }
-    .btn-trial-wa {
-      background: linear-gradient(180deg, #ffb800 0%, #d48800 100%);
-      color: #1a0f00;
-      padding: 15px 24px;
-      border-radius: 13px;
-      font-size: 15px;
-      font-weight: 900;
-      border: 2px solid #ffe082;
-      box-shadow: 0 0 26px rgba(255,184,0,0.5);
-      transition: 0.22s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-align: center;
-    }
-    .btn-trial-wa:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 0 38px rgba(255,184,0,0.85); }
-    .btn-download-zip {
-      background: linear-gradient(180deg, #132540 0%, #081222 100%);
-      color: var(--cyan);
-      padding: 15px 22px;
-      border-radius: 13px;
-      font-size: 14.5px;
-      font-weight: 900;
-      border: 2px solid var(--cyan);
-      box-shadow: 0 0 20px rgba(0,240,255,0.25);
-      transition: 0.22s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      text-align: center;
-    }
-    .btn-download-zip:hover { background: #163052; color: #fff; transform: translateY(-2px); }
-    .dl-note { font-size: 12.5px; color: var(--text-muted); padding: 0 8px; }
-    .banesco-soon-pill {
-      display: inline-block;
-      margin-top: 12px;
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px dashed var(--cyan);
-      color: #e2e8f0;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 800;
-    }
-    .banesco-soon-pill b { color: var(--cyan); }
-
-    /* GUARANTEE BANNER 3 DIAS GRATIS + 48H */
-    .guarantee-banner {
-      background: linear-gradient(135deg, rgba(43, 29, 4, 0.92) 0%, rgba(12, 20, 36, 0.96) 100%);
-      border: 2px solid var(--amber);
-      border-radius: 18px;
-      padding: 22px 24px;
-      margin: 28px auto 32px auto;
-      max-width: 960px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      box-shadow: 0 0 32px rgba(255, 184, 0, 0.22);
+    /* ==========================================================================
+       🚀 CAJA PRINCIPAL ARRIBA: 3 PASOS PARA ACTIVAR TUS 3 DÍAS GRATIS AHORA MISMO
+       ========================================================================== */
+    .quick-start-panel {
+      background: linear-gradient(180deg, #0d1b32 0%, #060c18 100%);
+      border: 2.5px solid var(--cyan);
+      border-radius: 22px;
+      padding: 26px 24px;
+      max-width: 980px;
+      margin: 0 auto 28px auto;
+      box-shadow: 0 16px 45px rgba(0,0,0,0.92), 0 0 35px rgba(0, 240, 255, 0.18);
       text-align: left;
     }
-    .guarantee-seal {
-      width: 76px; height: 76px; border-radius: 50%; flex-shrink: 0;
-      background: radial-gradient(circle, #ffd000 0%, #b87b00 100%);
-      color: #1a1000;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      font-weight: 900; font-size: 13px; line-height: 1.05;
-      border: 3px solid #fff;
-      box-shadow: 0 0 20px rgba(255, 184, 0, 0.7);
+    .qs-header {
       text-align: center;
+      margin-bottom: 22px;
     }
-    .guarantee-text h3 { color: var(--amber); font-size: 18.5px; font-weight: 900; margin-bottom: 6px; }
-    .guarantee-text p { color: #f1f5f9; font-size: 13.8px; }
-
-    /* KPI BAR */
-    .kpi-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 13px;
-      margin: 32px 0;
-    }
-    .kpi-item {
-      background: linear-gradient(180deg, #0c172b 0%, #060c18 100%);
-      border: 1.5px solid #243b5e;
-      border-top: 3px solid var(--cyan);
-      border-radius: 14px;
-      padding: 16px 12px;
-      text-align: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
-    }
-    .kpi-item b { font-size: 24px; color: var(--emerald); font-weight: 900; display: block; }
-    .kpi-item span { font-size: 11.5px; color: #cbd5e1; font-weight: 700; }
-
-    /* SECTIONS */
-    .sec-title {
-      text-align: center;
-      font-size: clamp(22px, 3.8vw, 28px);
+    .qs-header h2 {
+      font-size: clamp(20px, 3.4vw, 28px);
       font-weight: 900;
-      margin: 46px 0 22px 0;
       color: #fff;
     }
-    .sec-title span { color: var(--amber); }
-    .grid-cards {
+    .qs-header h2 span { color: var(--emerald); }
+    .qs-header p {
+      font-size: 14px;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .qs-steps-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
       gap: 16px;
+      margin-bottom: 22px;
     }
-    .card {
-      background: linear-gradient(180deg, #0b1528 0%, #060b15 100%);
-      border: 1.5px solid #223859;
+    .qs-step-box {
+      background: rgba(4, 9, 19, 0.85);
+      border: 1.5px solid #26436c;
+      border-top: 4px solid var(--emerald);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.8);
-      transition: 0.2s;
-    }
-    .card:hover { border-color: var(--cyan); transform: translateY(-2px); }
-    .card h3 { font-size: 16.5px; color: var(--cyan); margin-bottom: 9px; font-weight: 900; }
-    .card p { font-size: 13.5px; color: #cbd5e1; }
-
-    /* ==========================================================================
-       🚀 SECCIÓN XL GRANDE: ¿CÓMO EMPEZAR EN 3 PASOS? + CAPTURA TAMAÑO REAL
-       ========================================================================== */
-    .steps-section-title {
-      text-align: center;
-      font-size: clamp(28px, 4.6vw, 42px);
-      font-weight: 900;
-      margin: 54px 0 28px 0;
-      color: #fff;
-      text-shadow: 0 0 22px rgba(0,240,255,0.22);
-    }
-    .steps-section-title span { color: var(--amber); }
-
-    .steps-grid {
-      max-width: 980px;
-      margin: 0 auto 24px auto;
+      padding: 18px 16px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      justify-content: space-between;
     }
-    .step-card {
-      background: linear-gradient(180deg, #0e1b33 0%, #060c18 100%);
-      border: 2px solid #2c4c7c;
-      border-left: 6px solid var(--emerald);
-      border-radius: 20px;
-      padding: 28px 30px;
-      position: relative;
-      box-shadow: 0 14px 36px rgba(0,0,0,0.9);
+    .qs-step-box.step-wa {
+      border-top-color: var(--amber);
+      border-color: rgba(255, 184, 0, 0.6);
+      background: linear-gradient(180deg, rgba(40, 28, 6, 0.55) 0%, rgba(4, 9, 19, 0.92) 100%);
     }
-    .step-card.step-2-spotlight {
-      border-left-color: var(--amber);
-      border-color: rgba(255, 184, 0, 0.65);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.95), 0 0 30px rgba(255, 184, 0, 0.14);
-    }
-    .step-num {
+    .qs-badge {
       display: inline-block;
       background: var(--emerald);
       color: #011f12;
       font-weight: 900;
-      font-size: 15px;
-      padding: 5px 16px;
-      border-radius: 25px;
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
+      font-size: 12.5px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      width: fit-content;
     }
-    .step-card h3 {
-      font-size: clamp(21px, 3vw, 26px);
+    .qs-step-box h3 {
+      font-size: 17px;
       color: #fff;
-      margin-bottom: 10px;
       font-weight: 900;
+      margin-bottom: 6px;
     }
-    .step-card p {
-      font-size: clamp(15.5px, 2.2vw, 18px);
-      color: #e2e8f0;
-      line-height: 1.65;
-    }
-
-    /* RÉPLICA A TAMAÑO REAL (GRANDE Y NÍTIDA) DE LA CAPTURA DEL BOT */
-    .bot-capture-mockup {
-      max-width: 640px;
-      margin: 22px auto 4px auto;
-      background: linear-gradient(180deg, #111b2e 0%, #080d18 100%);
-      border: 2.5px solid #355079;
-      border-top: 3px solid var(--cyan);
-      border-radius: 18px;
-      padding: 18px 20px;
-      box-shadow: 0 14px 35px rgba(0,0,0,0.95), inset 0 1px 0 rgba(255,255,255,0.12);
-      position: relative;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    .mock-top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .mock-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .mock-dot {
-      width: 14px; height: 14px; border-radius: 50%;
-      background: var(--crimson);
-      border: 2.5px solid var(--cyan);
-      box-shadow: 0 0 12px var(--crimson);
-    }
-    .mock-brand-txt b {
-      display: block; font-size: 19px; color: #fff; font-weight: 900;
-    }
-    .mock-brand-txt span {
-      display: block; font-size: 12px; color: var(--emerald); font-weight: 800; line-height: 1.25;
-    }
-    .mock-btns {
-      display: flex; gap: 7px; flex-wrap: wrap;
-    }
-    .mock-chip {
-      background: linear-gradient(180deg, #17243a 0%, #0b1220 100%);
-      border: 1.5px solid #354c70;
-      color: #e2e8f0;
-      font-size: 11.5px;
-      font-weight: 800;
-      padding: 7px 12px;
-      border-radius: 9px;
-      text-align: center;
-      line-height: 1.2;
-    }
-    .mock-green-callout {
-      text-align: right;
-      color: #00ff66;
-      font-weight: 900;
-      font-size: clamp(15px, 2.5vw, 18.5px);
-      margin-bottom: 10px;
-      text-shadow: 0 0 14px rgba(0,255,102,0.55);
-    }
-    .mock-license-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #04070e;
-      border: 1.5px solid #20324e;
-      border-radius: 11px;
-      padding: 10px 14px;
-      font-family: Consolas, monospace;
-      font-size: clamp(13px, 2.2vw, 15.5px);
-      position: relative;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .mock-orange-highlight {
-      border: 3.5px solid #ff9900;
-      border-radius: 9px;
-      padding: 7px 14px;
-      background: rgba(255, 153, 0, 0.15);
-      color: var(--cyan);
-      font-weight: 900;
-      box-shadow: 0 0 20px rgba(255, 153, 0, 0.65);
-      position: relative;
-      animation: pulseNodoBox 1.6s infinite;
-    }
-    @keyframes pulseNodoBox {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 16px rgba(255, 153, 0, 0.55); }
-      50% { transform: scale(1.03); box-shadow: 0 0 28px rgba(255, 184, 0, 0.95); }
-    }
-    .mock-yellow-arrow {
-      color: #ffee55;
-      font-size: 22px;
-      font-weight: 900;
-      margin-right: 6px;
-    }
-    .videocall-note {
-      max-width: 980px;
-      margin: 0 auto;
-      background: linear-gradient(90deg, rgba(6, 54, 38, 0.95) 0%, rgba(10, 28, 52, 0.98) 100%);
-      border: 2.5px solid var(--emerald);
-      border-radius: 16px;
-      padding: 20px 26px;
-      text-align: center;
-      font-size: clamp(15.5px, 2.3vw, 18px);
-      color: #fff;
-      font-weight: 800;
-      box-shadow: 0 0 30px rgba(0, 255, 157, 0.28);
-    }
-    .videocall-note span { color: var(--emerald); font-weight: 900; }
-
-    /* ==========================================================================
-       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. JJP2P
-       ========================================================================== */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-    .compare-box {
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.85);
-    }
-    .compare-box.manual {
-      background: linear-gradient(180deg, #1f0a12 0%, #0b060a 100%);
-      border: 2px solid var(--crimson);
-    }
-    .compare-box.auto {
-      background: linear-gradient(180deg, #06261c 0%, #050e17 100%);
-      border: 2px solid var(--emerald);
-      box-shadow: 0 0 28px rgba(0,255,157,0.18);
-    }
-    .compare-box h3 {
-      font-size: 18px;
-      font-weight: 900;
+    .qs-step-box p {
+      font-size: 13.5px;
+      color: #cbd5e1;
       margin-bottom: 14px;
     }
-    .compare-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      font-size: 13.5px;
+
+    /* BOTONES GRANDES DE ACCIÓN INMEDIATA */
+    .btn-action-zip {
+      width: 100%;
+      background: linear-gradient(180deg, #00ff9d 0%, #00b86b 100%);
+      color: #021c10;
+      padding: 13px 16px;
+      border-radius: 11px;
+      font-size: 14px;
+      font-weight: 900;
+      border: 2px solid #7affc9;
+      box-shadow: 0 0 22px rgba(0,255,157,0.45);
+      text-align: center;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.2s;
     }
-    .compare-list li {
-      background: rgba(0,0,0,0.38);
-      padding: 10px 12px;
+    .btn-action-zip:hover { transform: translateY(-2px); box-shadow: 0 0 32px rgba(0,255,157,0.8); }
+    .btn-action-exe {
+      width: 100%;
+      background: #10213a;
+      color: var(--cyan);
+      padding: 9px 12px;
       border-radius: 9px;
-      color: #f1f5f9;
+      font-size: 12.5px;
+      font-weight: 800;
+      border: 1.5px solid var(--cyan);
+      text-align: center;
+      display: block;
+    }
+    .btn-action-wa {
+      width: 100%;
+      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
+      color: #fff;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 14.5px;
+      font-weight: 900;
+      border: 2px solid #86efac;
+      box-shadow: 0 0 25px rgba(37,211,102,0.55);
+      text-align: center;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.2s;
+    }
+    .btn-action-wa:hover { transform: translateY(-2px) scale(1.01); box-shadow: 0 0 35px rgba(37,211,102,0.85); }
+    .btn-action-tg {
+      width: 100%;
+      background: linear-gradient(180deg, #2aabee 0%, #1e88e5 100%);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 900;
+      text-align: center;
+      display: block;
     }
 
-    /* ==========================================================================
-       🏆 SECCIÓN CASOS DE ÉXITO REALES AUDITADOS
-       ========================================================================== */
+    /* MINI MOCKUP DEL NODO ADENTRO DEL PASO 2 */
+    .nodo-mini-mock {
+      background: #03060c;
+      border: 2px solid #ff9900;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-family: Consolas, monospace;
+      font-size: 12.5px;
+      color: var(--cyan);
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 0 18px rgba(255, 153, 0, 0.45);
+      animation: pulseNodoBox 1.8s infinite;
+    }
+    @keyframes pulseNodoBox {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .qs-bottom-bar {
+      background: rgba(0, 255, 157, 0.1);
+      border: 1.5px solid var(--emerald);
+      border-radius: 12px;
+      padding: 12px 16px;
+      text-align: center;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .qs-bottom-bar span { color: var(--amber); font-weight: 900; }
+
+    /* SECCIONES LIMPIAS */
+    .sec-title {
+      text-align: center;
+      font-size: clamp(21px, 3.6vw, 27px);
+      font-weight: 900;
+      margin: 40px 0 18px 0;
+      color: #fff;
+    }
+    .sec-title span { color: var(--amber); }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 15px;
+    }
+    .card {
+      background: linear-gradient(180deg, #0b1528 0%, #060b15 100%);
+      border: 1.5px solid #223859;
+      border-radius: 15px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.75);
+    }
+    .card h3 { font-size: 16px; color: var(--cyan); margin-bottom: 7px; font-weight: 900; }
+    .card p { font-size: 13.3px; color: #cbd5e1; }
+
+    /* CASOS REALES */
     .cases-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
     }
     .case-card {
       background: linear-gradient(180deg, #0d1b32 0%, #050a14 100%);
       border: 1.5px solid #2b4a78;
       border-top: 4px solid var(--emerald);
-      border-radius: 16px;
-      padding: 22px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.85);
+      border-radius: 15px;
+      padding: 20px;
     }
     .case-badge {
       display: inline-block;
@@ -716,71 +482,24 @@
       font-weight: 900;
       padding: 3px 10px;
       border-radius: 20px;
-      margin-bottom: 10px;
-    }
-    .case-card h3 {
-      font-size: 18px;
-      color: #fff;
-      font-weight: 900;
       margin-bottom: 8px;
     }
-    .case-kpi {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--amber);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .case-card p {
-      font-size: 13.5px;
-      color: #cbd5e1;
-    }
+    .case-card h3 { font-size: 17.5px; color: #fff; font-weight: 900; margin-bottom: 4px; }
+    .case-kpi { font-size: 20px; font-weight: 900; color: var(--amber); margin-bottom: 8px; display: block; }
+    .case-card p { font-size: 13px; color: #cbd5e1; }
 
-    /* ==========================================================================
-       🎥 SECCIÓN: VIDEOS EN VIVO EN TELEGRAM
-       ========================================================================== */
-    .live-video-banner {
-      background: linear-gradient(135deg, #081e38 0%, #040c1a 100%);
-      border: 2px solid var(--cyan);
-      border-radius: 18px;
-      padding: 26px 22px;
-      margin: 44px 0;
-      text-align: center;
-      box-shadow: 0 0 32px rgba(0, 240, 255, 0.2);
-    }
-    .live-video-banner h3 {
-      font-size: clamp(19px, 3.2vw, 24px);
-      color: var(--cyan);
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-    .live-video-banner p {
-      max-width: 720px;
-      margin: 0 auto 18px auto;
-      font-size: 14px;
-      color: #e2e8f0;
-    }
-
-    /* ==========================================================================
-       ❓ SECCIÓN DE PREGUNTAS Y RESPUESTAS FRECUENTES (FAQ ACORDEÓN)
-       ========================================================================== */
+    /* SEGURIDAD Y PREGUNTAS CORTAS */
     .faq-wrap {
       max-width: 920px;
-      margin: 0 auto;
+      margin: 0 auto 36px auto;
       display: grid;
-      gap: 12px;
+      gap: 11px;
     }
     details.faq-item {
       background: linear-gradient(180deg, #0b1629 0%, #060b15 100%);
       border: 1.5px solid #243b5e;
-      border-radius: 14px;
+      border-radius: 13px;
       overflow: hidden;
-      transition: 0.2s;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.75);
-    }
-    details.faq-item[open] {
-      border-color: var(--cyan);
-      box-shadow: 0 0 22px rgba(0, 240, 255, 0.22);
     }
     details.faq-item.highlight-security {
       border: 2px solid var(--emerald);
@@ -788,148 +507,43 @@
     }
     details.faq-item > summary {
       list-style: none;
-      padding: 16px 20px;
-      font-size: 15px;
+      padding: 15px 18px;
+      font-size: 14.5px;
       font-weight: 900;
       color: #fff;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      user-select: none;
+      gap: 10px;
     }
     details.faq-item > summary::-webkit-details-marker { display: none; }
-    details.faq-item > summary::after {
-      content: '＋';
-      font-size: 18px;
-      color: var(--cyan);
-      font-weight: 900;
-      flex-shrink: 0;
-      transition: transform 0.2s;
-    }
-    details.faq-item[open] > summary::after {
-      content: '－';
-      color: var(--emerald);
-    }
+    details.faq-item > summary::after { content: '＋'; font-size: 18px; color: var(--cyan); font-weight: 900; }
+    details.faq-item[open] > summary::after { content: '－'; color: var(--emerald); }
     .faq-body {
-      padding: 0 20px 18px 20px;
-      font-size: 13.8px;
+      padding: 12px 18px 16px 18px;
+      font-size: 13.5px;
       color: #cbd5e1;
       border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 14px;
     }
     .proof-box {
       background: rgba(3, 8, 16, 0.85);
       border-left: 4px solid var(--emerald);
-      padding: 11px 14px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-    .proof-box b { color: var(--emerald); display: block; margin-bottom: 3px; }
-    .pay-pills {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .pay-pill {
-      background: #050c18;
-      border: 1.5px solid var(--cyan);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 900;
-    }
-
-    /* ==========================================================================
-       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES POR VERSIÓN (v7.6 + v7.5 + v7.4 + v7.3)
-       ========================================================================== */
-    .update-panel {
-      background: linear-gradient(135deg, #09192f 0%, #050c18 100%);
-      border: 2px solid var(--emerald);
-      border-radius: 18px;
-      padding: 24px 22px;
-      margin: 40px 0;
-      box-shadow: 0 0 32px rgba(0,255,157,0.15);
-    }
-    .update-panel h3 { color: var(--emerald); font-size: 20px; margin-bottom: 8px; font-weight: 900; }
-    .version-block {
-      background: rgba(3, 8, 18, 0.72);
-      border: 1.5px solid #1e3a5f;
-      border-radius: 14px;
-      padding: 16px 18px;
-      margin-top: 16px;
-    }
-    .version-block.latest {
-      border-color: var(--emerald);
-      box-shadow: 0 0 20px rgba(0, 255, 157, 0.14);
-    }
-    .version-tag-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .version-tag-head b {
-      font-size: 15.5px;
-      color: #fff;
-    }
-    .version-pill-badge {
-      background: rgba(0, 255, 157, 0.16);
-      border: 1px solid var(--emerald);
-      color: var(--emerald);
-      font-size: 11px;
-      font-weight: 900;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .update-list { list-style: none; display: grid; gap: 9px; }
-    .update-list li {
-      background: rgba(6, 13, 26, 0.9);
-      border-left: 4px solid var(--cyan);
       padding: 10px 13px;
       border-radius: 8px;
-      font-size: 13.2px;
-      color: #e2e8f0;
+      margin-top: 9px;
     }
+    .proof-box b { color: var(--emerald); display: block; margin-bottom: 2px; }
 
-    /* CONTACT FOOTER */
-    .contact-box {
-      background: linear-gradient(180deg, #101e36 0%, #060b16 100%);
-      border: 2px solid var(--amber);
-      border-radius: 18px;
-      padding: 28px 18px;
-      text-align: center;
-      margin: 44px 0 32px 0;
-    }
-    .contact-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
-    .btn-wa {
-      background: linear-gradient(180deg, #25d366 0%, #128c7e 100%);
-      color: #fff; padding: 14px 24px; border-radius: 12px; font-weight: 900; font-size: 14.5px;
-      box-shadow: 0 0 22px rgba(37,211,102,0.45);
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .btn-tg {
-      background: linear-gradient(180deg, #2aabee 0%, #229ed9 100%);
-      color: #fff; padding: 14px 24px; border-radius: 12px; font-weight: 900; font-size: 14.5px;
-      box-shadow: 0 0 22px rgba(42,171,238,0.45);
-      display: inline-flex; align-items: center; justify-content: center;
-    }
     footer {
       border-top: 1px solid #16243b;
       text-align: center;
-      padding: 22px 14px;
+      padding: 20px 14px;
       font-size: 12px;
       color: var(--text-muted);
     }
 
-    /* BARRA INFERIOR FIJA PARA CELULARES (MÓVILES) */
+    /* BARRA INFERIOR FIJA PARA CELULARES */
     .mobile-bottom-bar {
       display: none;
       position: fixed;
@@ -941,7 +555,6 @@
       z-index: 999;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 7px;
-      box-shadow: 0 -6px 24px rgba(0,0,0,0.9);
     }
     .m-bar-btn {
       padding: 10px 6px;
@@ -953,27 +566,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
     }
 
     @media (max-width: 768px) {
-      .nav-wrap { flex-direction: column; text-align: center; gap: 10px; }
-      .brand { justify-content: center; }
-      .nav-links { width: 100%; justify-content: center; gap: 6px; }
-      .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; min-width: 105px; }
-      .hero { padding: 24px 0 20px 0; }
-      .eva-ring-outer { width: 210px; height: 210px; }
-      .eva-sphere { width: 178px; height: 178px; }
-      .dl-box { flex-direction: column; width: 100%; }
-      .btn-download-main, .btn-trial-wa, .btn-download-zip { width: 100%; padding: 15px 16px; font-size: 14.5px; }
-      .guarantee-banner { flex-direction: column; text-align: center; padding: 18px 16px; gap: 12px; }
-      .kpi-strip { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-      .kpi-item b { font-size: 20px; }
-      .step-card { padding: 22px 18px; }
-      .bot-capture-mockup { padding: 14px 12px; }
-      .mock-green-callout { text-align: center; }
-      .contact-btns { flex-direction: column; }
-      .btn-wa, .btn-tg { width: 100%; }
+      .nav-wrap { flex-direction: column; text-align: center; gap: 8px; }
+      .nav-links { width: 100%; justify-content: center; }
+      .btn-nav { padding: 7px 10px; font-size: 11px; flex: 1; text-align: center; }
+      .quick-start-panel { padding: 18px 14px; }
       .mobile-bottom-bar { display: grid; }
     }
   </style>
@@ -985,33 +584,31 @@
       <div class="brand">
         <div class="brand-dot"></div>
         <div>
-          <span class="brand-title">JJp2p // QUANTUM P2P CORE</span>
+          <span class="brand-title">JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.6</span></span>
           <span class="brand-sub">Creador Oficial: Jimmy Rojas (+58 414-7744352)</span>
         </div>
       </div>
       <div class="nav-links">
-        <a href="#como-empezar" class="btn-nav">🚀 Cómo Empezar</a>
+        <a href="#empezar" class="btn-nav">🚀 Descargar</a>
         <a href="#funciones" class="btn-nav">⚡ Funciones</a>
-        <a href="#casos-reales" class="btn-nav">🏆 Casos Reales</a>
-        <a href="#actualizaciones" class="btn-nav">🔄 Novedades <span class="ver-auto">v7.6</span></a>
-        <a href="#preguntas" class="btn-nav">❓ Seguridad</a>
-        <a href="#contacto" class="btn-nav cta">🎁 3 Días Gratis</a>
+        <a href="#seguridad" class="btn-nav">🔒 Seguridad</a>
+        <a href="https://t.me/jjp2poficial" target="_blank" class="btn-nav">✈️ Telegram</a>
+        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATIS%20de%20JJp2p" target="_blank" class="btn-nav cta-wa">💬 WhatsApp (3 Días Gratis)</a>
       </div>
     </div>
   </nav>
 
   <header class="hero container">
     <div class="top-badges">
-      <span class="badge-version">🟢 VERSIÓN OFICIAL <span class="ver-auto">v7.6</span> // SALTO DE COLA + SALDO EN VIVO</span>
-      <span class="badge-trial">🎁 3 DÍAS DE PRUEBA GRATUITA (SIN COMPROMISO)</span>
-      <span class="badge-garantia">🛡️ GARANTÍA DE 48 HORAS (100% REEMBOLSO)</span>
+      <span class="badge-banks">🏦 ACTIVO: BANCO DE VENEZUELA (0102) + BANESCO (0134) MULTICUENTAS</span>
+      <span class="badge-trial">🎁 3 DÍAS DE PRUEBA GRATIS + 🛡️ 48H DE GARANTÍA</span>
     </div>
-    <h1>El Sistema Automatizado más Rápido para<br><span>Binance P2P + Banco de Venezuela (0102)</span></h1>
-    <p>Opera 100% por API Directa Oficial sin Tampermonkey. Pagos verificados en <b>4.41 segundos</b>, <b>Salto Inteligente de Cola por Liquidez</b>, lectura de saldo en cada pago sin salir al Inicio, envío de comprobante al chat y Bóveda Contable en Excel (<code>.XLSX</code>) exacta al centavo.</p>
+    <h1>Automatiza tus Pagos de Binance P2P en <span>4.41 Segundos</span><br>con <span>BDV + Banesco + Excel Contable</span></h1>
+    <p>Opera 100% por API Directa Oficial (Cero Tampermonkey). Paga, sube el capture al chat, marca como pagado, salta órdenes sin saldo en 0.00s y arma tu Excel (<code>.XLSX</code>) exacto al centavo.</p>
 
-    <!-- ESFERA 3D OFICIAL DE EVA CON LAS ANIMACIONES REALES DEL BOT BDV -->
+    <!-- ESFERA 3D DE EVA -->
     <div class="eva-center-wrap">
-      <div class="eva-ring-outer" id="evaRing" onclick="interaccionEvaWeb(event)" title="Haz clic en EVA para interactuar">
+      <div class="eva-ring-outer" id="evaRing" onclick="interaccionEvaWeb(event)" title="Haz clic en EVA">
         <div class="eva-sphere">
           <div class="eva-inner-visor">
             <div class="eva-eyes-box" id="evaEyesBox">
@@ -1025,420 +622,201 @@
       <div class="eva-mood-pill" id="lblEvaMood">🤖 EVA: ESCANEANDO MERCADO P2P...</div>
     </div>
 
-    <div class="dl-box">
-      <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="btn-download-main">
-        📥 DESCARGAR EJECUTABLE OFICIAL <span class="ver-auto">v7.6</span> (.EXE)
-      </a>
-      <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATUITA%20de%20JJp2p" target="_blank" class="btn-trial-wa">
-        🎁 PEDIR 3 DÍAS DE PRUEBA GRATIS (WHATSAPP)
-      </a>
-      <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="btn-download-zip">
-        📦 PAQUETE COMPLETO (.ZIP)
-      </a>
-    </div>
-    <div class="dl-note">💻 Compatible con Windows 10 y Windows 11 (64-bit) • No requiere instalar Python • Auto-Actualizable en 1 Clic</div>
-    <div>
-      <span class="banesco-soon-pill">🏦 <b>Activo al 100%:</b> Banco de Venezuela (0102) • 🚀 <b>Próximo Lanzamiento:</b> Banesco Online Web (0134)</span>
-    </div>
+    <!-- ========================================================================
+         🚀 TODO EN LA PRIMERA VISTA: 3 PASOS SIMPLES PARA EMPEZAR HOY MISMO
+         ======================================================================== -->
+    <div id="empezar" class="quick-start-panel">
+      <div class="qs-header">
+        <h2>🎁 Empieza Hoy con tus <span>3 Días de Prueba Gratuita</span> en 3 Simples Pasos</h2>
+        <p>Compatible con Windows 10 y Windows 11 (64-bit) • Te ayudamos a instalarlo y calibrarlo por videollamada en 2 minutos</p>
+      </div>
 
-    <!-- SELLO DORADO DE 3 DÍAS GRATIS + GARANTÍA DE 48 HORAS -->
-    <div id="garantia" class="guarantee-banner">
-      <div class="guarantee-seal">
-        <span>3 DÍAS</span>
-        <small style="font-size:9px;">GRATIS</small>
-        <span>+ 48H</span>
-      </div>
-      <div class="guarantee-text">
-        <h3>🎁 3 DÍAS DE PRUEBA GRATUITA + 🛡️ GARANTÍA DE REEMBOLSO DE 48 HORAS (RIESGO CERO)</h3>
-        <p>Primero <b>pruebas el bot totalmente GRATIS durante 3 días sin compromiso</b> en tu propia computadora. Y cuando decidas adquirir tu licencia, <b>retenemos tu pago en garantía durante 48 horas</b>: si decides cancelar por cualquier motivo, <b>te devolvemos el 100% de tu dinero de inmediato</b>.</p>
-      </div>
-    </div>
+      <div class="qs-steps-row">
 
-    <div class="kpi-strip">
-      <div class="kpi-item">
-        <b>4.41s</b>
-        <span>Velocidad de Transferencia + Captura</span>
+        <!-- PASO 1: DESCARGAR -->
+        <div class="qs-step-box">
+          <div>
+            <span class="qs-badge">PASO 1</span>
+            <h3>📥 Descarga el Bot en tu PC</h3>
+            <p>Descarga el paquete <b>.ZIP</b>, descomprímelo dentro de una carpeta en tu Escritorio y abre el programa <b><code>NEXUS_P2P_BDV.exe</code></b>:</p>
+          </div>
+          <div>
+            <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="btn-action-zip">
+              📦 DESCARGAR PAQUETE OFICIAL (.ZIP)
+            </a>
+            <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="btn-action-exe">
+              📥 O Descargar Ejecutable Directo (.EXE)
+            </a>
+          </div>
+        </div>
+
+        <!-- PASO 2: COPIAR NODO -->
+        <div class="qs-step-box">
+          <div>
+            <span class="qs-badge">PASO 2</span>
+            <h3>🔑 Copia tu Código NODO</h3>
+            <p>Al abrir el bot en tu computadora, haz un clic arriba donde dice <b>NODO (COPIAR)</b> para copiar tu código único:</p>
+          </div>
+          <div>
+            <div class="nodo-mini-mock">
+              ➔ NODO: NX-E571-E0E9-CBE6 (COPIAR)
+            </div>
+            <div style="text-align:center;font-size:11.5px;color:#00ff9d;font-weight:800;margin-top:8px;">
+              ⬆ Haz clic ahí en tu programa para copiarlo
+            </div>
+          </div>
+        </div>
+
+        <!-- PASO 3: ENVIAR POR WHATSAPP -->
+        <div class="qs-step-box step-wa">
+          <div>
+            <span class="qs-badge" style="background:var(--amber);">PASO 3</span>
+            <h3>💬 Envíamelo a mi WhatsApp</h3>
+            <p>Toca el botón verde abajo, envíame tu <b>NODO + Nombre y Apellido</b> y te activo tus <b>3 Días Gratis</b> al instante (con videollamada si gustas):</p>
+          </div>
+          <div>
+            <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20ya%20descargue%20JJp2p.%20Te%20envio%20mi%20NODO%20y%20mi%20Nombre%20para%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATIS:" target="_blank" class="btn-action-wa">
+              💬 ACTIVAR MIS 3 DÍAS GRATIS (WHATSAPP)
+            </a>
+            <a href="https://t.me/jjp2poficial" target="_blank" class="btn-action-tg">
+              ✈️ Ver Videos y Guía en Telegram (@jjp2poficial)
+            </a>
+          </div>
+        </div>
+
       </div>
-      <div class="kpi-item">
-        <b>0.00s</b>
-        <span>Salto Inteligente de Cola + Saldo en Vivo</span>
-      </div>
-      <div class="kpi-item">
-        <b>100% Exacto</b>
-        <span>Excel (.XLSX) Auditado con Nivel VIP</span>
-      </div>
-      <div class="kpi-item">
-        <b>100% Local</b>
-        <span>API Sin Retiro • Tus Claves en tu PC</span>
+
+      <div class="qs-bottom-bar">
+        🛡️ <span>DOBLE RESPALDO SIN RIESGO:</span> Primero pruebas <b>3 Días Gratis sin compromiso</b>, y al activar tu plan cuentas con <b>48 Horas de Garantía (100% Reembolso Inmediato)</b>.
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       🚀 SECCIÓN XL GRANDE: ¿CÓMO EMPEZAR A USAR JJP2P EN 3 SIMPLES PASOS?
-       ========================================================================== -->
-  <section id="como-empezar" class="container">
-    <h2 class="steps-section-title">¿Cómo Empezar a Usar <span>JJp2p en 3 Simples Pasos?</span></h2>
-    <div class="steps-grid">
-
-      <div class="step-card">
-        <span class="step-num">PASO 1</span>
-        <h3>📥 Descarga y Abre el Bot en tu PC</h3>
-        <p>Descarga el ejecutable arriba en tu laptop o computadora con <b>Windows 10 o Windows 11</b> y abre el archivo <b><code>NEXUS_P2P_BDV.exe</code></b>. No necesitas instalar Python ni extensiones peligrosas en el navegador.</p>
-      </div>
-
-      <div class="step-card step-2-spotlight">
-        <span class="step-num" style="background:var(--amber);">PASO 2</span>
-        <h3>🔑 Copia tu NODO y Envíamelo por WhatsApp (Activa tus 3 Días Gratis)</h3>
-        <p>Una vez abierto <b><code>NEXUS_P2P_BDV.exe</code></b>, en la parte de arriba del bot como te muestro en esta captura, haz clic en ese <b>NODO</b> donde dice <b>(COPIAR)</b> y me lo envías por WhatsApp con tu <b>Nombre y Apellido</b> para activarte al instante:</p>
-
-        <!-- CAPTURA VISUAL GRANDE A TAMAÑO REAL DEL ENCABEZADO DEL BOT -->
-        <div class="bot-capture-mockup">
-          <div class="mock-top-row">
-            <div class="mock-brand">
-              <div class="mock-dot"></div>
-              <div class="mock-brand-txt">
-                <b>JJp2p <span class="ver-auto">v7.6</span></b>
-                <span>Creador Jimmy Rojas<br>+584147744352</span>
-              </div>
-            </div>
-            <div class="mock-btns">
-              <span class="mock-chip">📱<br>Calibrador</span>
-              <span class="mock-chip">🔑 CONFIG<br>BDV / API</span>
-              <span class="mock-chip">📈<br>Ganancias</span>
-              <span class="mock-chip" style="border-color:var(--cyan);color:var(--cyan);">🖥️<br>Interfaz ▾</span>
-            </div>
-          </div>
-          <div class="mock-green-callout">⬇ cópialo y envíamelo al WhatsApp</div>
-          <div class="mock-license-bar">
-            <span class="mock-orange-highlight">
-              <span class="mock-yellow-arrow">➔</span>NODO: NX-E571-E0E9-CBE6 (COPIAR)
-            </span>
-            <span style="color:var(--emerald);font-weight:900;">LICENCIA: ACTIVA / PERMANENTE ∞</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="step-card">
-        <span class="step-num">PASO 3</span>
-        <h3>📱 Calibra en 2 Minutos y Empieza a Operar</h3>
-        <p>Conecta tu teléfono Android por cable USB o por <b>Wi-Fi en 1 Clic</b>, sigue el asistente guiado por voz de una sola vez y deja que el bot pague tus órdenes en <b>4.41 segundos</b> y lleve tu Excel automáticamente.</p>
-      </div>
-
-    </div>
-
-    <div class="videocall-note">
-      📹 <span>Atención Personalizada 1 a 1:</span> Escríbeme al WhatsApp (<a href="https://wa.me/584147744352" target="_blank" style="color:var(--cyan);text-decoration:underline;">+58 414-7744352</a>) y <span>hacemos videollamada</span> para instalarlo y calibrarlo contigo paso a paso en minutos.
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       ⚡ SECCIÓN DE FUNCIONES
+       ⚡ SECCIÓN RESUMIDA DE FUNCIONES (BDV + BANESCO MULTICUENTAS + INTERNACIONAL)
        ========================================================================== -->
   <section id="funciones" class="container">
-    <h2 class="sec-title">Potencia Quirúrgica <span>WALL·E &amp; EVA 3D (<span class="ver-auto">v7.6</span>)</span></h2>
+    <h2 class="sec-title">¿Qué Hace <span>JJp2p <span class="ver-auto">v7.6</span></span> por Ti Automáticamente?</h2>
     <div class="grid-cards">
       <div class="card">
-        <h3>⚡ 1. Ciclo Completo en 4.41 Segundos</h3>
-        <p>Detecta la orden en Binance P2P de abajo hacia arriba, saluda al cliente, extrae los 20 dígitos 0102 (o los pide por chat si envió Pago Móvil), transfiere en BDV, captura el recibo en RAM, lo sube al chat y marca como pagado por API.</p>
+        <h3>🏦 1. BDV (0102) + Banesco (0134) Multicuentas</h3>
+        <p>Opera en automático con <b>Banco de Venezuela y Banesco</b> (incluyendo soporte para múltiples cuentas bancarias simultáneas). Detecta cuentas, transfiere el monto exacto con centavos, sube el capture al chat y marca como pagado en segundos.</p>
       </div>
       <div class="card">
         <h3>🚀 2. Salto Inteligente de Cola + Saldo en Vivo</h3>
-        <p>Si la primera orden supera tu saldo disponible en BDV, el bot <b>no se detiene</b>: la salta en 0.00s y paga las siguientes órdenes de menor monto. Además, lee tu nuevo saldo en cada pago sin salir al menú Inicio.</p>
+        <p>Si una orden supera tu saldo disponible, el bot <b>no se tranca</b>: la salta en 0.00s y paga las siguientes órdenes de menor monto. Además, lee tus nuevos Bolívares en cada pago sin salir al menú Inicio.</p>
       </div>
       <div class="card">
-        <h3>📊 3. Bóveda Contable y Fiscal (.XLSX) al Centavo</h3>
-        <p>Lee tus compras y ventas por API, detecta tu Nivel VIP (Común, Bronce, Plata u Oro), descuenta comisiones reales, separa tus Bolívares viejos para mostrar tu ganancia pura por vuelta y guarda los captures por fecha.</p>
+        <h3>📊 3. Bóveda Contable Excel (.XLSX) al Centavo</h3>
+        <p>Lee tus compras y ventas por API, detecta tu Nivel VIP en Binance, descuenta comisiones reales, separa tus Bolívares viejos por banco y te muestra tu ganancia neta pura por vuelta.</p>
       </div>
       <div class="card">
-        <h3>🧠 4. 9 Velocidades + Wi-Fi 1 Clic + 3 Temas</h3>
-        <p>Conecta cualquier Android por USB o Wi-Fi en 1 Clic. Incluye Calibrador Guiado por Voz y 3 interfaces: <b>3D WALL·E Sci-Fi</b>, <b>Modo Lite</b> (para PCs básicas) y <b>Ejecutivo Pro</b>.</p>
+        <h3>💻 4. Ligero para Cualquier Laptop (3 Modos)</h3>
+        <p>Conecta cualquier Android por USB o Wi-Fi en 1 Clic. Incluye <b>Modo 3D WALL·E</b>, <b>Modo Lite (Sin Efectos)</b> para laptops de bajos recursos y <b>Modo Ejecutivo Pro</b>.</p>
       </div>
       <div class="card">
-        <h3>🛑 5. Freno en Seco 0.05s + Cero Pago Doble</h3>
-        <p>Escudo interno que prohíbe pagar dos veces la misma orden. Si apagas el bot a mitad de una transferencia, frena en 0.05s; al volver a encender, lee la pantalla y retoma donde quedó.</p>
+        <h3>🔒 5. Seguridad Total (0% Riesgo en tus USDT)</h3>
+        <p>Corre en tu propia PC con tu internet de Venezuela (sin Tampermonkey). La API de Binance se configura <b>SIN permiso de retiro</b> y cuenta con botón opcional <b>🛡️ Confirmar Monto</b>.</p>
       </div>
       <div class="card">
-        <h3>🔒 6. Seguridad Criptográfica 100% Local</h3>
-        <p>Corre en tu propia PC con tu IP residencial de Venezuela (cero servidores externos ni Tampermonkey). Opera con API de Binance <b>SIN permiso de retiro</b> y botón opcional <b>🛡️ Confirmar Monto</b>.</p>
+        <h3>🌍 6. Desarrollo a Medida para Otros Países</h3>
+        <p>¿Operas P2P o tienes una <b>Casa de Remesas</b> en Perú, Colombia, Chile, México o EE. UU.? Desarrollamos y adaptamos el bot a la medida de tu banco local o página web.</p>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       ⚖️ SECCIÓN COMPARATIVA: PAGAR A MANO VS. OPERAR CON JJP2P
-       ========================================================================== -->
-  <section id="comparativa" class="container">
-    <h2 class="sec-title">¿Por qué JJp2p <span>se Paga Solo desde el Primer Día?</span></h2>
-    <div class="compare-grid">
-      <div class="compare-box manual">
-        <h3 style="color:var(--crimson);">❌ Pagando a Mano (Método Tradicional)</h3>
-        <ul class="compare-list">
-          <li>⏳ Tardas de <b>45 a 90 segundos</b> por cada transferencia copiando y pegando números.</li>
-          <li>⚠️ Riesgo constante de equivocarte en un dígito o en un decimal cuando estás cansado.</li>
-          <li>😰 Se te tranca la cola cuando una orden grande supera tu saldo o te caen 10 órdenes juntas.</li>
-          <li>🧮 Pierdes horas al final del día sumando órdenes y comisiones para saber cuánto ganaste.</li>
-        </ul>
-      </div>
-
-      <div class="compare-box auto">
-        <h3 style="color:var(--emerald);">✅ Operando con JJp2p Quantum Core <span class="ver-auto">v7.6</span></h3>
-        <ul class="compare-list">
-          <li>⚡ Pagas, subes la foto del recibo al chat y marcas como pagado en <b>4.41 segundos</b>.</li>
-          <li>🎯 <b>0% error humano:</b> verifica los 20 dígitos 0102 y escribe el monto exacto al centavo.</li>
-          <li>🚀 <b>Salto Inteligente de Cola:</b> salta órdenes que superen tu saldo y despacha las demás al instante.</li>
-          <li>📊 Tu <b>Excel de ganancias (.XLSX)</b> con descuento VIP y carpetas de captures se hacen solos.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       🏆 SECCIÓN: CASOS DE ÉXITO REALES AUDITADOS EN PRODUCCIÓN
+       🏆 CASOS REALES AUDITADOS
        ========================================================================== -->
   <section id="casos-reales" class="container">
-    <h2 class="sec-title">Resultados Reales Auditados de <span>Comerciantes Usando JJp2p</span></h2>
+    <h2 class="sec-title">Resultados Reales de <span>Comerciantes Usando JJp2p</span></h2>
     <div class="cases-grid">
       <div class="case-card">
         <span class="case-badge">🥇 COMERCIANTE VIP ORO (0.125%)</span>
         <h3>Jonathan Ramos</h3>
         <span class="case-kpi">+161,78 USDT Libres en 1 Día</span>
-        <p>Más de <b>2.058 compras</b> auditadas en su bóveda. En un solo día (5 vueltas) movió <b>58.829,02 USDT vendidos</b> y <b>59.149,37 USDT comprados</b> (+61,6 millones de Bs), logrando <b>+161,78 USDT de ganancia neta pura</b> después de comisiones, calculada al centavo por el Excel del bot.</p>
+        <p>Más de <b>2.058 compras</b> auditadas. En un solo día (5 vueltas) movió +58.800 USDT, logrando <b>+161,78 USDT de ganancia neta pura</b> calculada automáticamente al centavo por el Excel del bot.</p>
       </div>
 
       <div class="case-card">
         <span class="case-badge">⚡ RÁFAGAS EN MODO TURBO</span>
         <h3>Luis Guzmán</h3>
-        <span class="case-kpi">146 a +170 Órdenes por Sesión</span>
-        <p>Despacha ráfagas continuas de más de <b>170 órdenes pagadas en una sola sesión</b> con tiempos de <b>4.41s a 5.11s por transferencia</b> y <b>100% de efectividad</b> en saludo, pago en BDV, subida de comprobante al chat de Binance y marcado automático.</p>
+        <span class="case-kpi">+170 Órdenes por Sesión</span>
+        <p>Despacha ráfagas continuas de más de <b>170 órdenes pagadas en una sola sesión</b> en <b>4.41s por pago</b> con 100% de efectividad en transferencia, subida de capture y marcado por API.</p>
       </div>
 
       <div class="case-card">
-        <span class="case-badge">🏦 OPERATIVA MULTIBANCO</span>
+        <span class="case-badge">🏦 OPERATIVA BDV + BANESCO</span>
         <h3>Daniel Ramón</h3>
         <span class="case-kpi">+78,10 USDT Libres en el Día</span>
-        <p>Más de <b>2.335 compras</b> registradas en su bóveda contable. Opera vueltas continuas moviendo millones de Bolívares al día mientras el Excel separa automáticamente cada banco, descuenta comisiones y le indica el saldo exacto restante en cuenta.</p>
+        <p>Más de <b>2.335 compras</b> en su bóveda, operando vueltas por <b>BDV y Banesco</b> mientras el Excel separa cada banco y calcula su ganancia neta exacta automáticamente.</p>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       🎥 SECCIÓN: VIDEOS EN VIVO EN LA COMUNIDAD DE TELEGRAM
+       ❓ PRUEBAS DE SEGURIDAD Y DUDAS CLAVE (SIN ENREDOS)
        ========================================================================== -->
-  <section id="videos-en-vivo" class="container">
-    <div class="live-video-banner">
-      <h3>🎬 ¿Quieres Ver el Bot Pagando en Vivo Antes de Empezar?</h3>
-      <p>Entra gratis a nuestra comunidad oficial de Telegram y mira videos reales de <b>JJp2p <span class="ver-auto">v7.6</span></b> ejecutando transferencias en 4.41 segundos, saltando órdenes sin saldo y generando el Excel de ganancias en tiempo real.</p>
-      <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg" style="padding:15px 30px;font-size:15.5px;">
-        ✈️ VER VIDEOS EN VIVO EN TELEGRAM (@jjp2poficial)
-      </a>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       ❓ SECCIÓN: PREGUNTAS Y RESPUESTAS FRECUENTES (CON PRUEBAS DE SEGURIDAD)
-       ========================================================================== -->
-  <section id="preguntas" class="container">
-    <h2 class="sec-title">Preguntas Frecuentes y <span>Pruebas Reales de Seguridad</span></h2>
+  <section id="seguridad" class="container">
+    <h2 class="sec-title">Pruebas Reales de <span>Seguridad (Cero Riesgo)</span></h2>
     <div class="faq-wrap">
 
-      <!-- PREGUNTA 1: ABIERTA POR DEFECTO CON LAS 4 PRUEBAS VERIFICABLES -->
       <details class="faq-item highlight-security" open>
-        <summary>1. 🔒 ¿Cómo sé que mi dinero, mis claves y mis datos de mercado están seguros? ¿Cómo compruebo yo mismo que JJp2p dice la verdad?</summary>
+        <summary>1. 🔒 ¿Cómo compruebo yo mismo que mis USDT y mi banco están 100% seguros?</summary>
         <div class="faq-body">
-          <p>No tienes que creerlo solo por nuestra palabra; <b>tú mismo puedes comprobarlo en tu computadora con estas 4 pruebas reales</b>:</p>
-
           <div class="proof-box">
             <b>🛡️ Prueba 1 — Tus USDT en Binance son 100% intocables:</b>
-            Cuando creas la conexión en Binance para el bot, la casilla <i>"Habilitar Retiros" (Enable Withdrawals)</i> se deja <b>APAGADA</b>.
-            <br><i>Ejemplo sencillo:</i> Es como darle a un empleado permiso únicamente para ver la lista de pedidos y entregar recibos en el mostrador, pero <b>sin darle la llave de la caja fuerte</b>. Por regla interna de Binance, es imposible retirar o transferir ni un solo centavo de tus USDT con esa conexión.
+            Cuando creas la llave API en tu Binance, la casilla <i>"Habilitar Retiros" (Enable Withdrawals)</i> se deja <b>APAGADA</b>. Por regla oficial de Binance, es físicamente imposible retirar o mover ni un solo centavo de tus USDT.
           </div>
-
           <div class="proof-box">
-            <b>📱 Prueba 2 — Tu Banco de Venezuela solo se mueve en tu mano y con tu permiso:</b>
-            El bot hace los toques directamente sobre tu propio teléfono conectado a tu laptop. Además, incluye el botón <b>"🛡️ Confirmar Monto"</b>: cuando lo activas, el bot llena los datos del pago pero <b>se detiene y te muestra la captura en pantalla</b> para que tú mismo revises el monto y presiones <i>"SÍ, TRANSFERIR"</i>.
+            <b>📱 Prueba 2 — Botón "Confirmar Monto" en tu pantalla:</b>
+            Puedes activar el interruptor <b>"🛡️ Confirmar Monto"</b> para que el bot llene los datos pero se detenga y te muestre la captura antes de transferir hasta que tú le des clic a aprobar.
           </div>
-
           <div class="proof-box">
-            <b>💻 Prueba 3 — Tus tasas, clientes y ganancias viven SOLO en tu PC (Haz la prueba en tu carpeta):</b>
-            Nosotros jamás vemos a qué tasa compras o vendes, ni quiénes son tus clientes, ni cuánto ganas.
-            <br><i>¿Cómo comprobarlo tú mismo?</i> Abre la carpeta donde descargaste el bot y tu carpeta <i>Mis Documentos</i>: verás que ahí se crean tus archivos locales (<code>config_local.json</code> y tu carpeta <code>JJP2P_BOVEDA_FISCAL_SENIAT</code>). Si tú borras esos archivos de tu computadora, el programa queda en blanco porque <b>nosotros no guardamos copia de nada en internet</b>.
-          </div>
-
-          <div class="proof-box">
-            <b>🔍 Prueba 4 — Audítalo tú mismo en el Monitor de Red de Windows:</b>
-            Si tú o cualquier técnico de tu confianza abren el <i>Administrador de Tareas de Windows ➔ Monitor de Recursos ➔ Red</i> mientras el bot trabaja, verán con sus propios ojos que <code>NEXUS_P2P_BDV.exe</code> <b>solo se comunica directamente con Binance Oficial (<code>api.binance.com</code>)</b> y únicamente consulta si tu código <code>NODO (NX-XXXX)</code> tiene licencia activa. Tus datos de mercado jamás salen de tu computadora.
+            <b>💻 Prueba 3 — 100% Local en tu propia PC:</b>
+            No usa extensiones riesgosas como Tampermonkey ni servidores externos. Tus claves, clientes y tu carpeta de Excel viven únicamente dentro de tu computadora.
           </div>
         </div>
       </details>
 
-      <!-- PREGUNTA 2 -->
       <details class="faq-item">
-        <summary>2. 🎁 ¿Cómo funcionan los 3 Días de Prueba Gratuita y la Garantía de 48 Horas?</summary>
+        <summary>2. 🚫 ¿El bot puede pagar dos veces la misma orden o equivocarse si lo apago?</summary>
         <div class="faq-body">
-          Tienes doble respaldo total:
-          <br>1️⃣ <b>3 Días de Prueba Gratuita:</b> Descargas el bot, me envías tu código <code>NODO</code> por WhatsApp (<b>+58 414-7744352</b>) y te activo <b>3 días completos gratis sin compromiso</b> para que lo pruebes pagando en vivo.
-          <br>2️⃣ <b>Garantía de Reembolso de 48 Horas:</b> Cuando decides adquirir tu licencia paga, <b>retenemos tu dinero en garantía durante 48 horas</b>. Si por cualquier motivo decides cancelar dentro de esas 48 horas, <b>te devolvemos el 100% de tu dinero de inmediato</b>.
+          <b>Jamás paga doble.</b> Tiene un candado interno que prohíbe transferir dos veces a la misma orden. Y si lo apagas a mitad de un pago, frena en seco en 0.05 segundos y retoma donde quedó al volver a encenderlo.
         </div>
       </details>
 
-      <!-- PREGUNTA 3 -->
       <details class="faq-item">
-        <summary>3. ⚡ ¿Qué hace el Bot si una orden supera mi saldo o si me entran Bolívares mientras opera?</summary>
+        <summary>3. 📹 ¿Me ayudan a instalarlo y calibrarlo?</summary>
         <div class="faq-body">
-          Con el nuevo motor <b><span class="ver-auto">v7.6</span></b> tu operativa nunca se detiene:
-          <br>• <b>Salto Inteligente de Cola (0.00s):</b> Si tienes <code>143.000 Bs</code> en tu cuenta BDV y la primera orden es de <code>150.000 Bs</code>, el bot la salta instantáneamente y paga las siguientes órdenes de la cola (ej. de <code>80.000 Bs</code> o <code>50.000 Bs</code>) que sí alcancen con tu saldo.
-          <br>• <b>Lectura de Saldo en Cada Pago:</b> Cuando recibes Bolívares por tus ventas de USDT, no tienes que detener el bot ni ir al menú Inicio; en cada transferencia lee tu nuevo saldo disponible automáticamente por Turbo-OCR.
+          ¡Sí! Puedes seguir los videos paso a paso en nuestro Telegram (<b>@jjp2poficial</b>) o escribirme directo al WhatsApp (<b>+58 414-7744352</b>) y hacemos una <b>videollamada rápida</b> para dejarlo instalado y calibrado contigo en minutos.
         </div>
       </details>
 
-      <!-- PREGUNTA 4 -->
-      <details class="faq-item">
-        <summary>4. 📊 ¿Qué funciones tiene el Excel Contable (.XLSX) y cómo guarda mis captures?</summary>
-        <div class="faq-body">
-          Es un motor contable P2P profesional auditado al centavo:
-          <br>• Lee directamente de la API de Binance tanto tus <b>Ventas (SELL)</b> como tus <b>Compras (BUY)</b>.
-          <br>• Detecta automáticamente tu <b>Nivel VIP en Binance</b> (Común <code>0.25%</code>, Bronce <code>0.20%</code>, Plata <code>0.175%</code>, Oro <code>0.125%</code>) y descuenta la comisión exacta de cada orden.
-          <br>• Divide el día por vueltas y <b>separa automáticamente los Bolívares propios viejos</b> que ya tenías en el banco para mostrarte tu ganancia neta pura real.
-          <br>• Guarda todos los comprobantes <code>.png</code> en carpetas ordenadas por fecha (<b>DD-MM-YYYY</b>) dentro de tus Documentos.
-        </div>
-      </details>
-
-      <!-- PREGUNTA 5 -->
-      <details class="faq-item">
-        <summary>5. 💳 ¿Qué planes de licencia tienen y qué métodos de pago aceptan?</summary>
-        <div class="faq-body">
-          Contamos con planes flexibles: <b>Prueba Gratis (3 Días), Semanal (7 Días), Quincenal (15 Días), Mensual (30 Días) y Licencia Permanente</b>. Aceptamos:
-          <div class="pay-pills">
-            <span class="pay-pill" style="border-color:var(--emerald);">🟢 USDT (Binance Pay / Red Cripto)</span>
-            <span class="pay-pill" style="border-color:#a855f7;">🟣 Zelle</span>
-            <span class="pay-pill" style="border-color:var(--cyan);">🔵 Banesco Panamá</span>
-            <span class="pay-pill" style="border-color:var(--amber);">🟡 Bolívares (Bs)</span>
-          </div>
-        </div>
-      </details>
-
-      <!-- PREGUNTA 6 -->
-      <details class="faq-item">
-        <summary>6. 🚫 ¿El bot puede pagar dos veces la misma orden o equivocarse si lo apago?</summary>
-        <div class="faq-body">
-          <b>Jamás paga doble.</b> Cuenta con un escudo interno que prohíbe transferir dos veces a la misma orden o cuenta. Además, si apagas el bot a mitad de un pago, se frena en seco al instante (0.05 segundos); cuando lo vuelves a prender, lee la pantalla de tu teléfono y continúa exactamente desde el paso donde quedó sin duplicar montos.
-        </div>
-      </details>
-
-      <!-- PREGUNTA 7 -->
-      <details class="faq-item">
-        <summary>7. 📱 ¿Qué necesito para usarlo y me ayudan a instalarlo por videollamada?</summary>
-        <div class="faq-body">
-          Solo necesitas una laptop o PC con <b>Windows 10 o Windows 11</b> y <b>cualquier teléfono Android</b> (conectado por cable USB o por Wi-Fi en 1 Clic). Escríbenos al WhatsApp (<b>+58 414-7744352</b>) y <b>hacemos videollamada contigo</b> para dejarlo instalado y calibrado al 100%.
-        </div>
-      </details>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       🔄 HISTORIAL ACUMULATIVO DE NOVEDADES Y MEJORAS POR VERSIÓN
-       ========================================================================== -->
-  <section id="actualizaciones" class="container">
-    <div class="update-panel">
-      <h3>🔄 Historial de Novedades y Mejoras (<span class="ver-auto">v7.6</span> + Anteriores)</h3>
-      <p style="color:#cbd5e1;font-size:13.8px;">¿Ya tienes instalado JJp2p? Toca arriba a la derecha en <b>🖥️ Interfaz ▾ ➔ 🔄 BUSCAR / INSTALAR ACTUALIZACIÓN</b> para actualizar en 1 clic conservando tus llaves y tu calibración:</p>
-
-      <!-- BLOQUE VERSIÓN 7.6 (ACTUAL) -->
-      <div class="version-block latest">
-        <div class="version-tag-head">
-          <b>🚀 Novedades de la Versión <span class="ver-auto">v7.6</span> (Actualización Actual)</b>
-          <span class="version-pill-badge">🟢 ÚLTIMA VERSIÓN</span>
-        </div>
-        <ul class="update-list">
-          <li>🚀 <b>Salto Inteligente de Cola por Liquidez (0.000s):</b> Si una orden abierta supera tu saldo actual en BDV, el bot no se detiene ni se bloquea: la salta instantáneamente y paga las siguientes órdenes de la cola que sí alcancen con tus Bolívares disponibles.</li>
-          <li>🔄 <b>Actualización Automática de Saldo en Cada Pago (0.00s de Espera Extra):</b> Cuando haces ciclos continuos y te caen Bolívares de tus ventas de USDT, no necesitas detener el bot ni ir al menú Inicio; al desplegar la cuenta a debitar en <i>Transferencias a terceros</i>, lee el nuevo saldo en vivo por Turbo-OCR (con blindaje para cifras millonarias) y descuenta el pago al instante.</li>
-          <li>⏱️ <b>Auto-Refresco en Espera (Cada 6 Segundos):</b> Si todas las órdenes en cola superan tu saldo mientras esperas que te paguen una venta de USDT, el bot refresca la cuenta cada 6 segundos, detecta los nuevos Bolívares apenas caen y dispara los pagos pendientes automáticamente.</li>
-        </ul>
-      </div>
-
-      <!-- BLOQUE VERSIÓN 7.5 (INCLUIDA) -->
-      <div class="version-block">
-        <div class="version-tag-head">
-          <b>⚡ Mejoras Incluidas desde la Versión v7.5</b>
-          <span class="version-pill-badge" style="border-color:var(--cyan);color:var(--cyan);background:rgba(0,240,255,0.12);">INCLUIDO</span>
-        </div>
-        <ul class="update-list">
-          <li>⚡ <b>Arranque Instantáneo Ultra-Rápido (~1.5 Segundos):</b> Motor de inicio asíncrono en segundo plano y chequeo instantáneo de puerto local, logrando que la ventana de EVA abra hasta 10 veces más rápido.</li>
-          <li>🔒 <b>Caché en Memoria RAM del Candado Físico de Hardware:</b> El serial físico de tu tarjeta madre se lee una sola vez en el microsegundo cero y permanece en memoria RAM durante toda la sesión.</li>
-        </ul>
-      </div>
-
-      <!-- BLOQUE VERSIÓN 7.4 (INCLUIDA) -->
-      <div class="version-block">
-        <div class="version-tag-head">
-          <b>🔥 Mejoras Incluidas desde la Versión v7.4</b>
-          <span class="version-pill-badge" style="border-color:var(--cyan);color:var(--cyan);background:rgba(0,240,255,0.12);">INCLUIDO</span>
-        </div>
-        <ul class="update-list">
-          <li>📊 <b>Contabilidad P2P Exacta al Centavo + Rango VIP Automático:</b> El Excel (<code>.XLSX</code>) lee directamente de la API oficial de Binance la comisión exacta cobrada en cada orden según tu nivel VIP (Común, Bronce, Plata u Oro) y separa el dinero propio de tu banco para mostrar tu ganancia pura real.</li>
-          <li>🌐 <b>Auto-Actualizador en 1 Clic Blindado (SSL + Curl Nativo):</b> Descarga e instala las nuevas actualizaciones directamente desde la nube en cualquier versión de Windows.</li>
-          <li>🛡️ <b>12 Blindajes de Seguridad y Candado Anti-Clon por PC:</b> Vinculación física al hardware de tu computadora y protección criptográfica de todas las rutas internas.</li>
-        </ul>
-      </div>
-
-      <!-- BLOQUE VERSIÓN 7.3 (INCLUIDA) -->
-      <div class="version-block">
-        <div class="version-tag-head">
-          <b>✅ Mejoras Base de la Versión v7.3</b>
-          <span class="version-pill-badge" style="border-color:var(--amber);color:var(--amber);background:rgba(255,184,0,0.12);">BASE CORE</span>
-        </div>
-        <ul class="update-list">
-          <li>🔄 <b>Sincronización Pasiva de Saldo BDV (0 Toques):</b> Actualiza automáticamente tu saldo en Bolívares al encender el bot y en reposo.</li>
-          <li>🧭 <b>Escape Automático del Histórico de Operaciones:</b> Nunca confunde un comprobante viejo con el formulario vacío.</li>
-          <li>🛑 <b>Freno en Seco (0.05s) + Reanudación Quirúrgica:</b> Detiene cualquier ráfaga al instante al apagar el bot y retoma la orden en el paso exacto al volver a encender.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       📞 CONTACTO FINAL
-       ========================================================================== -->
-  <section id="contacto" class="container">
-    <div class="contact-box">
-      <h2 style="font-size:clamp(20px,3.5vw,26px);font-weight:900;color:#fff;">🎁 ¿Listo para Probar JJp2p <span class="ver-auto">v7.6</span> GRATIS por 3 Días + Garantía de 48 Horas?</h2>
-      <p style="color:#cbd5e1;margin-top:8px;font-size:14px;">Descarga el sistema en tu PC, copia tu código <b>NODO (NX-XXXX-XXXX-XXXX)</b> desde la barra superior del programa y envíamelo por WhatsApp con tu <b>Nombre y Apellido</b> para activarte al instante:</p>
-      <div class="contact-btns">
-        <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20ya%20descargue%20JJp2p%20v7.6.%20Te%20envio%20mi%20NODO%20y%20mi%20Nombre%20y%20Apellido%20para%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATIS:" target="_blank" class="btn-wa">
-          💬 WhatsApp Oficial (3 Días Gratis): +58 414-7744352
-        </a>
-        <a href="https://t.me/jjp2poficial" target="_blank" class="btn-tg">
-          ✈️ Telegram Oficial: @jjp2poficial
-        </a>
-      </div>
     </div>
   </section>
 
   <footer>
-    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.6</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • Todos los derechos reservados.
+    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.6</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • <a href="https://jjp2p.com" style="color:var(--cyan);">jjp2p.com</a>
   </footer>
 
   <!-- BARRA FIJA INFERIOR EXCLUSIVA PARA CELULARES -->
   <div class="mobile-bottom-bar">
-    <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20GRATIS%20de%20JJp2p%20v7.6" target="_blank" class="m-bar-btn" style="background:#128c7e;">
+    <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20GRATIS%20de%20JJp2p" target="_blank" class="m-bar-btn" style="background:#128c7e;">
       🎁 3 Días Gratis
     </a>
     <a href="https://t.me/jjp2poficial" target="_blank" class="m-bar-btn" style="background:#229ed9;">
       ✈️ Telegram
     </a>
-    <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV.exe" class="m-bar-btn" style="background:#00b86b;color:#011c10;">
-      📥 Descargar
+    <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BDV_Descargable.zip" class="m-bar-btn" style="background:#00b86b;color:#011c10;">
+      📦 Descargar .ZIP
     </a>
   </div>
 
   <script>
-    // Actualiza automáticamente la versión en toda la página web usando VERSION_OFICIAL_WEB
     (function aplicarVersionAutomaticaWeb() {
       const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.6').replace(/^v/i, '');
-      document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — WALL·E & EVA EDITION`;
+      document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — BDV + BANESCO MULTICUENTAS`;
       document.querySelectorAll('.ver-auto').forEach(el => { el.textContent = vTxt; });
     })();
 
@@ -1474,7 +852,7 @@
       if (modo === 'happy') {
         lbl.style.color = '#00ff9d';
         lbl.style.borderColor = '#00ff9d';
-      } else if (modo === 'reading' || modo === 'work') {
+      } else if (modo === 'reading') {
         lbl.style.color = '#ffb800';
         lbl.style.borderColor = '#ffb800';
       } else {
@@ -1487,7 +865,7 @@
       if (ev && ev.clientX) lanzarChispasSciFi(ev.clientX, ev.clientY);
       modoForzadoHasta = Date.now() + 3000;
       const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.6').replace(/^v/i, '');
-      fijarExpresionEva('happy', `💚 EVA: ¡MOTOR DIRECTO ${vTxt} ACTIVO!`);
+      fijarExpresionEva('happy', `💚 EVA: ¡BDV + BANESCO ${vTxt} ACTIVO!`);
     }
 
     document.addEventListener('mousemove', (ev) => {
