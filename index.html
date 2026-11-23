@@ -10,7 +10,7 @@
   <script>
     const VERSION_OFICIAL_WEB = "7.8";
   </script>
-  <title>JJp2p // QUANTUM P2P CORE v7.7 — BDV (0102) + BANESCO (0134) MULTICUENTAS</title>
+  <title>JJp2p // QUANTUM P2P CORE v7.8 — BDV (0102) + BANESCO APP & WEB (0134)</title>
   <style>
     :root {
       --bg-dark: #02050b;
@@ -21,6 +21,7 @@
       --emerald: #00ff9d;
       --amber: #ffb800;
       --crimson: #ff2a5f;
+      --purple: #b87aff;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
     }
@@ -30,12 +31,12 @@
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: radial-gradient(circle at 50% 0%, #0f2547 0%, #030710 60%, #010307 100%);
       color: var(--text-main);
-      line-height: 1.55;
+      line-height: 1.58;
       overflow-x: hidden;
-      padding-bottom: 76px;
+      padding-bottom: 80px;
     }
     a { text-decoration: none; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 18px; }
 
     /* NAVBAR LIMPIA Y DIRECTA */
     .navbar {
@@ -79,7 +80,7 @@
       box-shadow: 0 0 16px rgba(37,211,102,0.4);
     }
 
-    /* HERO PRINCIPAL */
+    /* SECCIÓN 1: HERO PRINCIPAL */
     .hero { padding: 26px 0 24px 0; text-align: center; }
     .top-badges { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
     .badge-banks {
@@ -103,15 +104,15 @@
       box-shadow: 0 0 20px rgba(255,184,0,0.25);
     }
     .hero h1 {
-      font-size: clamp(23px, 4.4vw, 44px);
+      font-size: clamp(22px, 4.1vw, 41px);
       font-weight: 900;
-      line-height: 1.18;
-      margin-bottom: 10px;
+      line-height: 1.2;
+      margin-bottom: 12px;
       text-shadow: 0 0 25px rgba(0,240,255,0.25);
     }
     .hero h1 span { color: var(--cyan); }
     .hero p {
-      max-width: 820px;
+      max-width: 920px;
       margin: 0 auto 18px auto;
       font-size: clamp(14px, 2vw, 16px);
       color: #cbd5e1;
@@ -275,14 +276,14 @@
     }
 
     /* ==========================================================================
-       🚀 PANEL PRINCIPAL ARRIBA: PASO 1 (BDV vs BANESCO) + PASO 2 Y 3
+       🚀 PANEL PRINCIPAL ARRIBA: PASO 1 (BDV + BANESCO APP + BANESCO WEB) + PASO 2 Y 3
        ========================================================================== */
     .quick-start-panel {
       background: linear-gradient(180deg, #0d1b32 0%, #060c18 100%);
       border: 2.5px solid var(--cyan);
       border-radius: 22px;
-      padding: 26px 24px;
-      max-width: 1020px;
+      padding: 26px 22px;
+      max-width: 1100px;
       margin: 0 auto 28px auto;
       box-shadow: 0 16px 45px rgba(0,0,0,0.92), 0 0 35px rgba(0, 240, 255, 0.18);
       text-align: left;
@@ -303,7 +304,7 @@
       margin-top: 4px;
     }
 
-    /* CAJA PASO 1: DESCARGAS SEPARADAS POR BANCO */
+    /* CAJA PASO 1: 3 OPCIONES DE DESCARGA (BDV APP, BANESCO APP, BANESCO WEB) */
     .step1-container {
       background: rgba(4, 9, 19, 0.88);
       border: 1.5px solid #26436c;
@@ -312,22 +313,13 @@
       padding: 20px 18px;
       margin-bottom: 18px;
     }
-    .step1-head {
-      margin-bottom: 14px;
-    }
-    .step1-head h3 {
-      font-size: 18.5px;
-      color: #fff;
-      font-weight: 900;
-    }
-    .step1-head p {
-      font-size: 13.5px;
-      color: #cbd5e1;
-    }
+    .step1-head { margin-bottom: 14px; }
+    .step1-head h3 { font-size: 18.5px; color: #fff; font-weight: 900; }
+    .step1-head p { font-size: 13.5px; color: #cbd5e1; }
     .banks-dl-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 15px;
     }
     .bank-dl-card {
       background: linear-gradient(180deg, #0b182e 0%, #050b16 100%);
@@ -338,9 +330,8 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    .bank-dl-card.bdv-card {
-      border-color: rgba(0, 255, 157, 0.55);
-    }
+    .bank-dl-card.bdv-card { border-color: rgba(0, 255, 157, 0.6); }
+    .bank-dl-card.banesco-app-card { border-color: rgba(255, 184, 0, 0.65); }
     .bank-dl-card.banesco-card {
       border-color: rgba(0, 240, 255, 0.65);
       box-shadow: 0 0 24px rgba(0, 240, 255, 0.12);
@@ -354,18 +345,8 @@
       margin-bottom: 8px;
       width: fit-content;
     }
-    .bank-dl-card h4 {
-      font-size: 16.5px;
-      color: #fff;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-    .bank-dl-card p {
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-      line-height: 1.45;
-    }
+    .bank-dl-card h4 { font-size: 16.5px; color: #fff; font-weight: 900; margin-bottom: 6px; }
+    .bank-dl-card p { font-size: 13px; color: #cbd5e1; margin-bottom: 12px; line-height: 1.45; }
     .folder-hint {
       background: rgba(0, 0, 0, 0.45);
       border-left: 3px solid var(--amber);
@@ -409,17 +390,8 @@
       margin-bottom: 8px;
       width: fit-content;
     }
-    .qs-step-box h3 {
-      font-size: 17.5px;
-      color: #fff;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-    .qs-step-box p {
-      font-size: 13.5px;
-      color: #cbd5e1;
-      margin-bottom: 12px;
-    }
+    .qs-step-box h3 { font-size: 17.5px; color: #fff; font-weight: 900; margin-bottom: 6px; }
+    .qs-step-box p { font-size: 13.5px; color: #cbd5e1; margin-bottom: 12px; }
 
     /* BOTONES GRANDES DE ACCIÓN INMEDIATA */
     .btn-action-zip {
@@ -428,7 +400,7 @@
       color: #021c10;
       padding: 12px 14px;
       border-radius: 10px;
-      font-size: 13.8px;
+      font-size: 13.5px;
       font-weight: 900;
       border: 2px solid #7affc9;
       box-shadow: 0 0 20px rgba(0,255,157,0.4);
@@ -438,6 +410,13 @@
       transition: 0.2s;
     }
     .btn-action-zip:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0,255,157,0.75); }
+    .btn-action-zip.banesco-app-zip {
+      background: linear-gradient(180deg, #ffb800 0%, #d97706 100%);
+      color: #1c0f02;
+      border-color: #fde047;
+      box-shadow: 0 0 20px rgba(255,184,0,0.45);
+    }
+    .btn-action-zip.banesco-app-zip:hover { box-shadow: 0 0 30px rgba(255,184,0,0.8); }
     .btn-action-zip.banesco-zip {
       background: linear-gradient(180deg, #00f0ff 0%, #0099cc 100%);
       color: #011926;
@@ -487,7 +466,7 @@
       display: block;
     }
 
-    /* MOCKUP DOBLE DEL NODO ADENTRO DEL PASO 2 */
+    /* MOCKUP DEL NODO ADENTRO DEL PASO 2 */
     .nodo-mini-mock {
       background: #03060c;
       border: 2px solid #ff9900;
@@ -530,30 +509,85 @@
     }
     .qs-bottom-bar span { color: var(--amber); font-weight: 900; }
 
-    /* SECCIONES LIMPIAS */
+    /* SECCIONES DE FUNCIONES DETALLADAS AL 100% */
+    .sec-header-block {
+      text-align: center;
+      margin: 44px 0 20px 0;
+    }
+    .sec-tag-pill {
+      display: inline-block;
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 11.5px;
+      font-weight: 900;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
     .sec-title {
       text-align: center;
-      font-size: clamp(21px, 3.6vw, 27px);
+      font-size: clamp(21px, 3.5vw, 28px);
       font-weight: 900;
-      margin: 40px 0 18px 0;
       color: #fff;
     }
     .sec-title span { color: var(--amber); }
 
     .grid-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
     }
     .card {
       background: linear-gradient(180deg, #0b1528 0%, #060b15 100%);
       border: 1.5px solid #223859;
+      border-top: 3.5px solid var(--cyan);
       border-radius: 15px;
-      padding: 18px;
+      padding: 19px 18px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.75);
     }
-    .card h3 { font-size: 16px; color: var(--cyan); margin-bottom: 7px; font-weight: 900; }
-    .card p { font-size: 13.3px; color: #cbd5e1; }
+    .card.card-emerald { border-top-color: var(--emerald); }
+    .card.card-amber { border-top-color: var(--amber); }
+    .card.card-purple { border-top-color: var(--purple); }
+    .card h3 { font-size: 16px; color: #fff; margin-bottom: 8px; font-weight: 900; }
+    .card h3 span { color: var(--cyan); }
+    .card p { font-size: 13.3px; color: #cbd5e1; margin-bottom: 8px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card ul { padding-left: 18px; font-size: 13.2px; color: #cbd5e1; display: grid; gap: 6px; }
+    .card code {
+      background: rgba(0, 240, 255, 0.12);
+      color: var(--cyan);
+      padding: 1px 6px;
+      border-radius: 5px;
+      font-family: Consolas, monospace;
+      font-size: 12.2px;
+    }
+
+    /* REQUISITOS Y PRECIOS */
+    .req-box {
+      background: linear-gradient(180deg, #0d1b32 0%, #050a14 100%);
+      border: 2px solid var(--cyan);
+      border-radius: 18px;
+      padding: 22px 20px;
+      margin: 36px auto;
+    }
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 14px;
+    }
+    .req-item {
+      background: rgba(3, 8, 16, 0.85);
+      border: 1.5px solid #254168;
+      border-left: 4px solid var(--emerald);
+      padding: 14px;
+      border-radius: 11px;
+      font-size: 13.5px;
+      color: #cbd5e1;
+    }
+    .req-item b { color: #fff; display: block; margin-bottom: 4px; font-size: 14.5px; }
 
     /* CASOS REALES */
     .cases-grid {
@@ -585,7 +619,7 @@
 
     /* SEGURIDAD Y PREGUNTAS CORTAS */
     .faq-wrap {
-      max-width: 920px;
+      max-width: 960px;
       margin: 0 auto 36px auto;
       display: grid;
       gap: 11px;
@@ -679,27 +713,31 @@
       <div class="brand">
         <div class="brand-dot"></div>
         <div>
-          <span class="brand-title">JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.7</span></span>
-          <span class="brand-sub">Creador Oficial: Jimmy Rojas (+58 414-7744352)</span>
+          <span class="brand-title">JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.8</span></span>
+          <span class="brand-sub">Creador Oficial: Jimmy Rojas (+58 414-7744352 / +58 412-9433567)</span>
         </div>
       </div>
       <div class="nav-links">
         <a href="#empezar" class="btn-nav">🚀 Descargar</a>
-        <a href="#funciones" class="btn-nav">⚡ Funciones</a>
-        <a href="#seguridad" class="btn-nav">🔒 Seguridad</a>
+        <a href="#motor-api" class="btn-nav">⚡ Motor API</a>
+        <a href="#aval-chat" class="btn-nav">🛡️ Aval Chat</a>
+        <a href="#boveda-excel" class="btn-nav">📊 Excel .XLSX</a>
         <a href="https://t.me/jjp2poficial" target="_blank" class="btn-nav">✈️ Telegram</a>
         <a href="https://wa.me/584147744352?text=Hola%20Jimmy,%20quiero%20activar%20mis%203%20DIAS%20DE%20PRUEBA%20GRATIS%20de%20JJp2p" target="_blank" class="btn-nav cta-wa">💬 WhatsApp (3 Días Gratis)</a>
       </div>
     </div>
   </nav>
 
+  <!-- ==========================================================================
+       SECCIÓN 1: ENCABEZADO PRINCIPAL (HERO DE LA PÁGINA)
+       ========================================================================== -->
   <header class="hero container">
     <div class="top-badges">
-      <span class="badge-banks">🏦 ACTIVO: BANCO DE VENEZUELA (0102) + BANESCO (0134) MULTI-CUENTA</span>
-      <span class="badge-trial">🎁 3 DÍAS DE PRUEBA GRATIS + 🛡️ 48H DE GARANTÍA</span>
+      <span class="badge-banks">🏦 ACTIVO: BANCO DE VENEZUELA (0102) + BANESCO APP & WEB (0134) MULTI-CUENTA</span>
+      <span class="badge-trial">🎁 "¡NO ME PAGUES HOY!" — 3 DÍAS DE PRUEBA GRATIS + 🛡️ 48H DE GARANTÍA</span>
     </div>
-    <h1>Automatiza tus Pagos de Binance P2P en <span>4.41 Segundos</span><br>con <span>BDV (0102) + Banesco (0134) + Excel Contable</span></h1>
-    <p>Opera 100% por API Directa Oficial (Cero Tampermonkey). Paga en BDV o Banesco Online Multi-Cuenta, sube el capture al chat, marca como pagado, salta órdenes sin saldo en 0.00s y arma tu Excel (<code>.XLSX</code>) exacto al centavo.</p>
+    <h1>JJp2p // Quantum P2P Core <span class="ver-auto">v7.8</span> — Automatización Profesional para <span>Binance P2P + BDV (0102) + Banesco (0134)</span></h1>
+    <p>Motor 100% API Directa de Binance (sin Tampermonkey ni extensiones, para cuentas Verificadas y No Verificadas), pagos automatizados en segundos por USB o Wi-Fi, Auto-Calibrador en 1 Clic, Escudo Aval Chat para Comerciantes Oro y Contabilidad Automática en Excel (<code>.XLSX</code>).</p>
 
     <!-- ESFERA 3D DE EVA -->
     <div class="eva-center-wrap">
@@ -722,26 +760,26 @@
          ======================================================================== -->
     <div id="empezar" class="quick-start-panel">
       <div class="qs-header">
-        <h2>🎁 Empieza Hoy con tus <span>3 Días de Prueba Gratuita</span> en 3 Simples Pasos</h2>
-        <p>Compatible con Windows 10 y Windows 11 (64-bit) • Te ayudamos a instalarlo y calibrarlo por videollamada en minutos</p>
+        <h2>🎁 Mi Regla de Oro: <span>"¡NO ME PAGUES HOY! Pruébalo 3 Días Gratis"</span></h2>
+        <p>Compatible con Windows 10 y Windows 11 (64-bit) • Úsalo 3 días gratis en tus vueltas y si te gustó me pagas</p>
       </div>
 
-      <!-- PASO 1: DESCARGAS SEPARADAS BDV Y BANESCO -->
+      <!-- PASO 1: DESCARGAS SEPARADAS BDV APP, BANESCO APP Y BANESCO WEB -->
       <div class="step1-container">
         <div class="step1-head">
           <span class="qs-badge">PASO 1</span>
-          <h3>📥 Elige y Descarga el Bot en tu PC (BDV o Banesco)</h3>
-          <p>Puedes usar uno o ambos bancos en tu computadora (coloca cada banco en su propia carpeta separada en el Escritorio):</p>
+          <h3>📥 Elige y Descarga el Bot en tu PC (BDV 0102, Banesco App o Banesco Web)</h3>
+          <p>Puedes usar uno o ambos bancos al mismo tiempo en la misma computadora (coloca cada bot en su propia carpeta separada en el Escritorio):</p>
         </div>
 
         <div class="banks-dl-grid">
 
-          <!-- BLOQUE A: BANCO DE VENEZUELA (0102) -->
+          <!-- TARJETA 1: BANCO DE VENEZUELA (0102) APP ANDROID -->
           <div class="bank-dl-card bdv-card">
             <div>
-              <span class="bank-tag" style="background:rgba(0,255,157,0.16);color:var(--emerald);border:1px solid var(--emerald);">📱 APP ANDROID (USB O WI-FI)</span>
-              <h4>🏦 Banco de Venezuela (0102)</h4>
-              <p>Funciona conectando tu celular Android por Cable USB o Wi-Fi 1 Clic. Pagos en ráfaga en 4.41 segundos.</p>
+              <span class="bank-tag" style="background:rgba(0,255,157,0.16);color:var(--emerald);border:1px solid var(--emerald);">📱 APP ANDROID (USB O WI-FI 1 CLIC)</span>
+              <h4>🏦 1. Banco de Venezuela (0102)</h4>
+              <p>Conecta cualquier teléfono Android por Cable USB o Wi-Fi sin cables en 1 Clic. Auto-Calibrador inteligente y pagos en 4 a 7 segundos.</p>
               <div class="folder-hint">
                 📂 Descomprímelo en una carpeta propia (ej. <b><code>Bot_BDV</code></b>) y abre <b><code>NEXUS_P2P_BDV.exe</code></b>
               </div>
@@ -756,22 +794,42 @@
             </div>
           </div>
 
-          <!-- BLOQUE B: BANESCO ONLINE (0134) MULTI-CUENTA -->
-          <div class="bank-dl-card banesco-card">
+          <!-- TARJETA 2: BANESCO APP (0134) TELÉFONO ANDROID -->
+          <div class="bank-dl-card banesco-app-card">
             <div>
-              <span class="bank-tag" style="background:rgba(0,240,255,0.16);color:var(--cyan);border:1px solid var(--cyan);">💻 100% WEB EN TU PC (SIN CELULAR)</span>
-              <h4>🏦 Banesco Online (0134) Multi-Cuenta</h4>
-              <p>100% Web en tu PC (Chrome). <b>¡NO necesita celular ni cable USB!</b> Soporta hasta 5 cuentas Banesco simultáneas.</p>
-              <div class="folder-hint" style="border-left-color:var(--cyan);">
-                📂 Descomprímelo en una carpeta separada (ej. <b><code>Bot_Banesco</code></b>) y abre <b><code>NEXUS_P2P_BANESCO.exe</code></b>
+              <span class="bank-tag" style="background:rgba(255,184,0,0.16);color:var(--amber);border:1px solid var(--amber);">📱 BANESCO APP ANDROID (USB O WI-FI)</span>
+              <h4>🏦 2. Banesco App Móvil (0134)</h4>
+              <p>Opera directamente sobre la aplicación móvil de Banesco en tu teléfono Android por Wi-Fi sin cables o USB con Excel Contable integrado.</p>
+              <div class="folder-hint" style="border-left-color:var(--amber);">
+                📂 Descomprímelo en una carpeta separada (ej. <b><code>Bot_BanescoApp</code></b>) y abre <b><code>banescoApp.exe</code></b>
               </div>
             </div>
             <div>
-              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BANESCO_Descargable.zip" class="btn-action-zip banesco-zip">
-                📦 DESCARGAR BANESCO 0134 (.ZIP COMPLETO)
+              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/banescoApp_Descargable.zip" class="btn-action-zip banesco-app-zip">
+                📦 DESCARGAR BANESCO APP (.ZIP COMPLETO)
               </a>
-              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BANESCO.exe" class="btn-action-exe">
-                📥 O Descargar solo Ejecutable Banesco (.EXE)
+              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/banescoApp.exe" class="btn-action-exe">
+                📥 O Descargar solo Ejecutable Banesco App (.EXE)
+              </a>
+            </div>
+          </div>
+
+          <!-- TARJETA 3: BANESCO WEB (0134) MULTI-CUENTA PC -->
+          <div class="bank-dl-card banesco-card">
+            <div>
+              <span class="bank-tag" style="background:rgba(0,240,255,0.16);color:var(--cyan);border:1px solid var(--cyan);">💻 100% WEB EN TU PC (SIN CELULAR)</span>
+              <h4>🏦 3. Banesco Web (0134) Multi-Cuenta</h4>
+              <p>Opera 100% en Google Chrome en tu PC. <b>¡NO necesita celular ni cable USB!</b> Soporta hasta 5 cuentas Banesco simultáneas.</p>
+              <div class="folder-hint" style="border-left-color:var(--cyan);">
+                📂 Descomprímelo en una carpeta separada (ej. <b><code>Bot_BanescoWeb</code></b>) y abre <b><code>NEXUS_P2P_BanescoWeb.exe</code></b>
+              </div>
+            </div>
+            <div>
+              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BanescoWeb_Descargable.zip" class="btn-action-zip banesco-zip">
+                📦 DESCARGAR BANESCO WEB (.ZIP COMPLETO)
+              </a>
+              <a href="https://github.com/jjp2poficial/jjp2p/releases/latest/download/NEXUS_P2P_BanescoWeb.exe" class="btn-action-exe">
+                📥 O Descargar Ejecutable Banesco Web (.EXE)
               </a>
             </div>
           </div>
@@ -787,7 +845,7 @@
           <div>
             <span class="qs-badge" style="background:var(--cyan);">PASO 2</span>
             <h3>🔑 Copia tu Código NODO</h3>
-            <p>Al abrir el bot en tu PC, haz clic arriba donde dice <b>NODO (COPIAR)</b> para copiar tu identificador único:</p>
+            <p>Al abrir el bot en tu PC, haz clic arriba donde dice <b>NODO (COPIAR)</b> para copiar tu identificador único de hardware:</p>
           </div>
           <div>
             <div class="nodo-mini-mock">
@@ -826,40 +884,240 @@
       </div>
 
       <div class="qs-bottom-bar">
-        🛡️ <span>DOBLE RESPALDO SIN RIESGO:</span> Primero pruebas <b>3 Días Gratis sin compromiso</b>, y al activar tu plan cuentas con <b>48 Horas de Garantía (100% Reembolso Inmediato)</b>.
+        🛡️ <span>REGLA DE ORO SIN RIESGO:</span> "¡NO ME PAGUES HOY! Úsalo, pruébalo <b>3 Días Gratis</b> (ambos bancos si deseas) y si te gustó, me pagas" + <b>48 Horas de Garantía de Reembolso</b>.
       </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       ⚡ SECCIÓN RESUMIDA DE FUNCIONES (BDV + BANESCO MULTICUENTAS + INTERNACIONAL)
+       SECCIÓN 2: MOTOR 100% API DIRECTA BINANCE P2P (CERO TAMPERMONKEY)
        ========================================================================== -->
-  <section id="funciones" class="container">
-    <h2 class="sec-title">¿Qué Hace <span>JJp2p <span class="ver-auto">v7.7</span></span> por Ti Automáticamente?</h2>
+  <section id="motor-api" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill">SECCIÓN 2 • ARQUITECTURA CRIPTOGRÁFICA OFICIAL</span>
+      <h2 class="sec-title">Motor 100% <span>API Directa Binance P2P</span> (Cero Tampermonkey)</h2>
+    </div>
     <div class="grid-cards">
       <div class="card">
-        <h3>🏦 1. BDV (0102) + Banesco (0134) Multi-Cuenta</h3>
-        <p><b>BDV (0102)</b> opera vía App Android (USB/Wi-Fi en 4.41s) y <b>Banesco (0134)</b> opera <b>100% directo en la Web desde tu PC (sin celular y soportando hasta 5 cuentas simultáneas)</b>. Transfiere el monto exacto con centavos, sube el capture al chat y marca como pagado solo.</p>
+        <h3>🔐 1. Conexión Directa por API Oficial SAPI + WebSocket TLS 1.3</h3>
+        <p>Opera directamente contra los servidores oficiales de Binance usando firma criptográfica <code>HMAC-SHA256</code> y sincronización automática de reloj (<code>/api/v3/time</code>), sin depender de Tampermonkey, extensiones de navegador ni scripts inyectados. Funciona 100% igual para cuentas Verificadas y No Verificadas.</p>
       </div>
       <div class="card">
-        <h3>🚀 2. Salto Inteligente de Cola + Saldo en Vivo</h3>
-        <p>Si una orden supera tu saldo disponible, el bot <b>no se tranca</b>: la salta en 0.00s y paga las siguientes órdenes de menor monto. Además, lee tus nuevos Bolívares en cada pago automáticamente.</p>
+        <h3>⬆️ 2. Cola Inteligente de Abajo Hacia Arriba</h3>
+        <p>Escanea continuamente tus órdenes activas de compra (<code>BUY</code>) empezando siempre por la orden más antigua para proteger tus tiempos de pago y tu tasa de finalización en Binance P2P.</p>
       </div>
       <div class="card">
-        <h3>📊 3. Bóveda Contable Excel (.XLSX) al Centavo</h3>
-        <p>Lee tus compras y ventas por API, detecta tu Nivel VIP en Binance, descuenta comisiones reales, separa tus Bolívares viejos por banco y te muestra tu ganancia neta pura por vuelta.</p>
+        <h3>💬 3. Saludo Automático en Paralelo + Mensajería 100% Personalizable</h3>
+        <p>Envía tu saludo automático al abrirse la orden mientras el bot ya prepara la transferencia en tu teléfono.</p>
+        <p>Edita en 1 clic desde <b>💬 Mensajes</b> (en 2 pestañas) todos los textos del bot: saludo inicial, aviso de Pago Móvil, aviso de perfil sin datos, aviso de otro banco distinto a <code>0102</code>/<code>0134</code>, despedida/promoción, recordatorio de liberación y condiciones de Aval Chat, con botón para restaurar los textos de fábrica cuando quieras.</p>
       </div>
       <div class="card">
-        <h3>💻 4. Ligero en tu PC (Con o Sin Teléfono)</h3>
-        <p><b>BDV</b> conecta cualquier Android en 1 clic (USB/Wi-Fi) y <b>Banesco</b> abre directo en Google Chrome en tu PC sin depender de teléfono. Incluye <b>Modo 3D WALL·E</b>, <b>Modo Lite</b> para laptops básicas y <b>Ejecutivo Pro</b>.</p>
+        <h3>🔍 4. Detector Inteligente de Cuentas Inválidas, Pago Móvil y Prioridad al Chat</h3>
+        <p>Detecta automáticamente si el cliente colocó Pago Móvil en vez de cuenta, si no tiene cuenta en el perfil, si envió un banco distinto a <code>0102</code>, si su cuenta tiene menos de 20 dígitos (15-19), más de 20 dígitos (21+) o datos de relleno/ceros (<code>01020000000000000000</code>, <code>01021234567890123456</code> y similares), solicitándole por chat sus 20 dígitos exactos y saltando sin detenerse a la siguiente orden pagable.</p>
+        <p>Si el cliente corrigió su cuenta <code>0102</code> escribiendo una válida y distinta en el chat, el bot prioriza automáticamente la cuenta corregida del chat.</p>
       </div>
       <div class="card">
-        <h3>🔒 5. Seguridad Total (0% Riesgo en tus USDT)</h3>
-        <p>Corre en tu propia PC con tu internet de Venezuela (sin Tampermonkey). La API de Binance se configura <b>SIN permiso de retiro</b> y cuenta con botón opcional <b>🛡️ Confirmar Monto</b>.</p>
+        <h3>📸 5. Subida Automática de Comprobante + Referencia + markOrderAsPaid</h3>
+        <p>Captura el comprobante del Banco de Venezuela o Banesco directamente en memoria RAM, lo sube a los servidores S3 de Binance verificando que cargue con estado <code>HTTP 200 OK</code> en el CDN oficial, publica en el chat el número de referencia + beneficiario + monto exacto + la foto del comprobante + tu mensaje final, y marca automáticamente la orden como <b>Pagada</b> en paralelo.</p>
       </div>
       <div class="card">
-        <h3>🌍 6. Desarrollo a Medida para Otros Países</h3>
-        <p>¿Operas P2P o tienes una <b>Casa de Remesas</b> en Perú, Colombia, Chile, México o EE. UU.? Desarrollamos y adaptamos el bot a la medida de tu banco local o página web.</p>
+        <h3>⏱️ 6. Recordatorio Automático de Liberación (1 a 10 Min — Máx. 3 Avisos)</h3>
+        <p>Vigila tus órdenes ya pagadas (<code>BUYER_PAYED</code>) que aún esperan liberación del vendedor y envía automáticamente un mensaje recordatorio personalizable cada 1 a 10 minutos (o apagado), limitado a un máximo de 3 avisos por orden, ignorando apelaciones y órdenes de otros bancos, y recordando los avisos ya enviados incluso tras reiniciar el programa.</p>
+      </div>
+      <div class="card">
+        <h3>🖥️ 7. Coexistencia Multi-Bot en la Misma PC (BDV + Banesco)</h3>
+        <p>Identifica los métodos de pago de cada orden e ignora instantáneamente con 0 mensajes y 0 toques cualquier orden de otros bancos (Banesco 0134, Mercantil 0105, Provincial 0108, BNC 0191, Bancamiga 0172, Bancaribe 0114, Exterior 0115, Zelle, Zinli, Wally, Panamá), con aislamiento de dispositivo USB/Wi-Fi para operar el <b>Bot BDV (5050)</b> y el <b>Bot Banesco (5051)</b> al mismo tiempo en una sola computadora.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 3: ESCUDO COMERCIANTE ORO — AVAL CHAT (SI / NO), MINI-CHAT Y CLIENTES VIP
+       ========================================================================== -->
+  <section id="aval-chat" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill" style="border-color:var(--amber);color:var(--amber);background:rgba(255,184,0,0.12);">SECCIÓN 3 • PROTECCIÓN ANTI-TRIANGULACIÓN EN EL CHAT</span>
+      <h2 class="sec-title">Escudo Comerciante Oro — <span>Aval Chat (SI / NO), Mini-Chat y Clientes VIP</span></h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card card-amber">
+        <h3>🛡️ 1. Escudo Aval Chat (SI / NO) con Frase Exacta Configurable</h3>
+        <ul>
+          <li>Si la cuenta <code>0102</code> del cliente coincide con su perfil oficial de Binance, paga directo en segundos.</li>
+          <li>Si el cliente envió su cuenta <code>0102</code> por el chat (o envió una distinta a la del perfil) y tienes activado <b>🛡️ Aval Chat</b>, el bot le envía tus condiciones de responsabilidad (1. Que no conversan fuera de Binance ni venden criptomonedas por otro medio; 2. Que se hace plenamente responsable del número de cuenta enviado por su voluntad en el chat) y le exige responder exactamente tu frase de confirmación (<code>SI</code>, <code>SI CONFIRMO</code>, <code>SI CONFIRMO TODO</code> o la frase personalizada que tú escribas) antes de transferir, usando corte cronológico para no confundirse con mensajes anteriores del cliente y continuando con el resto de la cola sin trancarse.</li>
+          <li>Si el cliente responde incompleto, le envía un recordatorio exigiendo la frase exacta. Si responde <code>NO</code>, cancela el pago automático y le avisa en el chat.</li>
+        </ul>
+      </div>
+      <div class="card card-amber">
+        <h3>⏳ 2. Panel de Pendientes de Aval (<code>⏳ Panel (N)</code>) con Mini-Chat en Vivo</h3>
+        <ul>
+          <li>Agrupa automáticamente (con alerta visual, sonido y voz) las órdenes que lleven más de 60 segundos esperando aval, las que respondieron incompleto o las que respondieron <code>NO</code>.</li>
+          <li>Muestra los últimos 12 mensajes reales del chat estilo Binance directamente dentro del bot y te da 4 acciones en 1 clic sin frenar los demás pagos: <b>✅ PAGAR YA</b>, <b>⭐ PAGAR + VIP</b>, <b>❌ NO PAGAR</b> (bloqueo definitivo manual + aviso al cliente para cancelar) y <b>🔗 Ver</b> (abre la orden en Binance).</li>
+        </ul>
+      </div>
+      <div class="card card-amber">
+        <h3>⭐ 3. Lista Blanca de Clientes Fijos VIP</h3>
+        <p>Guarda a tus clientes de confianza frecuentes (por cuenta <code>0102</code> de 20 dígitos y nickname opcional) para que el bot se salte el Aval Chat con ellos y les pague automáticamente al instante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 4: MOTOR DE EJECUCIÓN QUIRÚRGICA EN BANCO DE VENEZUELA (BDV 0102)
+       ========================================================================== -->
+  <section id="motor-bdv" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill" style="border-color:var(--emerald);color:var(--emerald);background:rgba(0,255,157,0.12);">SECCIÓN 4 • PRECISIÓN QUIRÚRGICA Y AUTO-CALIBRACIÓN</span>
+      <h2 class="sec-title">Motor de Ejecución Quirúrgica en <span>BDV (0102) y Banesco (0134)</span></h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card card-emerald">
+        <h3>⚡ 1. Ejecución Ultrarrápida con Truncado Exacto a 2 Decimales</h3>
+        <p>Llena automáticamente cuenta a debitar, cuenta destino <code>0102</code>/<code>0134</code>, monto truncado con precisión exacta a 2 decimales (evitando errores por el tercer decimal de Binance), concepto <code>Pago</code>, confirmación y contraseña local BDV, saliendo limpio del comprobante con <i>Atrás</i> listo para la siguiente orden.</p>
+      </div>
+      <div class="card card-emerald">
+        <h3>🛡️ 2. Modo Manual Supervisado o Modo 100% Automático Directo</h3>
+        <p>Cambia en 1 clic entre <b>🛡️ Confirmar Monto: SÍ, PREGUNTAR</b> (te muestra la captura previa en pantalla antes de transferir) y <b>NO (DIRECTO)</b> (ejecución completamente automática sin intervención).</p>
+      </div>
+      <div class="card card-emerald">
+        <h3>🚀 3. Control Total de Velocidad (4 Perfiles + 9 Acciones + AutoAjuste IA + Medidor de Red)</h3>
+        <ul>
+          <li><b>4 perfiles preconfigurados:</b> 🐢 Lento, 🛡️ Estándar, ⚡ Rápido y 🚀 Turbo S26.</li>
+          <li><b>Ajuste independiente de las 9 acciones de pago:</b> Cuenta a debitar, Cuenta destino, Monto, Concepto, Transferir, Confirmar, Contraseña, Aceptar, Ir Atrás y 2 tiempos de login (Carga de login y Menú).</li>
+          <li><b>🧠 AutoAjuste IA:</b> si una pantalla del banco tarda por internet lento o animación del equipo, el bot calibra y sube automáticamente solo el tiempo de la acción exacta afectada.</li>
+          <li><b>📶 Medir Red:</b> mide la latencia actual de tu enlace y aplica la velocidad recomendada.</li>
+        </ul>
+      </div>
+      <div class="card card-emerald">
+        <h3>👁️ 4. Lector Óptico Turbo-OCR Nativo + Smart-Wait + Razonamiento de 4 Campos</h3>
+        <p>Lee cualquier pantalla de la app BDV mediante el motor óptico nativo de Windows 10/11 (<code>Windows.Media.Ocr</code>) con segmentación por palabras adyacentes y protección multihilo (<code>OCR_WINDOWS_LOCK</code>), incluso en teléfonos que bloquean el árbol XML de Android.</p>
+        <p>Si un campo no se escribió por latencia del banco, detecta exactamente cuál faltó y lo completa sin repetir lo demás; si detecta error de contraseña, vacía físicamente la casilla con verificación OCR antes de reintentar; y detecta automáticamente teléfonos de teclado alto para cerrar el teclado antes de escribir el Concepto.</p>
+      </div>
+      <div class="card card-emerald">
+        <h3>🤖 5. Auto-Calibrador Inteligente en 1 Clic + Calibrador Guiado por Voz</h3>
+        <p>Botón <b>🤖 1 CLIC: AUTO-CALIBRAR TELÉFONO Y VELOCIDAD SOLO (SIN GASTAR SALDO)</b>: detecta automáticamente por OCR las coordenadas exactas en cualquier tamaño/resolución de pantalla Android (sincronización 1:1 con las dimensiones reales de la captura) y calcula automáticamente las velocidades ideales de tu celular.</p>
+        <p>Incluye opción de auto-calibración con pago real de <code>1,00 Bs</code>, simuladores rápidos (<b>⚡ PROBAR TERCEROS</b> y <b>🏠 PROBAR INICIO</b>), reinicio completo de calibración desde cero (<b>🗑️ REINICIAR CALIBRACIÓN</b>) y un menú desplegable de calibración manual guiada por voz paso a paso para soporte técnico.</p>
+        <p>Compatible con múltiples marcas Android: Samsung (incluyendo S26 Ultra), Xiaomi / Redmi / POCO (HyperOS y MIUI), Infinix / Tecno / Itel (XOS y HiOS), Realme y Motorola.</p>
+      </div>
+      <div class="card card-emerald">
+        <h3>🔑 6. Auto-Login BDV Verificado por OCR + Botón 🚀 ABRIR BDV</h3>
+        <p>Abre la app del Banco de Venezuela, salta automáticamente el lector biométrico de huella si aparece, ingresa tu contraseña local, lee tu saldo en Inicio y navega directo a <i>Transferencias ➔ Cuentas de terceros</i>, con interruptor <b>🔐 AUTO-LOGIN: SÍ / NO</b>.</p>
+      </div>
+      <div class="card card-emerald">
+        <h3>📶 7. Conexión Dual: Cable USB o Wi-Fi Sin Cables en 1 Clic</h3>
+        <p>Opera conectado por cable USB o pásalo a Wi-Fi inalámbrico en 1 clic (<b>⚡ WIFI 1 CLIC</b>) detectando automáticamente la IP de tu celular, con reconexión automática, entrada de IP manual y desactivación automática de animaciones Android para máxima velocidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 5: ESCUDOS FINANCIEROS, CONTROL DE SALDO Y SEGURIDAD OPERATIVA
+       ========================================================================== -->
+  <section id="escudos-financieros" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill">SECCIÓN 5 • BLINDAJE BANCARIO Y LIQUIDEZ EN TIEMPO REAL</span>
+      <h2 class="sec-title">Escudos Financieros, <span>Control de Saldo y Seguridad Operativa</span></h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card">
+        <h3>🚫 1. Escudo Anti-Doble Pago + Soporte para Clientes Recurrentes</h3>
+        <p>Bloquea matemáticamente cualquier intento de pagar dos veces la misma orden o duplicar referencias bancarias, permitiendo sin falsos bloqueos que un mismo cliente recurrente realice múltiples órdenes nuevas distintas.</p>
+      </div>
+      <div class="card">
+        <h3>🔎 2. Escudo de Verificación de Monto Antes de Confirmar y Poner Clave</h3>
+        <p>Revisa por OCR que el monto reflejado en <i>Confirmar Operación</i> y detrás de la ventana de clave coincida al centavo con la orden de Binance; si detecta cualquier diferencia, aborta y limpia el formulario sin transferir.</p>
+      </div>
+      <div class="card">
+        <h3>☣️ 3. Cuarentena Automática de Cuentas Rechazadas por el Banco</h3>
+        <p>Si una cuenta <code>0102</code> falla 2 intentos sin que el BDV permita avanzar a confirmación (cuenta inválida o inexistente), el bot la pone en cuarentena, le avisa al cliente por el chat para que verifique sus 20 dígitos y continúa pagando el resto de la cola.</p>
+      </div>
+      <div class="card">
+        <h3>🛑 4. Freno de Emergencia en Seco (0.05s) + Reanudación Quirúrgica</h3>
+        <p>Al apagar el bot desde el interruptor principal, detiene inmediatamente cualquier ráfaga de toques en <code>0.05 segundos</code>.</p>
+        <p>Al volver a encenderlo, inspecciona la pantalla por OCR y retoma la orden interrumpida exactamente desde el paso donde quedó (formulario completo, solo Concepto, Confirmar Operación o Modal de Clave) sin duplicar ni sobrescribir datos.</p>
+      </div>
+      <div class="card">
+        <h3>🗣️ 5. Guardia "Fuera del Banco" con VOZ (Cero Toques Accidentales)</h3>
+        <p>Si estás usando WhatsApp, Binance u otra app en el celular, el bot congela todos los toques (0 clics erróneos), te avisa por voz y reanuda el pago automáticamente apenas vuelvas a <i>Transferencias a terceros</i> o pulses <b>🚀 ABRIR BDV</b>.</p>
+      </div>
+      <div class="card">
+        <h3>💰 6. Sincronización de Saldo BDV y Binance en Vivo + Salto por Liquidez</h3>
+        <p>Lee en paralelo el saldo real debajo de <i>Cuenta a debitar</i> durante cada pago (<code>0.00s</code> de retraso), actualiza pasivamente el saldo cada <code>2.5s</code> sin tocar la pantalla y corrige lecturas de millones en el OCR.</p>
+        <p>Muestra en vivo en los visores superiores tu <b>Saldo BDV</b> (Bs y equivalente USDT), <b>Disponible Binance</b> (Funding + Spot), <b>USDT Sin Liberar</b> (P2P) y <b>Total Binance</b>. Si una orden supera tu saldo actual, aplica Salto Inteligente de Cola para pagar las órdenes siguientes que sí entren dentro de tu liquidez.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 6: BÓVEDA CONTABLE, GANANCIAS, VENTAS OTC, TASA BCV Y EXCEL .XLSX
+       ========================================================================== -->
+  <section id="boveda-excel" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill" style="border-color:var(--purple);color:var(--purple);background:rgba(184,122,255,0.12);">SECCIÓN 6 • CONTABILIDAD AUTOMÁTICA Y EXPEDIENTE BANCARIO</span>
+      <h2 class="sec-title">Bóveda Contable, Ganancias, <span>Ventas OTC, Tasa BCV y Excel .XLSX</span></h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card card-purple">
+        <h3>🗄️ 1. Bóveda Contable SQLite Doble Espejo + Carpetas Diarias (DD-MM-YYYY)</h3>
+        <ul>
+          <li>Almacena el historial contable en base de datos SQLite en <code>Documentos\JJP2P_BOVEDA_FISCAL_SENIAT</code> con respaldo espejo automático en <code>AppData\Local\JJP2P_BOVEDA_EMERGENCIA</code> (con auto-restauración automática).</li>
+          <li>Clasifica y guarda automáticamente todas las capturas de comprobantes BDV y Banesco en subcarpetas ordenadas por fecha (<code>DD-MM-YYYY</code>), ideales para respaldo y actualización de expediente bancario.</li>
+        </ul>
+      </div>
+      <div class="card card-purple">
+        <h3>📊 2. Control de Ganancias en Vivo + Libro Excel Maestro .XLSX de 4 Hojas + Ventas OTC y Tasa BCV</h3>
+        <ul>
+          <li>Calcula automáticamente tus ganancias netas (descontando comisiones de Binance) de <b>Hoy, Esta Semana, Este Mes y Total Acumulado</b>, expresadas en <b>USDT, Bs P2P y Bs a Tasa Oficial BCV</b>, junto con una gráfica en vivo de crecimiento de capital.</li>
+          <li>Permite registrar manualmente <b>Ingresos en Bs por Fuera (Ventas Externas OTC)</b> con vista previa con puntos de miles antes de guardar, y actualizar la <b>Tasa BCV</b> del día.</li>
+          <li>Descarga en 1 clic un libro Excel real <code>.xlsx</code> con autofiltros y gráfica nativa de 4 hojas: <code>1_RESUMEN_Y_GRAFICA</code> (con separación BDV 0102 vs Banesco 0134, ingresos OTC y conversión BCV), <code>2_GANANCIA_DIARIA_FACIL</code>, <code>3_SEMANAL_Y_MENSUAL</code> y <code>4_HISTORIAL_BANCARIO_Y_CAP</code> (con filtro limpio por banco, cuenta destino de 20 dígitos, beneficiario + nickname, referencia, orden Binance y ruta de la captura).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECCIÓN 7: INTERFAZ, VOZ, AUTODIAGNÓSTICO, SEGURIDAD Y AUTO-ACTUALIZACIÓN
+       ========================================================================== -->
+  <section id="interfaz-seguridad" class="container">
+    <div class="sec-header-block">
+      <span class="sec-tag-pill">SECCIÓN 7 • INGENIERÍA SCI-FI, SOPORTE Y PRIVACIDAD LOCAL</span>
+      <h2 class="sec-title">Interfaz 3D, Voz, Autodiagnóstico, <span>Seguridad y Auto-Actualización</span></h2>
+    </div>
+    <div class="grid-cards">
+      <div class="card">
+        <h3>🤖 1. 3 Modos de Interfaz Visual + Asistente de Voz + Bitácora Autodetectora</h3>
+        <ul>
+          <li>Elige en 1 clic entre <b>1. 3D WALL·E & EVA (Sci-Fi)</b>, <b>2. Modo Lite (Sin Efectos)</b> para PCs o laptops ligeras y <b>3. Ejecutivo Pro</b>.</li>
+          <li>Alertas por voz en español y sonidos configurables.</li>
+          <li><b>Bitácora Acumulativa de Autodiagnóstico</b> con cronómetro por fase (<code>PrepBDV</code>, <code>ConfBDV</code>, <code>S3</code>, <code>WSS</code>, <code>MarkPaid</code>), watchdog anti-congelamiento, radiografía de entorno/pantalla y botón <b>📋 Copiar Reportes para Jimmy</b> para soporte inmediato.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🔒 2. Privacidad 100% Local + Auto-Actualizador en 1 Clic + Seguridad Anti-Clon</h3>
+        <ul>
+          <li>Tu contraseña bancaria (con ojito 👁️ / 🙈 para revisarla) y tus llaves API de Binance nunca salen de tu PC (<code>config_local.json</code> con escritura atómica y triple respaldo).</li>
+          <li><b>Auto-Actualizador oficial en 1 clic</b> que descarga e instala nuevas versiones de <code>NEXUS_P2P_BDV.exe</code> conservando intactas tus llaves, clave BDV, calibración e historial.</li>
+          <li>Desactivación automática de <i>QuickEdit Mode</i> en la consola de Windows para evitar bloqueos por clic accidental, licencia vinculada al hardware único de la PC (<code>NODO: NX-...</code> / <code>BN-...</code>) y blindajes de seguridad contra accesos externos no autorizados (<code>HTTP 403</code>), manipulación de hosts y depuradores.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- REQUISITOS REALES PARA OPERAR -->
+    <div class="req-box">
+      <h3 style="text-align:center;font-size:20px;color:#fff;font-weight:900;">📋 Requisitos Reales para Operar <span style="color:var(--cyan);">JJp2p <span class="ver-auto">v7.8</span></span></h3>
+      <div class="req-grid">
+        <div class="req-item">
+          <b>💻 1. Sistema Operativo</b>
+          Windows 10 o Windows 11 (64 bits) con Google Chrome instalado (cualquier laptop o PC de escritorio).
+        </div>
+        <div class="req-item">
+          <b>📱 2. Teléfono (Para BDV y Banesco App)</b>
+          Android con Depuración USB habilitada (conexión por Cable USB o Wi-Fi en 1 clic) y app oficial del Banco de Venezuela (BDV Digital) o Banesco App. *(En Banesco Web no necesitas teléfono; no compatible con iPhone para modo app móvil)*.
+        </div>
+        <div class="req-item">
+          <b>🔑 3. Cuenta Binance (Verificada o No Verificada)</b>
+          Llaves API (<code>API Key</code> y <code>Secret Key</code>) con permisos de lectura/P2P (sin permiso de retiro) configuradas localmente en tu propia PC.
+        </div>
       </div>
     </div>
   </section>
@@ -894,10 +1152,10 @@
   </section>
 
   <!-- ==========================================================================
-       ❓ PRUEBAS DE SEGURIDAD Y DUDAS CLAVE (SIN ENREDOS)
+       ❓ PRUEBAS DE SEGURIDAD Y PRECIOS TRANSPARENTES
        ========================================================================== -->
   <section id="seguridad" class="container">
-    <h2 class="sec-title">Pruebas Reales de <span>Seguridad (Cero Riesgo)</span></h2>
+    <h2 class="sec-title">Pruebas Reales de <span>Seguridad y Planes (Después de tus 3 Días Gratis)</span></h2>
     <div class="faq-wrap">
 
       <details class="faq-item highlight-security" open>
@@ -918,17 +1176,26 @@
         </div>
       </details>
 
-      <details class="faq-item">
-        <summary>2. 🚫 ¿El bot puede pagar dos veces la misma orden o equivocarse si lo apago?</summary>
+      <details class="faq-item" open>
+        <summary>2. 💰 ¿Cuál es el precio después de probar mis 3 Días Gratis ($0 hoy)?</summary>
         <div class="faq-body">
-          <b>Jamás paga doble.</b> Tiene un candado interno que prohíbe transferir dos veces a la misma orden. Y si lo apagas a mitad de un pago, frena en seco en 0.05 segundos y retoma donde quedó al volver a encenderlo.
+          <p>Mi regla para cada cliente nuevo es: <b>"¡NO ME PAGUES HOY! Úsalo, pruébalo 3 días gratis y si te gustó, me pagas"</b> (1 solo día de tu trabajo en P2P cubre el costo del bot):</p>
+          <div class="proof-box">
+            <b>🤖 Plan 1 Banco (BDV o Banesco): 150 USDT de instalación/activación única + 80 USDT de mensualidad</b>
+            Incluye instalación y calibración 1 a 1, Bóveda Contable Excel .XLSX y 48 horas de garantía de reembolso.
+          </div>
+          <div class="proof-box" style="border-left-color:var(--cyan);">
+            <b>🤖 Combo Ambos Bancos (BDV + Banesco): 200 USDT de instalación/activación única + 100 USDT de mensualidad</b>
+            Activa ambos sistemas a la vez ahorrando 100 USDT en activación y 60 USDT mensuales.
+          </div>
+          <p style="margin-top:9px;font-size:13px;"><b>¿Qué cubre la mensualidad?</b> Todos los servicios y mantenimiento continuo que se le hacen al bot en el tiempo, soporte directo y todas las actualizaciones constantes para mejorar sus funciones y añadir mejoras sugeridas por nuestros clientes.</p>
         </div>
       </details>
 
       <details class="faq-item">
-        <summary>3. 📹 ¿Me ayudan a instalarlo y calibrarlo?</summary>
+        <summary>3. 📹 ¿Me ayudan a instalarlo y calibrarlo paso a paso?</summary>
         <div class="faq-body">
-          ¡Sí! Puedes seguir los videos paso a paso en nuestro Telegram (<b>@jjp2poficial</b>) o escribirme directo al WhatsApp (<b>+58 414-7744352</b>) y hacemos una <b>videollamada rápida</b> para dejarlo instalado y calibrado contigo en minutos.
+          ¡Sí! Puedes seguir los videos paso a paso en nuestro Telegram (<b>@jjp2poficial</b>) o escribirme directo al WhatsApp (<b>+58 414-7744352</b> / <b>+58 412-9433567</b>) y te guío en vivo o por videollamada para dejarlo instalado y calibrado contigo en minutos.
         </div>
       </details>
 
@@ -936,7 +1203,7 @@
   </section>
 
   <footer>
-    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.7</span> — Desarrollado por Jimmy Rojas (+58 414-7744352) • <a href="https://jjp2p.com" style="color:var(--cyan);">jjp2p.com</a>
+    JJp2p // QUANTUM P2P CORE <span class="ver-auto">v7.8</span> — Desarrollado por Jimmy Rojas (+58 414-7744352 / +58 412-9433567) • <a href="https://jjp2p.com" style="color:var(--cyan);">jjp2p.com</a>
   </footer>
 
   <!-- BARRA FIJA INFERIOR EXCLUSIVA PARA CELULARES -->
@@ -948,14 +1215,14 @@
       ✈️ Telegram
     </a>
     <a href="#empezar" class="m-bar-btn" style="background:#00b86b;color:#011c10;">
-      📦 Elegir Banco
+      📦 Descargar v7.8
     </a>
   </div>
 
   <script>
     (function aplicarVersionAutomaticaWeb() {
-      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.7').replace(/^v/i, '');
-      document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — BDV (0102) + BANESCO (0134) MULTICUENTAS`;
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.8').replace(/^v/i, '');
+      document.title = `JJp2p // QUANTUM P2P CORE ${vTxt} — BDV (0102) + BANESCO APP & WEB (0134)`;
       document.querySelectorAll('.ver-auto').forEach(el => { el.textContent = vTxt; });
     })();
 
@@ -1003,8 +1270,8 @@
     function interaccionEvaWeb(ev) {
       if (ev && ev.clientX) lanzarChispasSciFi(ev.clientX, ev.clientY);
       modoForzadoHasta = Date.now() + 3000;
-      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.7').replace(/^v/i, '');
-      fijarExpresionEva('happy', `💚 EVA: ¡BDV + BANESCO ${vTxt} ACTIVO!`);
+      const vTxt = 'v' + String(VERSION_OFICIAL_WEB || '7.8').replace(/^v/i, '');
+      fijarExpresionEva('happy', `💚 EVA: ¡BDV + BANESCO APP & WEB ${vTxt} ACTIVO!`);
     }
 
     document.addEventListener('mousemove', (ev) => {
